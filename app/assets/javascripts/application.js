@@ -1,16 +1,58 @@
-// This is a manifest file that'll be compiled into application.js, which will include all the files
-// listed below.
 //
-// Any JavaScript/Coffee file within this directory, lib/assets/javascripts, vendor/assets/javascripts,
-// or any plugin's vendor/assets/javascripts directory can be referenced here using a relative path.
+// Antiquarium JS
 //
-// It's not advisable to add code directly here, but if you do, it'll appear at the bottom of the
-// compiled file.
+// Rails
+// require jquery
+// require jquery_ujs
 //
-// Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
-// about supported directives.
-//
-//= require jquery
+// Vendor
+//= require pace
+//= require modernizr.custom.js
+//= require pages/plugins/jquery/jquery-1.8.3.min.js
 //= require jquery_ujs
-//= require turbolinks
+//= require jquery-ui
+//= require bootstrap
+//= require jquery.easing
+//= require jquery-unveil
+//= require jquery-bez
+//= require jquery.ioslist.min.js
+//= require pages/plugins/imagesloaded/imagesloaded.pkgd.min.js
+//= require jquery.actual
+//= require pages/plugins/jquery-scrollbar/jquery.scrollbar.min.js
+//
+// Pages
+//= require pages/js/pages.min.js
+//
+// Application
 //= require_tree .
+
+$(document).ready(function() {
+  // Initializes search overlay plugin.
+  // Replace onSearchSubmit() and onKeyEnter() with
+  // your logic to perform a search and display results
+  $('[data-pages="search"]').search({
+    searchField: '#overlay-search',
+    closeButton: '.overlay-close',
+    suggestions: '#overlay-suggestions',
+    brand: '.brand',
+    onSearchSubmit: function(searchString) {
+      console.log("Search for: " + searchString);
+    },
+    onKeyEnter: function(searchString) {
+      console.log("Live search for: " + searchString);
+      var searchField = $('#overlay-search');
+      var searchResults = $('.search-results');
+      clearTimeout($.data(this, 'timer'));
+      searchResults.fadeOut("fast");
+      var wait = setTimeout(function() {
+        searchResults.find('.result-name').each(function() {
+          if (searchField.val().length !== 0) {
+            $(this).html(searchField.val());
+            searchResults.fadeIn("fast");
+          }
+        });
+      }, 500);
+      $(this).data('timer', wait);
+    }
+  });
+});
