@@ -1,0 +1,20 @@
+# Antiquarium
+#
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+
+development:
+  <<: *default
+  database: antiquarium_development
+
+test:
+  <<: *default
+  database: antiquarium_test
+
+production:
+  <<: *default
+  database: antiquarium_production
+  username: antiquarium
+  password: <%= ENV['ANTIQUARIUM_DATABASE_PASSWORD'] %>
