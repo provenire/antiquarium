@@ -4,9 +4,8 @@
   </div>
   <!-- BEGIN SIDEBAR HEADER -->
   <div class="sidebar-header">
-    <%= image_tag 'antiquarium.white.site.png', alt: 'logo', class: 'brand', width: 93, 'data-src' => image_path('antiquarium.white.site.png'), 'data-src-retina' => image_path('antiquarium.white.site.png') %>
-    <div class="sidebar-header-controls">
-      <button data-pages-toggle="#appMenu" class="btn btn-xs sidebar-slide-toggle btn-link m-l-20" type="button"><i class="fa fa-angle-down fs-16"></i></button>
+    <%= image_tag 'logo.white.png', alt: 'logo', class: 'brand', width: 40, 'data-src' => image_path('logo.white.png'), 'data-src-retina' => image_path('logo.white@2x.png') %>
+    <div class="sidebar-header-controls pull-right">
       <button data-toggle-pin="sidebar" class="btn btn-link visible-lg-inline" type="button"><i class="fa fs-12"></i></button>
     </div>
   </div>
@@ -14,40 +13,69 @@
   <!-- BEGIN SIDEBAR MENU -->
   <div class="sidebar-menu">
     <ul class="menu-items">
-      <li class="m-t-30">
+      <li class="m-t-30 active">
         <a href="#" class="detailed">
-          <span class="title">Page 1</span>
-          <span class="details">234 notifications</span>
+          <span class="title">Dashboard</span>
         </a>
-        <span class="icon-thumbnail "><i class="pg-mail"></i>
-        </span>
+        <span class="icon-thumbnail "><i class="fa fa-dashboard"></i></span>
+      </li>
+      <li class="">
+        <a href="#" class="detailed">
+          <span class="title">Search</span>
+        </a>
+        <span class="icon-thumbnail "><i class="pg-search"></i></span>
       </li>
       <li class="">
         <a href="#">
-          <span class="title">Page 2</span>
+          <span class="title">Explore</span>
+          <span class=" arrow"></span>
         </a>
-        <span class="icon-thumbnail "><i class="pg-social"></i>
-        </span>
+        <span class="icon-thumbnail "><%= image_tag 'explore.svg', width: 15 %></span>
+        <ul class="sub-menu">
+          <li class="">
+            <a href="#">Artifacts</a>
+            <span class="icon-thumbnail"><i class="fa fa-cubes"></i></span>
+          </li>
+          <li class="">
+            <a href="#">People</a>
+            <span class="icon-thumbnail"><i class="fa fa-users"></i></span>
+          </li>
+          <li class="">
+            <a href="#">Places</a>
+            <span class="icon-thumbnail"><i class="pg-map"></i></span>
+          </li>
+          <li class="">
+            <a href="#">Sources</a>
+            <span class="icon-thumbnail"><i class="fa fa-sitemap"></i></span>
+          </li>
+        </ul>
       </li>
       <li class="">
         <a href="javascript:;">
-          <span class="title">Page 3</span>
+          <span class="title">Tasks</span>
+        </a>
+        <span class="icon-thumbnail"><i class="fa fa-puzzle-piece"></i></span>
+      </li>
+      <li class="">
+        <a href="javascript:;">
+          <span class="title">Discussion</span>
+        </a>
+        <span class="icon-thumbnail"><i class="fa fa-quote-right"></i></span>
+      </li>
+      <li class="">
+        <a href="#">
+          <span class="title">Get Help</span>
           <span class=" arrow"></span>
         </a>
-        <span class="icon-thumbnail"><i class="pg-grid"></i>
-        </span>
+        <span class="icon-thumbnail "><i class="fa fa-question-circle"></i></span>
         <ul class="sub-menu">
           <li class="">
-            <a href="#">Sub Page 1</a>
-            <span class="icon-thumbnail">sp</span>
+            <a href="#">Guides/Docs</a>
+            <span class="icon-thumbnail"><i class="fa fa-file-text-o"></i></span>
           </li>
           <li class="">
-            <a href="#">Sub Page 2</a>
-            <span class="icon-thumbnail">sp</span>
-          </li>
-          <li class="">
-            <a href="#">Sub Page 3</a>
-            <span class="icon-thumbnail">sp</span>
+            <a href="#">FAQs</a>
+            <span class="icon-thumbnail"><i class="fa fa-check-square"></i></span>
           </li>
         </ul>
       </li>

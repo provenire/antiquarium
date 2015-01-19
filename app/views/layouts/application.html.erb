@@ -14,7 +14,7 @@
     <meta name="apple-touch-fullscreen" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <meta name="description" content="Antiquities Trade Intelligence" />
-    <meta name="author" content="Antiquarium LLC" />
+    <meta name="author" content="Antiquarium" />
 
     <!-- Antiquarium CSS-->
     <%= stylesheet_link_tag 'application', media: 'all' %>
@@ -46,27 +46,63 @@
 
           <!-- START JUMBOTRON -->
           <div class="jumbotron" data-pages="parallax">
-            <div class="container-fluid container-fixed-lg sm-p-l-20 sm-p-r-20">
+            <div class="container-fluid container-fixed-lg">
               <div class="inner">
                 <!-- START BREADCRUMB -->
                 <ul class="breadcrumb">
                   <li>
-                    <p>Pages</p>
+                    <p>Artifacts</p>
                   </li>
-                  <li><a href="#" class="active">Barebone template</a>
+                  <li><a href="#" class="active">Aidonia Treasure</a>
                   </li>
                 </ul>
                 <!-- END BREADCRUMB -->
+
+                <div class="container-md-height m-b-20">
+                  <div class="row row-md-height">
+                    <div class="col-lg-7 col-md-6 col-md-height col-middle bg-white">
+                      <!-- START PANEL -->
+                      <div class="full-height">
+                        <div class="panel-body text-center">
+                          <img class="image-responsive-height demo-mw-500" src="https://res.cloudinary.com/antiquarium/image/upload/v1419268075/akkeig6nbkl4ej7klzt2.jpg" alt="">
+                        </div>
+                      </div>
+                      <!-- END PANEL -->
+                    </div>
+                    <div class="col-lg-5 col-md-height col-md-6 col-top">
+                      <!-- START PANEL -->
+                      <div class="panel panel-transparent">
+                        <div class="panel-heading">
+                          <div class="panel-title">Artifact Summary
+                          </div>
+                        </div>
+                        <div class="panel-body">
+                          <h3>Aidonia Treasure</h3>
+
+                          <p>The Aidonia Treasure is a collection of gold Mycenaean jewelry from the Late Bronze Age, the 15th century B.C.</p>
+                          <p>The collection includes two gold signet rings, two gold finger rings, one electrum finger ring, three amethyst, agate, and steatite sealstones, gold rosette ornaments, and beads made from gold, semiprecious stones, amber, faience, and glass.</p>
+                          <p>Because the characteristics of the jewelry so closely matched the style, iconography, technique, and material of other objects excavated at a cemetery in Aidonia near Nemea, the Aidonia Treasure likely originated at that site in Greece and were looted in the late 1970s.</p>
+                          <p>These objects were returned to Greece in 1996, the first repatriation of cultural objects from the United States to Greece, after they were discovered when put up for sale in Manhattan at the Michael Ward Gallery in 1993.</p>
+                          <br>
+                          <div class="inline m-l-10">
+                            <ol>
+                              <li class="small hint-text">Alessandro Chechi, Anne Laure Bandle, Marc-André Renold, "Case Aidonia Treasure – Greece and Ward Gallery,” Platform ArThemis (http://unige.ch/art-adr), Art-Law Centre, University of Geneva</li>
+                            </ol>
+                            <p class="small hint-text"><a href="#">See all citations</a><p>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- END PANEL -->
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
           <!-- END JUMBOTRON -->
 
-          <div class="container-fluid container-fixed-lg">
 
-              <%= yield %>
-
-          </div>
+          <%= yield %>
         </div>
 
         <%= render 'layouts/application/footer' %>

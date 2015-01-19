@@ -23,5 +23,8 @@ module Antiquarium
     config.generators do |g|
       g.assets false
     end
+
+    # Configure ActiveJob
+    config.active_job.queue_adapter = :delayed_job
   end
 end

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:ev="http://www.w3.org/2001/xml-events" viewBox = "0 0 1690 1690" version = "1.1">
+  <g transform="translate(205)">
+    <circle cx = "640" cy = "640" r = "535" fill = "none" stroke = "#6C6450" stroke-width = "210"/>
+    <circle cx = "640" cy = "640" r = "220" fill = "#EB433D" stroke = "none" stroke-width = "0"/>
+    <path d = "M 1166 1005.06 L 690 1690 L 790 1270" stroke = "red" stroke-width = "0" fill = "#6C6450"/>
+
+    <g stroke = "blue" stroke-width = "0" fill = "#6C6450">
+      <path d="M 360,1216 C 600,1340 690,1410 690,1690 L 1010,1216" />
+    </g>
+  </g>
+
+</svg>

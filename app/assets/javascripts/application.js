@@ -19,12 +19,19 @@
 //= require pages/plugins/imagesloaded/imagesloaded.pkgd.min.js
 //= require jquery.actual
 //= require pages/plugins/jquery-scrollbar/jquery.scrollbar.min.js
+//= require classie
+//= require switchery
+//= require jquery-validate
+//= require datatables
+//= require datatables-fixedcolumns
+//= require datatables-responsive
 //
 // Pages
 //= require pages/js/pages.min.js
+//= require tables.js
 //
 // Application
-//= require_tree .
+// require_tree .
 
 $(document).ready(function() {
   // Initializes search overlay plugin.
@@ -55,4 +62,8 @@ $(document).ready(function() {
       $(this).data('timer', wait);
     }
   });
+
+
+
+
 });

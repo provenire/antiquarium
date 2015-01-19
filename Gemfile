@@ -28,6 +28,12 @@ gem 'rails-assets-jquery-bez',       '1.0.11'
 #gem 'rails-assets-imagesloaded',     '3.1.8'
 gem 'rails-assets-jquery.actual',    '1.0.16'
 gem 'rails-assets-jquery-ui',        '1.11.1'
+gem 'rails-assets-ionicons'
+gem 'rails-assets-datatables',       '1.10.2'
+gem 'rails-assets-datatables-fixedcolumns'
+gem 'rails-assets-datatables-responsive'
+gem 'rails-assets-classie'
+gem 'rails-assets-jquery-validate'
 
 
 # Authentication
@@ -36,6 +42,10 @@ gem 'sorcery'
 
 # API
 gem 'jbuilder', '~> 2.0'
+
+
+# Workers and Queueing
+gem 'delayed_job_active_record'
 
 
 # Docs

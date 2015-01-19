@@ -26,14 +26,14 @@
   <div class=" pull-left sm-table">
     <div class="header-inner">
       <div class="brand inline">
-        <%= image_tag 'antiquarium.site.png', alt: 'logo', width: 93, 'data-src' => image_path('antiquarium.site.png'), 'data-src-retina' => image_path('antiquarium.site.png') %>
+        <%= image_tag 'antiquarium.png', alt: 'logo', width: '190', 'data-src' => image_path('antiquarium.png'), 'data-src-retina' => image_path('antiquarium@2x.png') %>
       </div>
       <!-- BEGIN NOTIFICATION DROPDOWN -->
       <ul class="notification-list no-margin hidden-sm hidden-xs b-grey b-l b-r no-style p-l-30 p-r-20">
-        <li class="p-r-15 inline">
+        <li class="p-r-15 inline fs-16">
           <div class="dropdown">
-            <a href="javascript:;" id="notification-center" class="icon-set globe-fill" data-toggle="dropdown">
-              <span class="bubble"></span>
+            <a href="javascript:;" id="notification-center" class="fa fa-rocket" data-toggle="dropdown">
+              <span class="badge badge-important">1</span>
             </a>
             <div class="dropdown-menu notification-toggle" role="menu" aria-labelledby="notification-center">
               <div class="notification-panel">
@@ -70,11 +70,31 @@
             </div>
           </div>
         </li>
-        <li class="p-r-15 inline">
-          <a href="#" class="icon-set clip "></a>
+        <li class="p-r-15 inline fs-16">
+          <div class="dropdown">
+            <a href="#" class="fa fa-comments-o dropdown-toggle" data-toggle="dropdown">
+              <span class="badge badge-inverse">1</span>
+            </a>
+            <ul class="dropdown-menu" role="menu">
+              <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Action</a></li>
+              <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Another action</a></li>
+              <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Something else here</a></li>
+              <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>
+            </ul>
+          </div>
         </li>
-        <li class="p-r-15 inline">
-          <a href="#" class="icon-set grid-box"></a>
+        <li class="p-r-15 inline fs-16">
+          <div class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <i class="fa fa-user"></i> <span class="text-master">Miles Zimmerman</span>
+            </a>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+              <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Action</a></li>
+              <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Another action</a></li>
+              <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Something else here</a></li>
+              <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>
+            </ul>
+          </div>
         </li>
       </ul>
       <!-- END NOTIFICATION DROPDOWN -->
@@ -85,19 +105,6 @@
     <div class="header-inner">
       <a href="#" class="btn-link icon-set menu-hambuger-plus m-l-20 sm-no-margin hidden-sm hidden-xs" data-toggle="quickview" data-toggle-element="#quickview"></a>
     </div>
-  </div>
-  <div class=" pull-right">
-    <!-- START User Info-->
-    <div class="visible-lg visible-md m-t-10">
-      <div class="pull-left p-r-10 p-t-10 fs-16 font-heading">
-        <span class="semi-bold">David</span>
-        <span class="text-master">Nest</span>
-      </div>
-      <div class="thumbnail-wrapper d32 circular inline m-t-5">
-        <img src="assets/img/profiles/avatar.jpg" alt="" data-src="assets/img/profiles/avatar.jpg" data-src-retina="assets/img/profiles/avatar_small2x.jpg" width="32" height="32">
-      </div>
-    </div>
-    <!-- END User Info-->
   </div>
 </div>
 <!-- END HEADER -->

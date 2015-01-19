@@ -8,11 +8,41 @@
  *= require pages/plugins/jquery-scrollbar/jquery.scrollbar.css
  *= require select2
  *= require switchery
+ *= require ionicons
+ *= require datatables
+ *= require datatables-fixedcolumns
+ *= require datatables-responsive
  *
  * Pages
  *= require pages/css/pages-icons.css
  *= require pages/css/pages.css
  *
- *= require_tree .
+ * require_tree .
  *= require_self
  */
+
+
+/**
+ * Pages Modifications
+ */
+@media only screen and (min-width: 980px) {
+  .header .header-inner {
+    padding-left: 55px;
+  }
+
+  body.menu-pin .header .header-inner {
+   padding-left: 0;
+  }
+
+  body.menu-pin .page-sidebar .sidebar-header .sidebar-header-controls {
+    padding-right: 25px;
+  }
+}
+
+.login-wrapper {
+  background-color: #000;
+}
+
+.login-wrapper .bg-pic > img {
+  opacity: 0.7;
+}
