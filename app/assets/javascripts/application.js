@@ -27,7 +27,7 @@
 //= require datatables-responsive
 //
 // Pages
-//= require pages/js/pages.min.js
+//= require pages/js/pages.js
 //= require tables.js
 //
 // Application
@@ -62,8 +62,5 @@ $(document).ready(function() {
       $(this).data('timer', wait);
     }
   });
-
-
-
 
 });

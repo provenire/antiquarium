@@ -18,9 +18,11 @@
   <div class="register-container full-height sm-p-t-30">
     <div class="container-sm-height full-height">
       <div class="row row-sm-height">
+        <div class="col-sm-12 col-sm-height col-middle">
+          <%= image_tag 'antiquarium/antiquarium.png', alt: 'logo', width: '190', 'data-src' => image_path('antiquarium/antiquarium.png'), 'data-src-retina' => image_path('antiquarium/antiquarium@2x.png') %>
 
-        <%= yield %>
-
+          <%= yield %>
+        </div>
       </div>
     </div>
   </div>

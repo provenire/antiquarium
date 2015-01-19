@@ -1,0 +1,97 @@
+<ul class="notification-list no-margin hidden-sm hidden-xs b-grey b-l b-r no-style p-l-30 p-r-20">
+
+  <!-- Tasks -->
+  <li class="p-r-15 inline fs-16">
+    <div class="dropdown">
+      <a href="javascript:;" id="notification-center" class="fa fa-rocket" data-toggle="dropdown">
+        <span class="badge badge-important">1</span>
+      </a>
+      <div class="dropdown-menu notification-toggle" role="menu" aria-labelledby="notification-center">
+        <div class="notification-panel">
+          <div class="notification-body scrollable">
+
+            <!-- Task Item -->
+            <div class="notification-item  clearfix">
+              <div class="heading">
+                <a href="#" class="text-danger">
+                  <i class="fa fa-exclamation-triangle m-r-10"></i>
+                  <span class="bold">98% Server Load</span>
+                  <span class="fs-12 m-l-10">Take Action</span>
+                </a>
+                <span class="pull-right time">
+                  2 mins ago
+                </span>
+              </div>
+              <div class="option">
+                <a href="#" class="mark"></a>
+              </div>
+            </div>
+            <!-- / Task Item -->
+
+          </div>
+          <div class="notification-footer text-center">
+            <a href="#" class="">Read all notifications</a>
+            <a data-toggle="refresh" class="portlet-refresh text-black pull-right" href="#">
+              <i class="pg-refresh_new"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </li>
+  <!-- / Tasks -->
+
+
+  <!-- Messages -->
+  <li class="p-r-15 inline fs-16">
+    <div class="dropdown">
+      <a href="#" class="fa fa-comments-o dropdown-toggle" data-toggle="dropdown">
+        <span class="badge badge-inverse">1</span>
+      </a>
+      <ul class="dropdown-menu" role="menu">
+        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Action</a></li>
+        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Another action</a></li>
+        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Something else here</a></li>
+        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>
+      </ul>
+    </div>
+  </li>
+  <!-- / Messages -->
+
+
+  <!-- User -->
+  <li class="p-r-15 inline fs-16">
+    <div class="dropdown">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="menu">
+        <span class="text-master">
+          <%= current_user.name %> <i class="pg-arrow_minimize"></i>
+        </span>
+      </a>
+      <ul class="dropdown-menu" role="menu">
+        <li role="presentation">
+          <a role="menuitem" tabindex="-1" href="#">
+            <span class="p-r-30">Profile</span> <span class="pull-right sm-pull-reset"><i class="fa fa-user"></i></span>
+          </a>
+        </li>
+        <li role="presentation">
+          <a role="menuitem" tabindex="-1" href="#">
+            Messages <span class="p-l-20"><i class="pg-mail"></i></span>
+          </a>
+        </li>
+        <li role="presentation">
+          <a role="menuitem" tabindex="-1" href="#">
+            Settings <span class="pull-right"><i class="pg-settings"></i></span>
+          </a>
+        </li>
+        <li role="presentation" class="divider"></li>
+        <li role="presentation">
+          <%= link_to destroy_users_session_path, method: :delete, role: 'menuitem', tabindex: '-1' do %>
+            Logout <span class="pull-right"><i class="pg-power"></i></span>
+          <% end %>
+        </li>
+      </ul>
+    </div>
+  </li>
+  <!-- / User -->
+
+</ul>
