@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <%= render 'layouts/shared/meta' %>
+
+  <title>Antiquarium</title>
+
+  <!-- Antiquarium CSS-->
+  <%= stylesheet_link_tag 'application', media: 'all' %>
+
+  <!-- Compatibilities -->
+  <%= render 'layouts/shared/compatibilities' %>
+
+  <!-- CSRF -->
+  <%= csrf_meta_tags %>
+</head>
+<body class="fixed-header   ">
+  <div class="register-container full-height sm-p-t-30">
+    <div class="container-sm-height full-height">
+      <div class="row row-sm-height">
+
+        <%= yield %>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Antiquarium JS -->
+  <%= javascript_include_tag 'application' %>
+
+  <script>
+    $(function()
+    {
+      $('#form-register').validate({
+        //onfocusout: true,
+        onkeyup: false
+      })
+    })
+  </script>
+</body>
+</html>

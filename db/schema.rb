@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150117071358) do
+ActiveRecord::Schema.define(version: 20150119120037) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 20150117071358) do
   add_index "delayed_jobs", ["priority", "run_at"], name: "delayed_jobs_priority", using: :btree
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                                       null: false
+    t.string   "email",                                        null: false
     t.string   "crypted_password"
     t.string   "salt"
     t.datetime "created_at"
@@ -53,6 +53,7 @@ ActiveRecord::Schema.define(version: 20150117071358) do
     t.datetime "last_logout_at"
     t.datetime "last_activity_at"
     t.string   "last_login_from_ip_address"
+    t.string   "name",                            default: "", null: false
   end
 
   add_index "users", ["activation_token"], name: "index_users_on_activation_token", using: :btree

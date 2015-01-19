@@ -6,4 +6,12 @@ class ApplicationController < ActionController::Base
   # Require authenticated user session
   before_filter :require_login
 
+
+  private
+
+  # Redirect if no session
+  def not_authenticated
+    redirect_to new_users_session_path
+  end
+
 end
