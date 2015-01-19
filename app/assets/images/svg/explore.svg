@@ -2,7 +2,7 @@
 
   <g>
     <circle cx = "640" cy = "640" r = "535" fill = "none" stroke = "#788195" stroke-width = "210"/>
-    <circle cx = "640" cy = "640" r = "220" fill = "#C097A7" stroke = "none" stroke-width = "0"/>
+    <circle cx = "640" cy = "640" r = "220" fill = "#788195" stroke = "none" stroke-width = "0"/>
     <path d = "M 1158.9 1016.19 L 690 1660 L 659 1270" stroke = "#788195" stroke-width = "1" fill = "#788195"/>
     <path d="M 360,1216 C 600,1320 690,1350 691,1660 L 695 1170" stroke = "#788195" stroke-width = "1" fill = "#788195" />
   </g>
