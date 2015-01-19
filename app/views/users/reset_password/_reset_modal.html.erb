@@ -1,0 +1,29 @@
+<div class="modal fade fill-in" id="reset_modal" tabindex="-1" role="dialog" aria-hidden="true">
+  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+    <i class="pg-close"></i>
+  </button>
+  <div class="modal-dialog ">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="text-left p-b-5"><span class="semi-bold">Reset Password</span></h5>
+      </div>
+      <div class="modal-body">
+        <%= form_tag create_users_reset_password_path, method: :post do %>
+          <div class="row">
+            <div class="col-md-9">
+              <%= email_field_tag :email, nil, placeholder: 'Your account email address', class: 'form-control input-lg' %>
+              <!-- <input type="text" placeholder="" class="" id="" name="icon-filter"> -->
+            </div>
+            <div class="col-md-3 text-center">
+              <%= submit_tag 'Reset', class: 'btn btn-primary btn-lg btn-large fs-15' %>
+            </div>
+          </div>
+        <% end %>
+        <p class="text-right hinted-text p-t-10 p-r-10">You will be sent an email with further instructions.</p>
+      </div>
+      <div class="modal-footer">
+
+      </div>
+    </div>
+  </div>
+</div>

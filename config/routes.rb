@@ -12,5 +12,10 @@ Rails.application.routes.draw do
   get  'register', to: 'users/registrations#new',    as: :new_users_registration
   post 'register', to: 'users/registrations#create', as: :create_users_registration
 
+  # User Reset Password
+  post 'users/reset_password', to: 'users/reset_password#create', as: :create_users_reset_password
+  get  'users/reset_password', to: 'users/reset_password#edit',   as: :edit_users_reset_password
+  put  'users/reset_password', to: 'users/reset_password#update', as: :update_users_reset_password
+
 
 end

@@ -4,7 +4,7 @@ class Users::ResetPasswordController < ApplicationController
 
   # Generate token & send reset instructions
   def create
-    @user = User.find_by_email(params[:email])
+    @user = User.find_by_email(email_param)
     @user.deliver_reset_password_instructions! if @user
 
     redirect_to(root_path, :notice => 'Instructions have been sent to your email.')
@@ -12,8 +12,8 @@ class Users::ResetPasswordController < ApplicationController
 
   # Render the reset form
   def edit
-    @token = params[:token]
-    @user = User.load_from_reset_password_token(params[:token])
+    @token = token_param
+    @user = User.load_from_reset_password_token(token_param)
 
     if @user.blank?
       not_authenticated
@@ -23,8 +23,8 @@ class Users::ResetPasswordController < ApplicationController
 
   # Reset password
   def update
-    @token = params[:id]
-    @user = User.load_from_reset_password_token(params[:id])
+    @token = token_param
+    @user = User.load_from_reset_password_token(token_param)
 
     if @user.blank?
       not_authenticated
@@ -32,13 +32,29 @@ class Users::ResetPasswordController < ApplicationController
     end
 
     # the next line makes the password confirmation validation work
-    @user.password_confirmation = params[:user][:password_confirmation]
+    @user.password_confirmation = password_params[:password_confirmation]
     # the next line clears the temporary token and updates the password
-    if @user.change_password!(params[:user][:password])
+    if @user.change_password!(password_params[:password])
       redirect_to(root_path, :notice => 'Password was successfully updated.')
     else
+      flash.now[:error] = 'Error registering.'
       render :action => "edit"
     end
+  end
+
+
+  private
+
+  def email_param
+    params.require(:email)
+  end
+
+  def token_param
+    params.require(:token)
+  end
+
+  def password_params
+    params.require(:user).permit(:password, :password_confirmation)
   end
 
 end

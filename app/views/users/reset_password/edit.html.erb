@@ -1,19 +1,20 @@
-<div class="col-sm-12 col-sm-height col-middle">
-  <%= image_tag 'antiquarium.png', alt: 'logo', width: '190', 'data-src' => image_path('antiquarium.png'), 'data-src-retina' => image_path('antiquarium@2x.png') %>
-  <h3>Reset Password</h3>
-  <p>
-    <small>
-      Use this page to reset your password. If this is unintended, please go to the <%= link_to 'login page', login_path %>.
-    </small>
-  </p>
-  <%= form_for @user,
-        url: password_reset_path(token: @token),
-        method: :put,
-        html: {
-          id: 'form-register',
-          class: 'p-t-15',
-          role: 'form'
-        } do |f| %>
+<h3>Reset Password</h3>
+<p>
+  <small>
+    Use this page to reset your password. If this is unintended, please go to the <%= link_to 'login page', new_users_session_path %>.
+  </small>
+</p>
+
+<%= flash_messages %>
+
+<%= form_for @user,
+      url: update_users_reset_password_path(token: @token),
+      method: :put,
+      html: {
+        id: 'form-register',
+        class: 'p-t-15',
+        role: 'form'
+      } do |f| %>
 
     <div class="row">
       <div class="col-sm-12">
@@ -37,19 +38,10 @@
       <div class="col-sm-12">
         <div class="form-group form-group-default">
           <label>Password Confirmation</label>
-          <%= f.password_field :password_cinformation, class: 'form-control', required: true %>
+          <%= f.password_field :password_confirmation, class: 'form-control', required: true %>
         </div>
       </div>
     </div>
 
-    <div class="row m-t-10">
-      <div class="col-md-6">
-      </div>
-      <div class="col-md-6 text-right">
-        <%= link_to 'Login', login_path, class: 'text-info small' %>
-      </div>
-    </div>
-
     <%= f.submit 'Reset Password', class: 'btn btn-primary btn-cons m-t-10' %>
-  <% end %>
-</div>
+<% end %>

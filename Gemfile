@@ -18,6 +18,7 @@ gem 'coffee-rails'
 # Bower
 gem 'rails-assets-pace',             '0.4.15'
 gem 'rails-assets-bootstrap',        '3.2.0'
+gem 'rails-assets-bootstrap-sass-official',   '3.2.0'
 gem 'rails-assets-font-awesome',     '4.2.0'
 #gem 'rails-assets-jquery.scrollbar', '0.2.6'
 gem 'rails-assets-select2',          '3.5.1'
