@@ -17,8 +17,13 @@
 #
 
 class Artifact < ActiveRecord::Base
+
   # Friendly ID
   extend FriendlyId
   friendly_id :name
+
+
+  # Validations
+  validates :name, presence: true
 
 end
