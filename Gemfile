@@ -41,6 +41,11 @@ gem 'rails-assets-jquery-validate'
 gem 'sorcery'
 
 
+# Meta
+#gem 'socialization' # https://github.com/cmer/socialization
+#gem 'paper_trail'   # https://github.com/airblade/paper_trail
+
+
 # API
 gem 'jbuilder', '~> 2.0'
 
@@ -50,6 +55,7 @@ gem 'delayed_job_active_record'
 
 
 # Docs
+gem 'annotate'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 
@@ -57,6 +63,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'
+  gem 'quiet_assets'
+  gem 'railroady'
 end
 
 
