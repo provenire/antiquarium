@@ -11,11 +11,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150120053444) do
+ActiveRecord::Schema.define(version: 20150120053536) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "uuid-ossp"
+
+  create_table "artifacts", force: :cascade do |t|
+    t.uuid     "uuid",            default: "uuid_generate_v4()"
+    t.string   "slug",                                           null: false
+    t.string   "name",                                           null: false
+    t.text     "description"
+    t.string   "alternate_names", default: [],                   null: false, array: true
+    t.string   "artist"
+    t.string   "dimensions"
+    t.string   "date_created"
+    t.boolean  "group",           default: false
+    t.datetime "created_at",                                     null: false
+    t.datetime "updated_at",                                     null: false
+  end
+
+  add_index "artifacts", ["alternate_names"], name: "index_artifacts_on_alternate_names", using: :btree
+  add_index "artifacts", ["group"], name: "index_artifacts_on_group", using: :btree
+  add_index "artifacts", ["slug"], name: "index_artifacts_on_slug", unique: true, using: :btree
+  add_index "artifacts", ["uuid"], name: "index_artifacts_on_uuid", unique: true, using: :btree
 
   create_table "delayed_jobs", force: :cascade do |t|
     t.integer  "priority",   default: 0, null: false
