@@ -46,6 +46,10 @@ gem 'sorcery'
 #gem 'paper_trail'   # https://github.com/airblade/paper_trail
 
 
+# Resources
+gem 'friendly_id'
+
+
 # API
 gem 'jbuilder', '~> 2.0'
 
