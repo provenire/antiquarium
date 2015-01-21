@@ -49,10 +49,11 @@
             <span class="icon-thumbnail"><i class="fa fa-users"></i></span>
           <% end %>
 
-          <li class="">
-            <a href="#">Places</a>
+          <%= content_tag :li, class: active_link_to_class(places_path) do %>
+            <%= link_to 'Places', places_path %>
             <span class="icon-thumbnail"><i class="pg-map"></i></span>
-          </li>
+          <% end %>
+
           <li class="">
             <a href="#">Sources</a>
             <span class="icon-thumbnail"><i class="fa fa-sitemap"></i></span>

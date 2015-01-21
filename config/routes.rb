@@ -26,4 +26,8 @@ Rails.application.routes.draw do
   resources :people
 
 
+  # Places
+  resources :places
+
+
 end

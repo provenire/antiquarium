@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150121195511) do
+ActiveRecord::Schema.define(version: 20150121223834) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -80,6 +80,18 @@ ActiveRecord::Schema.define(version: 20150121195511) do
 
   add_index "people", ["slug"], name: "index_people_on_slug", unique: true, using: :btree
   add_index "people", ["uuid"], name: "index_people_on_uuid", unique: true, using: :btree
+
+  create_table "places", force: :cascade do |t|
+    t.uuid     "uuid",        default: "uuid_generate_v4()"
+    t.string   "slug",                                       null: false
+    t.string   "name",                                       null: false
+    t.text     "description", default: ""
+    t.datetime "created_at",                                 null: false
+    t.datetime "updated_at",                                 null: false
+  end
+
+  add_index "places", ["slug"], name: "index_places_on_slug", unique: true, using: :btree
+  add_index "places", ["uuid"], name: "index_places_on_uuid", unique: true, using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                                        null: false
