@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 20150120053536) do
     t.uuid     "uuid",            default: "uuid_generate_v4()"
     t.string   "slug",                                           null: false
     t.string   "name",                                           null: false
-    t.text     "description"
+    t.text     "description",     default: ""
     t.string   "alternate_names", default: [],                   null: false, array: true
     t.string   "artist"
     t.string   "dimensions"

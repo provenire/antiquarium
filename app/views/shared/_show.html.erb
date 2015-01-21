@@ -1,0 +1,108 @@
+<!-- START JUMBOTRON -->
+<div class="jumbotron" data-pages="parallax">
+  <div class="container-fluid container-fixed-lg">
+    <div class="inner">
+      <!-- START BREADCRUMB -->
+      <ul class="breadcrumb">
+        <li>
+          <p><%= namespace.pluralize %></p>
+        </li>
+        <li><span class="active"><%= object.name %></span>
+        </li>
+      </ul>
+      <!-- END BREADCRUMB -->
+
+      <div class="container-md-height m-b-20">
+        <div class="row row-md-height">
+          <div class="col-lg-7 col-md-6 col-md-height col-middle bg-white">
+            <!-- START PANEL -->
+            <div class="full-height">
+              <div class="panel-body text-center">
+                <img class="image-responsive-height demo-mw-500" src="https://res.cloudinary.com/antiquarium/image/upload/w_500,c_fit/v1419789391/g0lwzkmb3icdbflqxxcu.jpg" alt="">
+              </div>
+            </div>
+            <!-- END PANEL -->
+          </div>
+          <div class="col-lg-5 col-md-height col-md-6 col-top">
+            <!-- START PANEL -->
+            <div class="panel panel-transparent">
+              <div class="panel-heading">
+                <div class="panel-title"><%= namespace.singularize %> Summary
+                </div>
+              </div>
+              <div class="panel-body">
+                <h3><%= object.name %></h3>
+
+                <%= object.description %>
+                <br>
+
+                <div class="inline m-t-20">
+                  <ol class="p-l-20">
+                    <li class="small hint-text m-t-5">
+                      (Multiple Authors), “HERZFELD, ERNST” Encyclopædia Iranica, XII/3, pp. 290-302; available online at http://www.iranicaonline.org/articles/herzfeld-ernst (accessed online at 28 December 2014).
+                    </li>
+                    <li class="small hint-text m-t-5">
+                      (Multiple Authors), "AN ACHAEMENID STONE RELIEF FRAGMENT | FIRST HALF OF 5TH CENTURY B.C., PERSEPOLIS." Christie's; online at http://www.christies.com/lotfinder/ancient-art-antiquities/an-achaemenid-stone-relief-fragment-first-half-4974349-details.aspx (accessed online at 28 December 2014).
+                    </li>
+                  </ol>
+                  <p class="small hint-text"><a href="#">See all citations</a><p>
+                </div>
+              </div>
+            </div>
+            <!-- END PANEL -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- END JUMBOTRON -->
+<!-- START CONTAINER FLUID -->
+<div class="container-fluid container-fixed-lg">
+  <div class="row">
+    <div class="col-md-7">
+      <!-- START PANEL -->
+      <div class="panel panel-transparent">
+        <div class="panel-heading">
+          <div class="panel-title">Ownership History
+          </div>
+        </div>
+        <div class="panel-body">
+          <div class="table-responsive">
+            <table class="table table-hover table-condensed table-detailed" id="detailedTable">
+              <thead>
+                <th style="width:15%"></th>
+                <th style="width:75%"></th>
+                <th style="width:10%"></th>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="v-align-middle semi-bold">1996</td>
+                  <td class="v-align-middle">Museum of Nemea, Greece</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td class="v-align-middle semi-bold">1996</td>
+                  <td class="v-align-middle">National Achaeological Museum</td>
+                  <td class="v-align-middle text-danger"><i class="fa fa-circle"></i></td>
+                </tr>
+                <tr>
+                  <td class="v-align-middle semi-bold">1993</td>
+                  <td class="v-align-middle">Society for the Preservation of Greek Heritage</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td class="v-align-middle semi-bold">1993</td>
+                  <td class="v-align-middle">The Ward Gallery, dba Ward &amp; Company Works of Art, LLC</td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <!-- END PANEL -->
+    </div>
+  </div>
+</div>
+<!-- END CONTAINER FLUID -->

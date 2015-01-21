@@ -13,29 +13,37 @@
   <!-- BEGIN SIDEBAR MENU -->
   <div class="sidebar-menu">
     <ul class="menu-items">
-      <li class="m-t-30 active">
-        <a href="#" class="detailed">
+
+
+      <li class="m-t-30 <%= active_link_to_class(root_path, active: :exclusive) %>">
+        <%= link_to root_path, class: 'detailed' do %>
           <span class="title">Dashboard</span>
-        </a>
-        <span class="icon-thumbnail "><i class="fa fa-dashboard"></i></span>
+        <% end %>
+        <span class="icon-thumbnail"><i class="fa fa-dashboard"></i></span>
       </li>
+
+
       <li class="">
         <a href="#" class="detailed">
           <span class="title">Search</span>
         </a>
-        <span class="icon-thumbnail "><i class="pg-search"></i></span>
+        <span class="icon-thumbnail"><i class="pg-search"></i></span>
       </li>
-      <li class="">
-        <a href="#">
+
+
+      <li class="<%= active_link_to_class(root_path, active: /^\/artifacts|^\/people|^\/places|^\/sources/) %>">
+        <a href="javascript:;">
           <span class="title">Explore</span>
-          <span class=" arrow"></span>
+          <span class="arrow <%= active_link_to_class(root_path, active: /^\/artifacts|^\/people|^\/places|^\/sources/, class_active: 'open') %>"></span>
         </a>
         <span class="icon-thumbnail "><%= image_tag 'svg/explore.svg', width: 15 %></span>
+
         <ul class="sub-menu">
-          <li class="">
-            <a href="#">Artifacts</a>
+          <%= content_tag :li, class: active_link_to_class(artifacts_path) do %>
+            <%= link_to 'Artifacts', artifacts_path %>
             <span class="icon-thumbnail"><i class="fa fa-cubes"></i></span>
-          </li>
+          <% end %>
+
           <li class="">
             <a href="#">People</a>
             <span class="icon-thumbnail"><i class="fa fa-users"></i></span>
@@ -50,18 +58,24 @@
           </li>
         </ul>
       </li>
+
+
       <li class="">
         <a href="javascript:;">
           <span class="title">Tasks</span>
         </a>
         <span class="icon-thumbnail"><i class="fa fa-puzzle-piece"></i></span>
       </li>
+
+
       <li class="">
         <a href="javascript:;">
           <span class="title">Discussion</span>
         </a>
         <span class="icon-thumbnail"><i class="fa fa-quote-right"></i></span>
       </li>
+
+
       <li class="">
         <a href="#">
           <span class="title">Get Help</span>
@@ -79,6 +93,8 @@
           </li>
         </ul>
       </li>
+
+
     </ul>
     <div class="clearfix"></div>
   </div>

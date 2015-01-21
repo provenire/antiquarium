@@ -5,7 +5,7 @@ class CreateArtifacts < ActiveRecord::Migration
       t.string :slug, null: false
 
       t.string :name, null: false
-      t.text   :description
+      t.text   :description, default: ''
 
       t.string :alternate_names, array: true, null: false, default: []
       t.string :artist

@@ -21,6 +21,8 @@ GEM
       erubis (~> 2.7.0)
       rails-dom-testing (~> 1.0, >= 1.0.5)
       rails-html-sanitizer (~> 1.0, >= 1.0.1)
+    active_link_to (1.0.2)
+      actionpack
     activejob (4.2.0)
       activesupport (= 4.2.0)
       globalid (>= 0.3.0)
@@ -64,6 +66,11 @@ GEM
     delayed_job_active_record (4.0.3)
       activerecord (>= 3.0, < 5.0)
       delayed_job (>= 3.0, < 4.1)
+    draper (1.4.0)
+      actionpack (>= 3.0)
+      activemodel (>= 3.0)
+      activesupport (>= 3.0)
+      request_store (~> 1.0)
     erubis (2.7.0)
     execjs (2.2.2)
     faraday (0.9.1)
@@ -125,6 +132,8 @@ GEM
       rails-assets-jquery (>= 1.9.0)
     rails-assets-bootstrap-sass-official (3.2.0)
       rails-assets-jquery (>= 1.9.0)
+    rails-assets-bootstrap-tagsinput (0.4.2)
+      rails-assets-jquery (~> 2.1.1)
     rails-assets-classie (1.0.1)
     rails-assets-datatables (1.10.2)
       rails-assets-jquery (>= 1.7.0)
@@ -176,6 +185,7 @@ GEM
     raindrops (0.13.0)
     rake (10.4.2)
     rdoc (4.2.0)
+    request_store (1.1.0)
     sass (3.4.9)
     sass-rails (5.0.1)
       railties (>= 4.0.0, < 5.0)
@@ -222,10 +232,12 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  active_link_to
   annotate
   byebug
   coffee-rails
   delayed_job_active_record
+  draper
   friendly_id
   jbuilder (~> 2.0)
   jquery-rails
@@ -235,6 +247,7 @@ DEPENDENCIES
   rails (= 4.2.0)
   rails-assets-bootstrap (= 3.2.0)
   rails-assets-bootstrap-sass-official (= 3.2.0)
+  rails-assets-bootstrap-tagsinput
   rails-assets-classie
   rails-assets-datatables (= 1.10.2)
   rails-assets-datatables-fixedcolumns

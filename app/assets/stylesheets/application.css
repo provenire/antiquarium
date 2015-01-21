@@ -12,6 +12,7 @@
  *= require datatables
  *= require datatables-fixedcolumns
  *= require datatables-responsive
+ *= require bootstrap-tagsinput
  *
  * Pages
  *= require pages/css/pages-icons.css
@@ -49,4 +50,9 @@
 
 .modal.fade.fill-in.in {
   background-color: rgba(255, 255, 255, 0.92);
+}
+
+.bootstrap-tagsinput {
+  background-color: #ffffff;
+  border-radius: 2px;
 }

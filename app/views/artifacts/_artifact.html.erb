@@ -1,0 +1,21 @@
+<tr>
+  <td class="v-align-middle">
+    <%= link_to artifact do %>
+      <img src="http://placehold.it/100x100" />
+    <% end %>
+  </td>
+  <td>
+    <h4 class="no-margin">
+      <%= link_to artifact.name, artifact, class: 'text-black' %>
+    </h4>
+  </td>
+  <td>
+    <p><%= artifact.excerpt %>
+  </td>
+  <td>
+    <dl>
+      <dt>Last Updated</dt>
+      <dd><%= artifact.last_updated %></dd>
+    </dl>
+  </td>
+</tr>

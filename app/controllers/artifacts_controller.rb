@@ -2,7 +2,7 @@ class ArtifactsController < ApplicationController
   include BasicFilters
 
   def index
-    @artifacts = Artifact.select(select_params).order(sort_params).limit(limit_params)
+    @artifacts = Artifact.all.decorate
   end
 
 
@@ -51,15 +51,27 @@ class ArtifactsController < ApplicationController
 
   private
 
+  def select_params
+    params.permit(:fields)
+  end
+
+  def sort_params
+    params.permit(:sort)
+  end
+
+  def limit_params
+    params.permit(:limit)
+  end
+
   def artifact_params
     params.require(:artifact).permit(
       :name,
       :description,
-      :alternate_names => [],
       :artist,
       :dimensions,
       :date_created,
-      :group
+      :group,
+      { :alternate_names => [] }
     )
   end
 

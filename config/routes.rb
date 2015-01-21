@@ -18,4 +18,8 @@ Rails.application.routes.draw do
   put  'users/reset_password', to: 'users/reset_password#update', as: :update_users_reset_password
 
 
+  # Artifacts
+  resources :artifacts
+
+
 end

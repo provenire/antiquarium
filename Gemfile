@@ -35,6 +35,7 @@ gem 'rails-assets-datatables-fixedcolumns'
 gem 'rails-assets-datatables-responsive'
 gem 'rails-assets-classie'
 gem 'rails-assets-jquery-validate'
+gem 'rails-assets-bootstrap-tagsinput'
 
 
 # Authentication
@@ -48,6 +49,12 @@ gem 'sorcery'
 
 # Resources
 gem 'friendly_id'
+#gem 'attribute_normalizer' # https://github.com/mdeering/attribute_normalizer
+
+
+# UI
+gem 'active_link_to'
+gem 'draper'
 
 
 # API

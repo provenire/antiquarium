@@ -25,6 +25,7 @@
 //= require datatables
 //= require datatables-fixedcolumns
 //= require datatables-responsive
+//= require bootstrap-tagsinput
 //
 // Pages
 //= require pages/js/pages.js
