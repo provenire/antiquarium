@@ -1,0 +1,21 @@
+<tr>
+  <td class="v-align-middle">
+    <%= link_to person do %>
+    <img src="http://placehold.it/100x100" />
+    <% end %>
+  </td>
+  <td>
+    <h4 class="no-margin">
+      <%= link_to person.name, person, class: 'text-black' %>
+    </h4>
+  </td>
+  <td>
+    <p><%= person.excerpt %>
+    </td>
+    <td>
+      <dl>
+        <dt>Last Updated</dt>
+        <dd><%= person.last_updated %></dd>
+      </dl>
+    </td>
+  </tr>

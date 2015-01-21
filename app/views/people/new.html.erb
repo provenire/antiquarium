@@ -1,0 +1,108 @@
+<!-- START JUMBOTRON -->
+<div class="jumbotron no-margin" data-pages="parallax">
+  <div class="container-fluid container-fixed-lg sm-p-l-20 sm-p-r-20">
+    <div class="inner">
+      <h3>Create a New Person</3>
+      </div>
+    </div>
+  </div>
+  <!-- END JUMBOTRON -->
+
+
+  <!-- START CONTAINER FLUID -->
+  <div class="container-fluid container-fixed-lg">
+    <!-- START BREADCRUMB -->
+    <ul class="breadcrumb">
+      <li>
+        <p>People</p>
+      </li>
+      <li><span class="active">New Person</span>
+      </li>
+    </ul>
+    <!-- END BREADCRUMB -->
+
+    <!-- START PANEL -->
+    <div class="panel panel-transparent">
+      <div class="panel-body no-padding">
+        <div class="row">
+          <div class="col-sm-9 no-padding">
+
+            <p></p>
+            <br>
+
+            <%= form_for @person, html: { id: 'form-work', class: 'form-horizontal', autocomplete: 'off' } do |f| %>
+
+            <div class="form-group requuired">
+              <%= f.label :name, class: 'col-sm-3 control-label' %>
+              <div class="col-sm-9">
+                <%= f.text_field :name, placeholder: 'Full name', class: 'form-control', required: true %>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <%= f.label :alternate_names, class: 'col-sm-3 control-label' %>
+              <div class="col-sm-9">
+                <%= f.text_field :alternate_names, value: @artifact.alternate_names.join(','), class: 'form-control', 'data-role' => 'tagsinput' %>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <%= f.label :description, class: 'col-sm-3 control-label' %>
+              <div class="col-sm-9">
+                <%= f.text_area :description, class: 'form-control' %>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <%= f.label :artist, class: 'col-sm-3 control-label' %>
+              <div class="col-sm-9">
+                <%= f.text_field :artist, class: 'form-control' %>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <%= f.label :dimensions, class: 'col-sm-3 control-label' %>
+              <div class="col-sm-9">
+                <%= f.text_field :dimensions, class: 'form-control' %>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <%= f.label :date_created, class: 'col-sm-3 control-label' %>
+              <div class="col-sm-9">
+                <%= f.text_field :date_created, class: 'form-control' %>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-sm-3 control-label">Group</label>
+              <div class="col-sm-9">
+                <div class="radio radio-success">
+                  <%= f.radio_button :group, 'true' %>
+                  <%= f.label :yes %>
+                  <%= f.radio_button :group, 'false', checked: true %>
+                  <%= f.label :no %>
+                </div>
+              </div>
+            </div>
+
+            <br>
+            <div class="row">
+              <div class="col-sm-3"></div>
+              <div class="col-sm-9">
+                <%= f.submit 'Submit', class: 'btn btn-primary' %>
+              </div>
+            </div>
+
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- END PANEL -->
+  </div>
+  <!-- END CONTAINER FLUID -->
+
+  <script type="text/javascript">
+    $('#form-work').validate();
+  </script>

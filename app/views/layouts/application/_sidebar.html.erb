@@ -44,10 +44,11 @@
             <span class="icon-thumbnail"><i class="fa fa-cubes"></i></span>
           <% end %>
 
-          <li class="">
-            <a href="#">People</a>
+          <%= content_tag :li, class: active_link_to_class(people_path) do %>
+            <%= link_to 'People', people_path %>
             <span class="icon-thumbnail"><i class="fa fa-users"></i></span>
-          </li>
+          <% end %>
+
           <li class="">
             <a href="#">Places</a>
             <span class="icon-thumbnail"><i class="pg-map"></i></span>

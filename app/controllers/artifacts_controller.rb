@@ -2,7 +2,7 @@ class ArtifactsController < ApplicationController
   include BasicFilters
 
   def index
-    @artifacts = Artifact.all.decorate
+    @artifacts = Artifact.limit(10).decorate
   end
 
 

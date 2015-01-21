@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150120053536) do
+ActiveRecord::Schema.define(version: 20150121195511) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 20150120053536) do
     t.uuid     "uuid",            default: "uuid_generate_v4()"
     t.string   "slug",                                           null: false
     t.string   "name",                                           null: false
-    t.text     "description",     default: ""
+    t.text     "description"
     t.string   "alternate_names", default: [],                   null: false, array: true
     t.string   "artist"
     t.string   "dimensions"
@@ -64,6 +64,22 @@ ActiveRecord::Schema.define(version: 20150120053536) do
   add_index "friendly_id_slugs", ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type", using: :btree
   add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id", using: :btree
   add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type", using: :btree
+
+  create_table "people", force: :cascade do |t|
+    t.uuid     "uuid",          default: "uuid_generate_v4()"
+    t.string   "slug",                                         null: false
+    t.string   "name",                                         null: false
+    t.text     "description",   default: ""
+    t.string   "gender",        default: "unknown",            null: false
+    t.date     "date_of_birth"
+    t.date     "date_of_death"
+    t.string   "nationality",   default: "unknown",            null: false
+    t.datetime "created_at",                                   null: false
+    t.datetime "updated_at",                                   null: false
+  end
+
+  add_index "people", ["slug"], name: "index_people_on_slug", unique: true, using: :btree
+  add_index "people", ["uuid"], name: "index_people_on_uuid", unique: true, using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                                        null: false

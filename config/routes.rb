@@ -22,4 +22,8 @@ Rails.application.routes.draw do
   resources :artifacts
 
 
+  # People
+  resources :people
+
+
 end
