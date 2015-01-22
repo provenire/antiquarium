@@ -30,4 +30,8 @@ Rails.application.routes.draw do
   resources :places
 
 
+  # Sources
+  resources :sources
+
+
 end

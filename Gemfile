@@ -57,6 +57,11 @@ gem 'active_link_to'
 gem 'draper'
 
 
+# Files
+gem 'carrierwave'
+gem 'fog',        '1.26.0'
+
+
 # API
 gem 'jbuilder', '~> 2.0'
 
@@ -65,7 +70,9 @@ gem 'jbuilder', '~> 2.0'
 gem 'delayed_job_active_record'
 
 
-# Docs
+
+
+# Documentation
 gem 'annotate'
 gem 'sdoc', '~> 0.4.0', group: :doc
 

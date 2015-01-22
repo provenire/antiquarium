@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150121223834) do
+ActiveRecord::Schema.define(version: 20150121232648) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -92,6 +92,27 @@ ActiveRecord::Schema.define(version: 20150121223834) do
 
   add_index "places", ["slug"], name: "index_places_on_slug", unique: true, using: :btree
   add_index "places", ["uuid"], name: "index_places_on_uuid", unique: true, using: :btree
+
+  create_table "sources", force: :cascade do |t|
+    t.uuid     "uuid",         default: "uuid_generate_v4()"
+    t.string   "slug",                                        null: false
+    t.string   "kind",         default: "document",           null: false
+    t.string   "name",                                        null: false
+    t.text     "description",  default: ""
+    t.string   "authors",      default: ""
+    t.date     "date_created"
+    t.string   "attribution",  default: ""
+    t.string   "thumbnail"
+    t.string   "document"
+    t.datetime "created_at",                                  null: false
+    t.datetime "updated_at",                                  null: false
+  end
+
+  add_index "sources", ["attribution"], name: "index_sources_on_attribution", using: :btree
+  add_index "sources", ["authors"], name: "index_sources_on_authors", using: :btree
+  add_index "sources", ["kind"], name: "index_sources_on_kind", using: :btree
+  add_index "sources", ["slug"], name: "index_sources_on_slug", unique: true, using: :btree
+  add_index "sources", ["uuid"], name: "index_sources_on_uuid", unique: true, using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                                        null: false

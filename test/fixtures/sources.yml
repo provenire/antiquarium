@@ -1,0 +1,30 @@
+# == Schema Information
+#
+# Table name: sources
+#
+#  id           :integer          not null, primary key
+#  uuid         :uuid
+#  slug         :string           not null
+#  kind         :string           default("document"), not null
+#  name         :string           not null
+#  description  :text             default("")
+#  authors      :string           default("")
+#  date_created :date
+#  attribution  :string           default("")
+#  thumbnail    :string
+#  document     :string
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+# This model initially had no columns defined.  If you add columns to the
+# model remove the '{}' from the fixture names and add the columns immediately
+# below each fixture, per the syntax in the comments below
+#
+one: {}
+# column: value
+#
+two: {}
+#  column: value

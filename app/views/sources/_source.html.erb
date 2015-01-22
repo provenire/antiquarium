@@ -1,0 +1,21 @@
+<tr>
+  <td class="v-align-middle">
+    <%= link_to source do %>
+    <img src="http://sourcehold.it/100x100" />
+    <% end %>
+  </td>
+  <td>
+    <h4 class="no-margin">
+      <%= link_to source.name, source, class: 'text-black' %>
+    </h4>
+  </td>
+  <td>
+    <p><%= source.excerpt %>
+    </td>
+    <td>
+      <dl>
+        <dt>Last Updated</dt>
+        <dd><%= source.last_updated %></dd>
+      </dl>
+    </td>
+  </tr>
