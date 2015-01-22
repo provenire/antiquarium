@@ -24,6 +24,14 @@ class Source < ActiveRecord::Base
   friendly_id :name
 
 
+  # Uploaders
+  mount_uploader :document, DocumentUploader
+
+
+  # Associations
+  has_many :pages
+
+
   # Validations
   validates :name, presence: true
 

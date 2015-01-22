@@ -31,7 +31,9 @@ Rails.application.routes.draw do
 
 
   # Sources
-  resources :sources
+  resources :sources do
+    resources :pages, param: :number
+  end
 
 
 end
