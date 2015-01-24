@@ -77,6 +77,8 @@ GEM
       activerecord (>= 3.0, < 5.0)
       delayed_job (>= 3.0, < 4.1)
     dotenv (1.0.2)
+    dotenv-rails (1.0.2)
+      dotenv (= 1.0.2)
     draper (1.4.0)
       actionpack (>= 3.0)
       activemodel (>= 3.0)
@@ -329,6 +331,7 @@ DEPENDENCIES
   coffee-rails
   delayed_job_active_record
   dotenv
+  dotenv-rails
   draper
   fog (= 1.26.0)
   friendly_id

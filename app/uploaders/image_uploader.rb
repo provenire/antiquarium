@@ -6,27 +6,27 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   version :large do
     process eager: true
-    cloudinary_transformation 'page_large'
+    cloudinary_transformation transformation: 'page_large'
   end
 
   version :normal do
     process eager: true
-    cloudinary_transformation 'page_normal'
+    cloudinary_transformation transformation: 'page_normal'
   end
 
   version :thumbnail do
     process eager: true
-    cloudinary_transformation 'page_thumbnail'
+    cloudinary_transformation transformation: 'page_thumbnail'
   end
 
   version :index do
     process eager: true
-    cloudinary_transformation 'index'
+    cloudinary_transformation transformation: 'index'
   end
 
   version :show do
     process eager: true
-    cloudinary_transformation 'show'
+    cloudinary_transformation transformation: 'show'
   end
 
 end

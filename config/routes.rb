@@ -36,4 +36,8 @@ Rails.application.routes.draw do
   end
 
 
+  # Affiliations
+  resources :affiliations, except: ['index']
+
+
 end

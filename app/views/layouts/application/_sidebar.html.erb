@@ -54,10 +54,11 @@
             <span class="icon-thumbnail"><i class="pg-map"></i></span>
           <% end %>
 
-          <li class="">
-            <a href="#">Sources</a>
+          <%= content_tag :li, class: active_link_to_class(sources_path) do %>
+            <%= link_to 'Sources', sources_path %>
             <span class="icon-thumbnail"><i class="fa fa-sitemap"></i></span>
-          </li>
+          <% end %>
+
         </ul>
       </li>
 

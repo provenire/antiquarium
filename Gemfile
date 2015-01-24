@@ -85,6 +85,7 @@ group :development, :test do
   gem 'quiet_assets'
   gem 'railroady'
   gem 'dotenv'
+  gem 'dotenv-rails'
 end
 
 

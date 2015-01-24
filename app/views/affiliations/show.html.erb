@@ -1,0 +1,99 @@
+<!-- START JUMBOTRON -->
+<div class="jumbotron" data-pages="parallax">
+  <div class="container-fluid container-fixed-lg">
+    <div class="inner">
+      <!-- START BREADCRUMB -->
+      <ul class="breadcrumb">
+        <li>
+          <p>Affiliations</p>
+        </li>
+        <li><span class="active"><%= @affiliation.name %></span>
+        </li>
+      </ul>
+      <!-- END BREADCRUMB -->
+
+      <div class="container-md-height m-b-20">
+        <div class="row row-md-height">
+          <div class="col-lg-7 col-md-6 col-md-height col-middle bg-white">
+            <!-- START PANEL -->
+            <div class="full-height">
+              <div class="panel-body text-center">
+                <img class="image-responsive-height demo-mw-500" src="https://res.cloudinary.com/antiquarium/image/upload/w_500,c_fit/v1419789391/g0lwzkmb3icdbflqxxcu.jpg" alt="">
+              </div>
+            </div>
+            <!-- END PANEL -->
+          </div>
+          <div class="col-lg-5 col-md-height col-md-6 col-top">
+            <!-- START PANEL -->
+            <div class="panel panel-transparent">
+              <div class="panel-heading">
+                <div class="panel-title">Affiliation Summary
+                </div>
+              </div>
+              <div class="panel-body">
+                <h3><%= @affiliation.name %></h3>
+
+                <%= @affiliation.description %>
+                <br>
+
+                <div class="inline m-t-20">
+                  <ol class="p-l-20">
+                    <li class="small hint-text m-t-5">
+                      (Multiple Authors), “HERZFELD, ERNST” Encyclopædia Iranica, XII/3, pp. 290-302; available online at http://www.iranicaonline.org/articles/herzfeld-ernst (accessed online at 28 December 2014).
+                    </li>
+                    <li class="small hint-text m-t-5">
+                      (Multiple Authors), "AN ACHAEMENID STONE RELIEF FRAGMENT | FIRST HALF OF 5TH CENTURY B.C., PERSEPOLIS." Christie's; online at http://www.christies.com/lotfinder/ancient-art-antiquities/an-achaemenid-stone-relief-fragment-first-half-4974349-details.aspx (accessed online at 28 December 2014).
+                    </li>
+                  </ol>
+                  <p class="small hint-text"><a href="#">See all citations</a><p>
+                  </div>
+                </div>
+              </div>
+              <!-- END PANEL -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- END JUMBOTRON -->
+  <!-- START CONTAINER FLUID -->
+  <div class="container-fluid container-fixed-lg">
+    <div class="row">
+      <div class="col-md-7">
+        <!-- START PANEL -->
+        <div class="panel panel-transparent">
+          <div class="panel-heading">
+            <div class="panel-title">Details
+            </div>
+          </div>
+          <div class="panel-body">
+            <div class="table-responsive">
+              <table class="table table-condensed">
+                <thead>
+                  <th style="width:25%"></th>
+                  <th style="width:75%"></th>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="v-align-middle bold">Title</td>
+                    <td class="v-align-middle"><%= @affiliation.title %></td>
+                  </tr>
+                  <tr>
+                    <td class="v-align-middle bold">Start Date</td>
+                    <td class="v-align-middle"><%= @affiliation.start_date || 'Unknown' %></td>
+                  </tr>
+                  <tr>
+                    <td class="v-align-middle bold">End Date</td>
+                    <td class="v-align-middle"><%= @affiliation.end_date %></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <!-- END PANEL -->
+      </div>
+    </div>
+  </div>
+  <!-- END CONTAINER FLUID -->

@@ -1,7 +1,7 @@
 <tr>
   <td class="v-align-middle">
     <%= link_to source do %>
-    <img src="http://sourcehold.it/100x100" />
+    <%= image_tag source.thumbnail_url %>
     <% end %>
   </td>
   <td>
@@ -16,6 +16,8 @@
       <dl>
         <dt>Last Updated</dt>
         <dd><%= source.last_updated %></dd>
+        <dt>Kind</dt>
+        <dd><%= source.kind %></dd>
       </dl>
     </td>
   </tr>
