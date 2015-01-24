@@ -3,7 +3,11 @@
 # Table name: users
 #
 #  id                              :integer          not null, primary key
+#  uuid                            :uuid
+#  slug                            :string           not null
 #  email                           :string           not null
+#  name                            :string           default(""), not null
+#  description                     :string           default("")
 #  crypted_password                :string
 #  salt                            :string
 #  created_at                      :datetime
@@ -23,8 +27,6 @@
 #  last_logout_at                  :datetime
 #  last_activity_at                :datetime
 #  last_login_from_ip_address      :string
-#  name                            :string           default(""), not null
-#  slug                            :string           not null
 #
 
 class User < ActiveRecord::Base
@@ -32,6 +34,7 @@ class User < ActiveRecord::Base
   # Friendly ID
   extend FriendlyId
   friendly_id :name
+
 
   # Sorcery Authentication
   authenticates_with_sorcery!

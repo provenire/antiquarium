@@ -17,6 +17,9 @@ Rails.application.routes.draw do
   get  'users/reset_password', to: 'users/reset_password#edit',   as: :edit_users_reset_password
   put  'users/reset_password', to: 'users/reset_password#update', as: :update_users_reset_password
 
+  # Users
+  resources :users, except: [:new, :create, :destroy]
+
 
   # Artifacts
   resources :artifacts
@@ -37,7 +40,7 @@ Rails.application.routes.draw do
 
 
   # Affiliations
-  resources :affiliations, except: ['index']
+  resources :affiliations, except: :index
 
 
 end

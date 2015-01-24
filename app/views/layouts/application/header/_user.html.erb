@@ -69,9 +69,9 @@
       </a>
       <ul class="dropdown-menu" role="menu">
         <li role="presentation">
-          <a role="menuitem" tabindex="-1" href="#">
+          <%= link_to current_user, role: 'menuitem', tabindex: '-1' do %>
             <span class="p-r-30">Profile</span> <span class="pull-right sm-pull-reset"><i class="fa fa-user"></i></span>
-          </a>
+          <% end %>
         </li>
         <li role="presentation">
           <a role="menuitem" tabindex="-1" href="#">
@@ -79,9 +79,9 @@
           </a>
         </li>
         <li role="presentation">
-          <a role="menuitem" tabindex="-1" href="#">
+          <%= link_to edit_user_path(current_user), role: 'menuitem', tabindex: '-1' do %>
             Settings <span class="pull-right"><i class="pg-settings"></i></span>
-          </a>
+          <% end %>
         </li>
         <li role="presentation" class="divider"></li>
         <li role="presentation">
