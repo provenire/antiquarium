@@ -27,16 +27,26 @@
 #
 
 class User < ActiveRecord::Base
+
+  # Sorcery Authentication
   authenticates_with_sorcery!
 
+
+  # Validations
   validates :password, length: { minimum: 3 }
   validates :password, confirmation: true, on: :update
   validates :password_confirmation, presence: true, on: :update
 
   validates :email, uniqueness: true
 
+  validates :name, presence: true
+
+
+  # Callbacks
   before_create :setup_activation
-  
+
+
+  # Helpers
   def external?
     false
   end
