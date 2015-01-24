@@ -24,9 +24,14 @@
 #  last_activity_at                :datetime
 #  last_login_from_ip_address      :string
 #  name                            :string           default(""), not null
+#  slug                            :string           not null
 #
 
 class User < ActiveRecord::Base
+
+  # Friendly ID
+  extend FriendlyId
+  friendly_id :name
 
   # Sorcery Authentication
   authenticates_with_sorcery!

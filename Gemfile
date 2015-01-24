@@ -86,6 +86,7 @@ group :development, :test do
   gem 'railroady'
   gem 'dotenv'
   gem 'dotenv-rails'
+  gem 'letter_opener'
 end
 
 
