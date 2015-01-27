@@ -8,12 +8,13 @@
 #  name           :string           not null
 #  description    :text             default("")
 #  date           :date
-#  verb           :string           default("unknown"), not null
 #  status         :string
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
 #  price_cents    :integer          default("0"), not null
 #  price_currency :string           default("USD"), not null
+#  failed         :boolean          default("false"), not null
+#  verb_id        :integer
 #
 
 class Event < ActiveRecord::Base
@@ -32,10 +33,11 @@ class Event < ActiveRecord::Base
   has_many :interactions
   has_many :citations
   has_many :actors, through: :interactions
+  belongs_to :verb
 
 
   # Validations
-  validates :verb, presence: true
+  validates :verb_id, presence: true
 
 
   # Callbacks

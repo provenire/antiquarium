@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150127201948) do
+ActiveRecord::Schema.define(version: 20150127215600) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -84,18 +84,19 @@ ActiveRecord::Schema.define(version: 20150127201948) do
     t.string   "name",                                          null: false
     t.text     "description",    default: ""
     t.date     "date"
-    t.string   "verb",           default: "unknown",            null: false
     t.string   "status"
     t.datetime "created_at",                                    null: false
     t.datetime "updated_at",                                    null: false
     t.integer  "price_cents",    default: 0,                    null: false
     t.string   "price_currency", default: "USD",                null: false
+    t.boolean  "failed",         default: false,                null: false
+    t.integer  "verb_id"
   end
 
   add_index "events", ["slug"], name: "index_events_on_slug", unique: true, using: :btree
   add_index "events", ["status"], name: "index_events_on_status", using: :btree
   add_index "events", ["uuid"], name: "index_events_on_uuid", unique: true, using: :btree
-  add_index "events", ["verb"], name: "index_events_on_verb", using: :btree
+  add_index "events", ["verb_id"], name: "index_events_on_verb_id", using: :btree
 
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string   "slug",                      null: false
@@ -220,5 +221,18 @@ ActiveRecord::Schema.define(version: 20150127201948) do
   add_index "users", ["remember_me_token"], name: "index_users_on_remember_me_token", using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", using: :btree
   add_index "users", ["unlock_token"], name: "index_users_on_unlock_token", using: :btree
+
+  create_table "verbs", force: :cascade do |t|
+    t.string   "keyword",                                                null: false
+    t.string   "action",                                                 null: false
+    t.string   "noun",                                                   null: false
+    t.string   "components", default: ["date", "status", "description"], null: false, array: true
+    t.datetime "created_at",                                             null: false
+    t.datetime "updated_at",                                             null: false
+  end
+
+  add_index "verbs", ["action"], name: "index_verbs_on_action", unique: true, using: :btree
+  add_index "verbs", ["keyword"], name: "index_verbs_on_keyword", unique: true, using: :btree
+  add_index "verbs", ["noun"], name: "index_verbs_on_noun", unique: true, using: :btree
 
 end
