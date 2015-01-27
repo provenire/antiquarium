@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150127215600) do
+ActiveRecord::Schema.define(version: 20150127222420) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -223,12 +223,16 @@ ActiveRecord::Schema.define(version: 20150127215600) do
   add_index "users", ["unlock_token"], name: "index_users_on_unlock_token", using: :btree
 
   create_table "verbs", force: :cascade do |t|
-    t.string   "keyword",                                                null: false
-    t.string   "action",                                                 null: false
-    t.string   "noun",                                                   null: false
-    t.string   "components", default: ["date", "status", "description"], null: false, array: true
-    t.datetime "created_at",                                             null: false
-    t.datetime "updated_at",                                             null: false
+    t.string   "keyword",                                                     null: false
+    t.string   "action",                                                      null: false
+    t.string   "noun",                                                        null: false
+    t.string   "components",      default: ["date", "status", "description"], null: false, array: true
+    t.datetime "created_at",                                                  null: false
+    t.datetime "updated_at",                                                  null: false
+    t.string   "subject_types",   default: ["people", "places"],                           array: true
+    t.integer  "subject_limit"
+    t.string   "recipient_types", default: ["people", "places"],                           array: true
+    t.integer  "recipient_limit"
   end
 
   add_index "verbs", ["action"], name: "index_verbs_on_action", unique: true, using: :btree
