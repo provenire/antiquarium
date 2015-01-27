@@ -49,6 +49,7 @@ gem 'sorcery'
 
 # Resources
 gem 'friendly_id'
+gem 'money-rails'
 #gem 'attribute_normalizer' # https://github.com/mdeering/attribute_normalizer
 
 

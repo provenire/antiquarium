@@ -8,41 +8,125 @@
 <!-- START CONTAINER FLUID -->
 <div class="container-fluid container-fixed-lg">
   <div class="row">
+
     <div class="col-md-7">
       <!-- START PANEL -->
       <div class="panel panel-transparent">
         <div class="panel-heading">
-          <div class="panel-title">Ownership History
+          <div class="panel-title">Ownership History</div>
+        </div>
+        <div class="panel-body">
+
+          <div class="panel panel-group panel-transparent ownership-history-panel" data-toggle="collapse" id="accordion">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h4 class="panel-title">
+                  <a class="collapsed" data-parent="#accordion" data-toggle="collapse" href="#collapseOne">
+                    <strong class="p-r-20">1996</strong> Museum of Nemea, Greece
+                  </a>
+                </h4>
+              </div>
+              <div class="panel-collapse collapse" id="collapseOne">
+                <div class="panel-body">
+                  Click headers to expand/collapse content that is broken into logical sections, much like tabs. Optionally, toggle sections open/closed on mouseover.
+                </div>
+              </div>
+            </div>
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h4 class="panel-title">
+                  <a class="collapsed" data-parent="#accordion" data-toggle="collapse" href="#collapseTwo">
+                    <strong class="p-r-20">1996</strong> National Achaeological Museum
+                  </a>
+                </h4>
+              </div>
+              <div class="panel-collapse collapse" id="collapseTwo">
+                <div class="panel-body">
+                  <h1 class="light">
+                    go explore the <span class="semi-bold">world</span>
+                  </h1>
+                  <h4>
+                    small things in life matters the most
+                  </h4>
+                  <h2>
+                    Big Heading <span class="semi-bold">Body</span>,
+                    <i>Variations</i>
+                  </h2>
+                  <h4>
+                    <span class="semi-bold">Open Me</span>, Light , <span class=
+                    "semi-bold">Bold</span>, <i>Everything</i>
+                  </h4>
+                  <p>
+                    is the art and technique of arranging type in order to make language visible. The arrangement of type involves the selection of typefaces, point size, line length, leading (line spacing), adjusting the spaces between groups of letters (tracking)
+                  </p>
+                  <p>
+                    and adjusting the Case space between pairs of letters (kerning). Type design is a closely related craft, which some consider distinct and others a part of typography
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h4 class="panel-title">
+                  <a class="collapsed" data-parent="#accordion" data-toggle="collapse" href="#collapseThree">
+                    <strong class="p-r-20">1996</strong> Society for the Preservation of Greek Heritage
+                  </a>
+                </h4>
+              </div>
+              <div class="panel-collapse collapse" id="collapseThree">
+                <div class="panel-body">
+                  Click headers to expand/collapse content that is broken into logical sections, much like tabs. Optionally, toggle sections open/closed on mouseover.
+                </div>
+              </div>
+            </div>
+
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h4 class="panel-title">
+                  <a class="collapsed" data-parent="#accordion" data-toggle="collapse" href="#collapseThree">
+                    <strong class="p-r-20">1993</strong> The Ward Gallery, dba Ward &amp; Company Works of Art, LLC
+                  </a>
+                </h4>
+              </div>
+              <div class="panel-collapse collapse" id="collapseThree">
+                <div class="panel-body">
+                  Click headers to expand/collapse content that is broken into logical sections, much like tabs. Optionally, toggle sections open/closed on mouseover.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="col-md-5">
+      <!-- START PANEL -->
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="panel-title">Details
           </div>
         </div>
         <div class="panel-body">
           <div class="table-responsive">
-            <table class="table table-hover table-condensed table-detailed" id="detailedTable">
-              <thead>
-                <th style="width:15%"></th>
-                <th style="width:75%"></th>
-                <th style="width:10%"></th>
-              </thead>
+            <table class="table table-borderless">
               <tbody>
                 <tr>
-                  <td class="v-align-middle semi-bold">1996</td>
-                  <td class="v-align-middle">Museum of Nemea, Greece</td>
-                  <td></td>
+                  <td style="width:30%;padding:12px;" class="v-align-middle bold">Names</td>
+                  <td style="width:70%;padding:12px;" class="v-align-middle"><%= @artifact.alternate_names %></td>
                 </tr>
                 <tr>
-                  <td class="v-align-middle semi-bold">1996</td>
-                  <td class="v-align-middle">National Achaeological Museum</td>
-                  <td class="v-align-middle text-danger"><i class="fa fa-circle"></i></td>
+                  <td style="padding:12px;" class="v-align-middle bold">Artist</td>
+                  <td style="padding:12px;" class="v-align-middle"><%= @artifact.artist %></td>
                 </tr>
                 <tr>
-                  <td class="v-align-middle semi-bold">1993</td>
-                  <td class="v-align-middle">Society for the Preservation of Greek Heritage</td>
-                  <td></td>
+                  <td style="padding:12px;" class="v-align-middle bold">Date Created</td>
+                  <td style="padding:12px;" class="v-align-middle"><%= @artifact.date_created %></td>
                 </tr>
                 <tr>
-                  <td class="v-align-middle semi-bold">1993</td>
-                  <td class="v-align-middle">The Ward Gallery, dba Ward &amp; Company Works of Art, LLC</td>
-                  <td></td>
+                  <td style="padding:12px;" class="v-align-middle bold">Dimensions</td>
+                  <td style="padding:12px;" class="v-align-middle"><%= @artifact.dimensions %></td>
                 </tr>
               </tbody>
             </table>
@@ -54,3 +138,48 @@
   </div>
 </div>
 <!-- END CONTAINER FLUID -->
+
+
+<div class="container-fluid container-fixed-lg bg-white">
+  <div class="row p-t-15">
+
+    <div class="col-md-6">
+      <div class="panel panel-transparent">
+        <div class="panel-heading">
+          <div class="panel-title">Citations</div>
+        </div>
+        <div class="panel-body">
+          <ol>
+            <li class="small hint-text">
+              (Multiple Authors), “HERZFELD, ERNST” Encyclopædia Iranica, XII/3, pp. 290-302; available online at http://www.iranicaonline.org/articles/herzfeld-ernst (accessed online at 28 December 2014).
+            </li>
+            <li class="small hint-text">
+              (Multiple Authors), "AN ACHAEMENID STONE RELIEF FRAGMENT | FIRST HALF OF 5TH CENTURY B.C., PERSEPOLIS." Christie's; online at http://www.christies.com/lotfinder/ancient-art-antiquities/an-achaemenid-stone-relief-fragment-first-half-4974349-details.aspx (accessed online at 28 December 2014).
+            </li>
+          </ol>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="panel panel-transparent">
+        <div class="panel-heading">
+          <div class="panel-title">Sources</div>
+        </div>
+        <div class="panel-body">
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="panel panel-transparent">
+        <div class="panel-heading">
+          <div class="panel-title">Gallery</div>
+        </div>
+        <div class="panel-body">
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

@@ -56,3 +56,56 @@
   background-color: #ffffff;
   border-radius: 2px;
 }
+
+
+.ownership-history-panel > .panel > .panel-heading > .panel-title {
+  text-transform: none;
+}
+
+.ownership-history-panel > .panel.panel-default {
+  border: 0;
+  border-bottom: 1px solid rgba(230, 230, 230, 0.7);
+  border-radius: 0;
+}
+
+.ownership-history-panel > .panel + .panel {
+  margin-top: 0;
+}
+
+.ownership-history-panel .panel-heading .panel-title > a {
+  left: hidden;
+}
+
+.ownership-history-panel .panel-heading .panel-title > a:after {
+  visibility: hidden;
+}
+
+.ownership-history-panel .panel-heading .panel-title > a:hover:before {
+  color: #626262 !important;
+}
+
+.ownership-history-panel .panel-heading .panel-title > a:before {
+  font-family: 'FontAwesome';
+  content: "\f054";
+  top: 15px;
+  position: absolute;
+  color: #626262;
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+
+.ownership-history-panel .panel-heading .panel-title > a.collapsed {
+  color: rgba(98, 98, 98, 0.7);
+  opacity: 1;
+}
+
+.ownership-history-panel .panel-heading .panel-title > a.collapsed:before {
+  content: "\f054";
+  color: rgba(98, 98, 98, 0.7);
+  -webkit-transform: initial;
+  transform: initial;
+}
+
+.ownership-history-panel .panel-heading .panel-title > a::first-letter {
+  padding-left: 20px;
+}

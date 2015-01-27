@@ -34,8 +34,8 @@ class Affiliation < ActiveRecord::Base
 
 
   # Callbacks
-  before_save do |affiliation|
-    affiliation.name = format_name
+  before_save do |model|
+    model.name = format_name
   end
 
 

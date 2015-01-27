@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150124103343) do
+ActiveRecord::Schema.define(version: 20150127201948) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -54,6 +54,14 @@ ActiveRecord::Schema.define(version: 20150124103343) do
   add_index "artifacts", ["slug"], name: "index_artifacts_on_slug", unique: true, using: :btree
   add_index "artifacts", ["uuid"], name: "index_artifacts_on_uuid", unique: true, using: :btree
 
+  create_table "artifacts_events", id: false, force: :cascade do |t|
+    t.integer "artifact_id", null: false
+    t.integer "event_id",    null: false
+  end
+
+  add_index "artifacts_events", ["artifact_id", "event_id"], name: "index_artifacts_events_on_artifact_id_and_event_id", using: :btree
+  add_index "artifacts_events", ["event_id", "artifact_id"], name: "index_artifacts_events_on_event_id_and_artifact_id", using: :btree
+
   create_table "delayed_jobs", force: :cascade do |t|
     t.integer  "priority",   default: 0, null: false
     t.integer  "attempts",   default: 0, null: false
@@ -70,6 +78,25 @@ ActiveRecord::Schema.define(version: 20150124103343) do
 
   add_index "delayed_jobs", ["priority", "run_at"], name: "delayed_jobs_priority", using: :btree
 
+  create_table "events", force: :cascade do |t|
+    t.uuid     "uuid",           default: "uuid_generate_v4()"
+    t.string   "slug",                                          null: false
+    t.string   "name",                                          null: false
+    t.text     "description",    default: ""
+    t.date     "date"
+    t.string   "verb",           default: "unknown",            null: false
+    t.string   "status"
+    t.datetime "created_at",                                    null: false
+    t.datetime "updated_at",                                    null: false
+    t.integer  "price_cents",    default: 0,                    null: false
+    t.string   "price_currency", default: "USD",                null: false
+  end
+
+  add_index "events", ["slug"], name: "index_events_on_slug", unique: true, using: :btree
+  add_index "events", ["status"], name: "index_events_on_status", using: :btree
+  add_index "events", ["uuid"], name: "index_events_on_uuid", unique: true, using: :btree
+  add_index "events", ["verb"], name: "index_events_on_verb", using: :btree
+
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string   "slug",                      null: false
     t.integer  "sluggable_id",              null: false
@@ -82,6 +109,21 @@ ActiveRecord::Schema.define(version: 20150124103343) do
   add_index "friendly_id_slugs", ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type", using: :btree
   add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id", using: :btree
   add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type", using: :btree
+
+  create_table "interactions", force: :cascade do |t|
+    t.integer  "actor_id"
+    t.string   "actor_type"
+    t.integer  "event_id"
+    t.boolean  "recipient",     default: true,  null: false
+    t.boolean  "unknown_actor", default: false, null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+  end
+
+  add_index "interactions", ["actor_type", "actor_id"], name: "index_interactions_on_actor_type_and_actor_id", using: :btree
+  add_index "interactions", ["event_id"], name: "index_interactions_on_event_id", using: :btree
+  add_index "interactions", ["recipient"], name: "index_interactions_on_recipient", using: :btree
+  add_index "interactions", ["unknown_actor"], name: "index_interactions_on_unknown_actor", using: :btree
 
   create_table "pages", force: :cascade do |t|
     t.integer  "source_id"
