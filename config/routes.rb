@@ -25,6 +25,10 @@ Rails.application.routes.draw do
   resources :artifacts
 
 
+  # Events
+  resources :events, except: :index
+
+
   # People
   resources :people
 
