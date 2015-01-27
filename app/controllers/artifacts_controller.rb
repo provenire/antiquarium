@@ -2,7 +2,7 @@ class ArtifactsController < ApplicationController
   include BasicFilters
 
   def index
-    @artifacts = Artifact.limit(10).decorate
+    @artifacts = PaginatingDecorator.new Artifact.order(:name).page(params[:page])
   end
 
 

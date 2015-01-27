@@ -15,13 +15,14 @@
     <li>
       <p><%= title %></p>
     </li>
-    <li><span class="active">1 - 10 of 87</span>
+    <li><span class="active"><%= page_entries_info objects %></span>
     </li>
   </ul>
   <!-- END BREADCRUMB -->
 
+  <div class="dataTables_wrapper">
   <div class="table-responsive">
-    <table class="table">
+    <table class="table m-b-0">
       <thead>
         <th style="width:10%"></th>
         <th style="width:30%"></th>
@@ -34,5 +35,15 @@
       </tbody>
     </table>
   </div>
+
+  <div class="row m-b-20">
+    <div class="dataTables_paginate paging_bootstrap pagination">
+      <%= paginate objects, :views_prefix => 'templates/' %>
+    </div>
+    <div class="dataTables_info">
+      Showing <%= page_entries_info objects %> entries
+    </div>
+  </div>
+</div>
 
 </div>

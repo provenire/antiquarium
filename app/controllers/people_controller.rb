@@ -2,7 +2,7 @@ class PeopleController < ApplicationController
   include BasicFilters
 
   def index
-    @people = Person.all.limit(10).decorate
+    @people = PaginatingDecorator.new Person.order(:name).page(params[:page])
   end
 
 

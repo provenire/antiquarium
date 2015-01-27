@@ -2,7 +2,7 @@ class SourcesController < ApplicationController
   include BasicFilters
 
   def index
-    @sources = Source.all.limit(10).decorate
+    @sources = PaginatingDecorator.new Source.order(:name).page(params[:page])
   end
 
 

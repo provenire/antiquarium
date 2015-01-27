@@ -2,7 +2,7 @@ class PlacesController < ApplicationController
   include BasicFilters
 
   def index
-    @places = Place.all.limit(10).decorate
+    @places = PaginatingDecorator.new Place.order(:name).page(params[:page])
   end
 
 

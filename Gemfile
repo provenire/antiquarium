@@ -55,6 +55,7 @@ gem 'friendly_id'
 # UI
 gem 'active_link_to'
 gem 'draper'
+gem 'kaminari'
 
 
 # Files
