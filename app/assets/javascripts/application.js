@@ -64,4 +64,14 @@ $(document).ready(function() {
     }
   });
 
+
+
+  // BS to fix ownership history
+  $('.ownership-history-panel .panel-body a').live('click', function(event) {
+    event.stopPropogation();
+  });
+
+
+
+
 });

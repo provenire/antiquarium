@@ -8,6 +8,7 @@ class ArtifactsController < ApplicationController
 
   def show
     @artifact = Artifact.find(params[:id]).decorate
+    @events   = @artifact.events.decorate
   end
 
 

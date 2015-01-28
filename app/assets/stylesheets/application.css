@@ -106,6 +106,6 @@
   transform: initial;
 }
 
-.ownership-history-panel .panel-heading .panel-title > a::first-letter {
-  padding-left: 20px;
+.ownership-history-panel .panel-heading .panel-title > a > div.row {
+  margin-left: 15px;
 }

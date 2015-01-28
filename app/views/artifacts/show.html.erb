@@ -18,82 +18,29 @@
         <div class="panel-body">
 
           <div class="panel panel-group panel-transparent ownership-history-panel" data-toggle="collapse" id="accordion">
-            <div class="panel panel-default">
-              <div class="panel-heading">
-                <h4 class="panel-title">
-                  <a class="collapsed" data-parent="#accordion" data-toggle="collapse" href="#collapseOne">
-                    <strong class="p-r-20">1996</strong> Museum of Nemea, Greece
-                  </a>
-                </h4>
-              </div>
-              <div class="panel-collapse collapse" id="collapseOne">
-                <div class="panel-body">
-                  Click headers to expand/collapse content that is broken into logical sections, much like tabs. Optionally, toggle sections open/closed on mouseover.
-                </div>
-              </div>
-            </div>
-            <div class="panel panel-default">
-              <div class="panel-heading">
-                <h4 class="panel-title">
-                  <a class="collapsed" data-parent="#accordion" data-toggle="collapse" href="#collapseTwo">
-                    <strong class="p-r-20">1996</strong> National Achaeological Museum
-                  </a>
-                </h4>
-              </div>
-              <div class="panel-collapse collapse" id="collapseTwo">
-                <div class="panel-body">
-                  <h1 class="light">
-                    go explore the <span class="semi-bold">world</span>
-                  </h1>
-                  <h4>
-                    small things in life matters the most
-                  </h4>
-                  <h2>
-                    Big Heading <span class="semi-bold">Body</span>,
-                    <i>Variations</i>
-                  </h2>
-                  <h4>
-                    <span class="semi-bold">Open Me</span>, Light , <span class=
-                    "semi-bold">Bold</span>, <i>Everything</i>
-                  </h4>
-                  <p>
-                    is the art and technique of arranging type in order to make language visible. The arrangement of type involves the selection of typefaces, point size, line length, leading (line spacing), adjusting the spaces between groups of letters (tracking)
-                  </p>
-                  <p>
-                    and adjusting the Case space between pairs of letters (kerning). Type design is a closely related craft, which some consider distinct and others a part of typography
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="panel panel-default">
-              <div class="panel-heading">
-                <h4 class="panel-title">
-                  <a class="collapsed" data-parent="#accordion" data-toggle="collapse" href="#collapseThree">
-                    <strong class="p-r-20">1996</strong> Society for the Preservation of Greek Heritage
-                  </a>
-                </h4>
-              </div>
-              <div class="panel-collapse collapse" id="collapseThree">
-                <div class="panel-body">
-                  Click headers to expand/collapse content that is broken into logical sections, much like tabs. Optionally, toggle sections open/closed on mouseover.
-                </div>
-              </div>
-            </div>
 
-            <div class="panel panel-default">
-              <div class="panel-heading">
-                <h4 class="panel-title">
-                  <a class="collapsed" data-parent="#accordion" data-toggle="collapse" href="#collapseThree">
-                    <strong class="p-r-20">1993</strong> The Ward Gallery, dba Ward &amp; Company Works of Art, LLC
-                  </a>
-                </h4>
-              </div>
-              <div class="panel-collapse collapse" id="collapseThree">
-                <div class="panel-body">
-                  Click headers to expand/collapse content that is broken into logical sections, much like tabs. Optionally, toggle sections open/closed on mouseover.
+            <% @events.each do |event| %>
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h4 class="panel-title">
+                    <a class="collapsed" data-parent="#accordion" data-toggle="collapse" href="#<%= event.uuid %>">
+                      <div class="row">
+                        <div class="col-sm-2" style="width:10%"><strong><%= event.year %></strong></div>
+                        <div class="col-sm-10"><%= event.subject_name %></div>
+                      </div>
+                    </a>
+                  </h4>
+                </div>
+                <div class="panel-collapse collapse" id="<%= event.uuid %>">
+                  <div class="panel-body">
+                    <p class="small hint-text"><%= event.name %></p>
+                    <p><%= event.description %></p>
+                    <p class="pull-right small"><%= link_to 'See event', event %></p>
+                  </div>
                 </div>
               </div>
-            </div>
+            <% end %>
+
           </div>
         </div>
       </div>
