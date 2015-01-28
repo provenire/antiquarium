@@ -23,6 +23,10 @@ class Artifact < ActiveRecord::Base
   friendly_id :name
 
 
+  # Associations
+  has_and_belongs_to_many :events
+
+
   # Validations
   validates :name, presence: true
 
