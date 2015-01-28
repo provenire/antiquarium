@@ -6,6 +6,7 @@ source 'https://rails-assets.org'
 gem 'rails', '4.2.0'
 gem 'pg'
 gem 'unicorn'
+gem 'yaml_db'
 
 
 # Assets
