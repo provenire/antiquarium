@@ -5,7 +5,8 @@
  *= require pace/themes/pace-theme-flash.scss
  *= require bootstrap-sass-official
  *= require font-awesome
- *= require pages/plugins/jquery-scrollbar/jquery.scrollbar.css
+ *= require jquery.scrollbar
+ * require pages/plugins/jquery-scrollbar/jquery.scrollbar.css
  *= require select2
  *= require switchery
  *= require ionicons

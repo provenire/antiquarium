@@ -18,7 +18,8 @@
 //= require jquery.ioslist.min.js
 //= require pages/plugins/imagesloaded/imagesloaded.pkgd.min.js
 //= require jquery.actual
-//= require pages/plugins/jquery-scrollbar/jquery.scrollbar.min.js
+//= require jquery.scrollbar
+// require pages/plugins/jquery-scrollbar/jquery.scrollbar.min.js
 //= require classie
 //= require switchery
 //= require jquery-validate
