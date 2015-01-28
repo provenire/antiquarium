@@ -16,8 +16,8 @@
  *= require bootstrap-tagsinput
  *
  * Pages
- *= require pages/css/pages-icons.css
- *= require pages/css/pages.css
+ *= require pages/css/pages-icons.css.scss
+ *= require pages/css/pages.css.scss
  *
  * require_tree .
  *= require_self
