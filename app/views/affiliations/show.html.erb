@@ -18,7 +18,18 @@
             <!-- START PANEL -->
             <div class="full-height">
               <div class="panel-body text-center">
-                <img class="image-responsive-height demo-mw-500" src="https://res.cloudinary.com/antiquarium/image/upload/w_500,c_fit/v1419789391/g0lwzkmb3icdbflqxxcu.jpg" alt="">
+                <div class="row">
+                  <div class="col-sm-6">
+                    <%= link_to @affiliation.person do %>
+                      <img class="image-responsive" src="https://res.cloudinary.com/antiquarium/image/upload/c_fit,h_500,w_250/v1406780431/lgahfowfqbuypgu4zjun.jpg" alt="">
+                    <% end %>
+                  </div>
+                  <div class="col-sm-6">
+                    <%= link_to @affiliation.place do %>
+                      <img class="image-responsive" src="https://res.cloudinary.com/antiquarium/image/upload/c_fit,h_500,w_250/v1406749504/gfp6ogdw1hidun8eu0en.jpg" alt="">
+                    <% end %>
+                  </div>
+                </div>
               </div>
             </div>
             <!-- END PANEL -->

@@ -31,10 +31,10 @@
       </li>
 
 
-      <li class="<%= active_link_to_class(root_path, active: /^\/artifacts|^\/people|^\/places|^\/sources/) %>">
+      <li class="<%= active_link_to_class(root_path, active: /^\/artifacts|^\/people|^\/places|^\/sources|^\/events|^\/affiliations/) %>">
         <a href="javascript:;">
           <span class="title">Explore</span>
-          <span class="arrow <%= active_link_to_class(root_path, active: /^\/artifacts|^\/people|^\/places|^\/sources/, class_active: 'open') %>"></span>
+          <span class="arrow <%= active_link_to_class(root_path, active: /^\/artifacts|^\/people|^\/places|^\/sources|^\/events|^\/affiliations/, class_active: 'open') %>"></span>
         </a>
         <span class="icon-thumbnail "><%= image_tag 'svg/explore.svg', width: 15 %></span>
 

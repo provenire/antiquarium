@@ -21,7 +21,7 @@ class Place < ActiveRecord::Base
   # Associations
   has_many :affiliations
   has_many :interactions, as: :actor
-  has_many :events, through: :interactions
+  has_many :events, -> { uniq.order('date DESC NULLS LAST') }, through: :interactions
 
 
   # Validations
