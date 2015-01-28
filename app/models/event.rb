@@ -21,7 +21,7 @@ class Event < ActiveRecord::Base
 
   # Friendly ID
   extend FriendlyId
-  friendly_id :format_name
+  friendly_id :slug_name
 
 
   # Money
@@ -32,7 +32,8 @@ class Event < ActiveRecord::Base
   has_and_belongs_to_many :artifacts
   has_many :interactions
   has_many :citations
-  has_many :actors, through: :interactions
+  has_many :people, through: :interactions, source: :actor, source_type: 'Person'
+  has_many :places, through: :interactions, source: :actor, source_type: 'Place'
   belongs_to :verb
 
 
@@ -46,15 +47,38 @@ class Event < ActiveRecord::Base
   end
 
 
+  # Helpers
+  def subjects
+    interactions.where(recipient: false).includes(:actor).map(&:try_actor)
+  end
+
+  def recipients
+    interactions.where(recipient: true).includes(:actor).map(&:try_actor)
+  end
+
+
   private
 
-  # Helpers
   def format_date
     date ? date.year : 'Unknown Date'
   end
 
+  def format_subject_names
+    subjects.empty? ? 'unknown' : subjects.map(&:name).to_sentence
+  end
+
+  def format_recipient_names
+    recipients.empty? ? 'unknown' : recipients.map(&:name).to_sentence
+  end
+
   def format_name
-    (['', format_date] - ['', 'Unknown']).join(', ')
+    slug_name.first
+  end
+
+  def slug_name
+    ["#{format_date} - #{verb.noun} by #{format_recipient_names}, via #{format_subject_names}",
+     "#{format_date} - #{status} #{verb.noun} by #{format_recipient_names}, via #{format_subject_names}",
+     "#{format_date} - #{failed} #{verb.noun} by #{format_recipient_names}, via #{format_subject_names}"]
   end
 
 end

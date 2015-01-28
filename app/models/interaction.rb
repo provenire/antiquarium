@@ -23,4 +23,10 @@ class Interaction < ActiveRecord::Base
   validates :recipient,     presence: true
   validates :unknown_actor, presence: true
 
+
+  # Helpers
+  def try_actor
+    unknown_actor ? OpenStruct.new(name: 'unknown') : actor
+  end
+
 end

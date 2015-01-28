@@ -22,6 +22,11 @@ class Person < ActiveRecord::Base
   friendly_id :name
 
 
+  # Associations
+  has_many :interactions, as: :actor
+  has_many :events, through: :interactions
+
+
   # Validations
   validates :name,        presence: true
   validates :gender,      presence: true
