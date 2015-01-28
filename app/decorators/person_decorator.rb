@@ -1,13 +1,28 @@
 class PersonDecorator < ObjectDecorator
   delegate_all
 
-  # Define presentation-specific methods here. Helpers are accessed through
-  # `helpers` (aka `h`). You can override attributes, for example:
-  #
-  #   def created_at
-  #     helpers.content_tag :span, class: 'time' do
-  #       object.created_at.strftime("%a %m/%d/%y")
-  #     end
-  #   end
+  def nationality
+    model.nationality.capitalize || h.content_tag(:em, 'Unknown')
+  end
+
+  def gender
+    model.gender == 'unknown' ? h.content_tag(:em, 'Unknown') : model.gender.capitalize
+  end
+
+  def date_of_birth
+    model.date_of_birth ? model.date_of_birth.to_s(:long_ordinal) : h.content_tag(:em, 'Unknown')
+  end
+
+  def date_of_death
+    model.date_of_birth ? model.date_of_birth.to_s(:long_ordinal) : h.content_tag(:em, 'Unknown')
+  end
+
+  def events
+    model.events.decorate
+  end
+
+  def affiliations
+    model.affiliations.decorate
+  end
 
 end

@@ -13,6 +13,10 @@ class ArtifactDecorator < ObjectDecorator
     model.date_created.empty? ? h.content_tag(:em, 'Unknown') : model.date_created
   end
 
+  def events
+    model.events.decorate
+  end
+
   def dimensions
     model.dimensions.empty? ? h.content_tag(:em, 'Unknown') : model.dimensions
   end

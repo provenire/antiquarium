@@ -1,13 +1,24 @@
 class PlaceDecorator < ObjectDecorator
   delegate_all
 
-  # Define presentation-specific methods here. Helpers are accessed through
-  # `helpers` (aka `h`). You can override attributes, for example:
-  #
-  #   def created_at
-  #     helpers.content_tag :span, class: 'time' do
-  #       object.created_at.strftime("%a %m/%d/%y")
-  #     end
-  #   end
+  def address
+    h.content_tag(:em, 'Unknown')
+  end
+
+  def lattitude
+    h.content_tag(:em, 'Unknown')
+  end
+
+  def longitude
+    h.content_tag(:em, 'Unknown')
+  end
+
+  def events
+    model.events.decorate
+  end
+
+  def affiliations
+    model.affiliations.decorate
+  end
 
 end

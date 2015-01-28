@@ -19,9 +19,10 @@ class Place < ActiveRecord::Base
 
 
   # Associations
+  has_many :affiliations
   has_many :interactions, as: :actor
   has_many :events, through: :interactions
-  
+
 
   # Validations
   validates :name, presence: true
