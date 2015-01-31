@@ -21,4 +21,12 @@ class ArtifactDecorator < ObjectDecorator
     model.dimensions.empty? ? h.content_tag(:em, 'Unknown') : model.dimensions
   end
 
+  def thumbnail
+    model.photos.first && model.photos.first.image.index.url || 'no_photo/100.png'
+  end
+
+  def show_image
+    model.photos.first && model.photos.first.image.show.url || 'no_photo/500.png'
+  end
+
 end

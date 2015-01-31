@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150130225332) do
+ActiveRecord::Schema.define(version: 20150131020522) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,21 @@ ActiveRecord::Schema.define(version: 20150130225332) do
 
   add_index "affiliations", ["person_id"], name: "index_affiliations_on_person_id", using: :btree
   add_index "affiliations", ["place_id"], name: "index_affiliations_on_place_id", using: :btree
+
+  create_table "annotations", force: :cascade do |t|
+    t.uuid     "uuid",        default: "uuid_generate_v4()"
+    t.integer  "page_id"
+    t.integer  "tagged_id"
+    t.string   "tagged_type"
+    t.string   "name",        default: "",                   null: false
+    t.text     "description", default: ""
+    t.json     "location"
+    t.datetime "created_at",                                 null: false
+    t.datetime "updated_at",                                 null: false
+  end
+
+  add_index "annotations", ["page_id"], name: "index_annotations_on_page_id", using: :btree
+  add_index "annotations", ["tagged_type", "tagged_id"], name: "index_annotations_on_tagged_type_and_tagged_id", using: :btree
 
   create_table "artifacts", force: :cascade do |t|
     t.uuid     "uuid",            default: "uuid_generate_v4()"
