@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150127222420) do
+ActiveRecord::Schema.define(version: 20150130225332) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -176,14 +176,16 @@ ActiveRecord::Schema.define(version: 20150127222420) do
     t.string   "authors",      default: ""
     t.date     "date_created"
     t.string   "attribution",  default: ""
-    t.string   "thumbnail"
+    t.string   "image"
     t.string   "document"
     t.datetime "created_at",                                  null: false
     t.datetime "updated_at",                                  null: false
+    t.string   "identifier"
   end
 
   add_index "sources", ["attribution"], name: "index_sources_on_attribution", using: :btree
   add_index "sources", ["authors"], name: "index_sources_on_authors", using: :btree
+  add_index "sources", ["identifier"], name: "index_sources_on_identifier", using: :btree
   add_index "sources", ["kind"], name: "index_sources_on_kind", using: :btree
   add_index "sources", ["slug"], name: "index_sources_on_slug", unique: true, using: :btree
   add_index "sources", ["uuid"], name: "index_sources_on_uuid", unique: true, using: :btree

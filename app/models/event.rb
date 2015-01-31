@@ -47,6 +47,8 @@ class Event < ActiveRecord::Base
   end
 
 
+
+
   # Helpers
   def subjects
     interactions.where(recipient: false).includes(:actor).map(&:try_actor)
@@ -55,6 +57,9 @@ class Event < ActiveRecord::Base
   def recipients
     interactions.where(recipient: true).includes(:actor).map(&:try_actor)
   end
+
+
+
 
 
   private

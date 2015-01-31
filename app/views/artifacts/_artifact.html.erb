@@ -1,7 +1,7 @@
 <tr>
   <td class="v-align-middle">
     <%= link_to artifact do %>
-      <img src="http://placehold.it/100x100" />
+      <%= image_tag artifact.thumbnail, width: 100  %>
     <% end %>
   </td>
   <td>

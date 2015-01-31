@@ -11,10 +11,11 @@
 #  authors      :string           default("")
 #  date_created :date
 #  attribution  :string           default("")
-#  thumbnail    :string
+#  image        :string
 #  document     :string
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
+#  identifier   :string
 #
 
 class Source < ActiveRecord::Base
@@ -26,13 +27,21 @@ class Source < ActiveRecord::Base
 
   # Uploaders
   mount_uploader :document, DocumentUploader
+  mount_uploader :image,    ImageUploader
 
 
   # Associations
-  has_many :pages
+  has_many :pages, dependent: :destroy
 
 
   # Validations
   validates :name, presence: true
+  validates :kind, presence: true
+
+
+  # Callbacks
+  after_create do |source|
+    "process_#{kind}_job".camelize.constantize.perform_later(self)
+  end
 
 end

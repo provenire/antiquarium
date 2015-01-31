@@ -5,8 +5,12 @@ class SourceDecorator < ObjectDecorator
     model.kind.capitalize
   end
 
-  def thumbnail_url
-    model.pages.first.image.index.url || 'http://placehold.it/100x100&text=No Photo'
+  def thumbnail
+    model.image.index.url || 'no_photo/100.png'
+  end
+
+  def show_image
+    model.image.show.url || 'no_photo/500.png'
   end
 
 end

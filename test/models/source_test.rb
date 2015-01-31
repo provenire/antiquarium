@@ -11,10 +11,11 @@
 #  authors      :string           default("")
 #  date_created :date
 #  attribution  :string           default("")
-#  thumbnail    :string
+#  image        :string
 #  document     :string
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
+#  identifier   :string
 #
 
 require 'test_helper'
