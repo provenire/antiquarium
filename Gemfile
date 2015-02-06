@@ -6,7 +6,6 @@ source 'https://rails-assets.org'
 gem 'rails', '4.2.0'
 gem 'pg'
 gem 'unicorn'
-gem 'yaml_db'
 
 
 # Assets
@@ -92,6 +91,7 @@ group :development, :test do
   gem 'dotenv'
   gem 'dotenv-rails'
   gem 'letter_opener'
+  gem 'yaml_db'
 end
 
 
