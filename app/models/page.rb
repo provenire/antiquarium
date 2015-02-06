@@ -14,7 +14,7 @@
 class Page < ActiveRecord::Base
 
   # Uploaders
-  mount_uploader :image, ImageUploader
+  mount_uploader :image, PageImageUploader
 
 
   # Associations

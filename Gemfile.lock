@@ -85,6 +85,10 @@ GEM
       activemodel (>= 3.0)
       activesupport (>= 3.0)
       request_store (~> 1.0)
+    embedly (1.9.1)
+      json
+      oauth
+      querystring
     erubis (2.7.0)
     excon (0.43.0)
     execjs (2.2.2)
@@ -216,6 +220,7 @@ GEM
       multi_xml (~> 0.5)
       rack (~> 1.2)
     pg (0.18.1)
+    querystring (0.1.0)
     quiet_assets (1.1.0)
       railties (>= 3.1, < 5.0)
     rack (1.6.0)
@@ -323,6 +328,9 @@ GEM
     thor (0.19.1)
     thread_safe (0.3.4)
     tilt (1.4.1)
+    transloadit (1.1.3)
+      multi_json
+      rest-client
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
     uglifier (2.7.0)
@@ -355,6 +363,7 @@ DEPENDENCIES
   dotenv
   dotenv-rails
   draper
+  embedly
   fog (= 1.26.0)
   friendly_id
   jbuilder (~> 2.0)
@@ -389,6 +398,7 @@ DEPENDENCIES
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   sorcery
+  transloadit
   uglifier (>= 1.3.0)
   unicorn
   web-console (~> 2.0)
