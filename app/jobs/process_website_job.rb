@@ -1,7 +1,7 @@
 class ProcessWebsiteJob < ActiveJob::Base
   queue_as :default
 
-  def perform(*args)
-    # Do something later
+  def perform(source)
+    
   end
 end
