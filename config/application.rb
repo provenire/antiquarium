@@ -26,5 +26,8 @@ module Antiquarium
 
     # Configure ActiveJob
     config.active_job.queue_adapter = :delayed_job
+
+    # Exceptions
+    config.exceptions_app = self.routes
   end
 end

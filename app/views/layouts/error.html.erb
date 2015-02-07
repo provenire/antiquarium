@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%= render 'layouts/shared/meta' %>
+
+    <title>Antiquarium</title>
+
+    <!-- Antiquarium CSS-->
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+
+    <!-- Compatibilities -->
+    <%= render 'layouts/shared/compatibilities' %>
+
+    <!-- CSRF -->
+    <%= csrf_meta_tags %>
+  </head>
+
+  <body class="fixed-header error-page">
+    <div class="container-xs-height full-height">
+      <div class="row-xs-height">
+        <div class="col-xs-height col-middle">
+          <%= yield %>
+        </div>
+      </div>
+    </div>
+    <div class="pull-bottom sm-pull-bottom full-width">
+      <div class="error-container">
+        <div class="error-container-innner">
+          <div class="m-b-30 sm-m-t-20 sm-p-r-15 sm-p-b-20 clearfix">
+            <div class="col-sm-3 no-padding">
+              <%= image_tag 'favicon/favicon.60.png', class: 'm-t-5', alt: 'logo', width: '60', height: '60', 'data-src' => image_path('favicon/favicon.60.png'), 'data-src-retina' => image_path('favicon/favicon.120.png') %>
+            </div>
+            <div class="col-sm-9 no-padding">
+              <p>
+                <small>Copyright © 2015 <strong>Antiquarium LLC.</strong> <br>All rights reserved.</small>
+              </p>
+              <p>
+                <small><a href="#" class="m-l-10 m-r-10">Terms of use</a> | <a href="#" class="m-l-10">Privacy Policy</a></small>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- END PAGE CONTAINER -->
+
+    <!-- Antiquarium JS -->
+    <%= javascript_include_tag 'application' %>
+  </body>
+</html>
