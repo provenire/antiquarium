@@ -47,4 +47,5 @@ class Source < ActiveRecord::Base
     "process_#{kind}_job".camelize.constantize.perform_later(self)
   end
 
+
 end

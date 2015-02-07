@@ -157,9 +157,9 @@
         </div>
         <div class="panel-body">
           <ol>
-            <% @event.citations.each do |citation| %>
+            <% @event.citations_list.each do |citation| %>
               <li class="small hint-text">
-                <%= citation.content %>
+                <%= citation %>
               </li>
             <% end %>
           </ol>

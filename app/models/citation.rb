@@ -23,4 +23,19 @@ class Citation < ActiveRecord::Base
   validates :source, presence: true
   validates :entry,  presence: true
 
+
+  # Helpers
+  def cite
+    type   = { website: 'webpage', book: 'book', document: 'entry', photo: 'graphic' }[source.kind.to_sym]
+    params = { type: type, title: source.name, accessed: created_at }
+
+    params[:issued] = source.date_created if     source.date_created
+    params[:author] = source.authors      unless source.authors.empty?
+    params[:URL]    = source.identifier   if     source.kind == 'website'
+    params[:isbn]   = source.identifier   if     source.kind == 'book'
+    params[:note]   = content             unless content.empty?
+
+    CiteProc::Item.create!(*[params])
+  end
+
 end

@@ -53,4 +53,10 @@ class EventDecorator < ObjectDecorator
     model.status || h.content_tag(:em, 'N/A')
   end
 
+  def citations_list
+    citeproc = CiteProc::Processor.new(style: 'chicago-fullnote-bibliography', format: 'text')
+    model.citations.map(&:cite).each{|cite| citeproc << cite }
+    citeproc.bibliography.to_a
+  end
+
 end

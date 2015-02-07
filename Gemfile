@@ -59,6 +59,9 @@ gem 'transloadit'
 gem 'active_link_to'
 gem 'draper'
 gem 'kaminari'
+gem 'citeproc'
+gem 'citeproc-ruby'
+gem 'csl-styles'
 
 
 # Files
@@ -92,6 +95,7 @@ group :development, :test do
   gem 'dotenv-rails'
   gem 'letter_opener'
   gem 'yaml_db'
+  gem 'pry-rails'
 end
 
 
