@@ -32,9 +32,8 @@ class Artifact < ActiveRecord::Base
   has_many :photos, -> { where(kind: 'photo') }, through: :annotated_pages, source: :source
 
   # hack central
-  has_many :source_events, -> { uniq }, through: :interactions,  source: :event
-  has_many :citations,     -> { uniq }, through: :source_events
-  has_many :sources,       -> { uniq }, through: :citations
+  has_many :citations, through: :events
+  has_many :sources,   through: :citations
 
 
   # Validations
