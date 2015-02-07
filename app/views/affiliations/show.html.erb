@@ -20,13 +20,13 @@
               <div class="panel-body text-center">
                 <div class="row">
                   <div class="col-sm-6">
-                    <%= link_to @affiliation.person do %>
-                      <img class="image-responsive" src="https://res.cloudinary.com/antiquarium/image/upload/c_fit,h_500,w_250/v1406780431/lgahfowfqbuypgu4zjun.jpg" alt="">
+                    <%= link_to @person do %>
+                      <%= image_tag @person.show_half_image, class: 'image-responsive', width: 250 %>
                     <% end %>
                   </div>
                   <div class="col-sm-6">
-                    <%= link_to @affiliation.place do %>
-                      <img class="image-responsive" src="https://res.cloudinary.com/antiquarium/image/upload/c_fit,h_500,w_250/v1406749504/gfp6ogdw1hidun8eu0en.jpg" alt="">
+                    <%= link_to @place do %>
+                      <%= image_tag @place.show_half_image, class: 'image-responsive', width: 250 %>
                     <% end %>
                   </div>
                 </div>
@@ -38,8 +38,7 @@
             <!-- START PANEL -->
             <div class="panel panel-transparent">
               <div class="panel-heading">
-                <div class="panel-title">Affiliation Summary
-                </div>
+                <div class="panel-title">Affiliation Summary</div>
               </div>
               <div class="panel-body">
                 <h3><%= @affiliation.name %></h3>
@@ -48,63 +47,55 @@
                 <br>
 
                 <div class="inline m-t-20">
-                  <ol class="p-l-20">
-                    <li class="small hint-text m-t-5">
-                      (Multiple Authors), “HERZFELD, ERNST” Encyclopædia Iranica, XII/3, pp. 290-302; available online at http://www.iranicaonline.org/articles/herzfeld-ernst (accessed online at 28 December 2014).
-                    </li>
-                    <li class="small hint-text m-t-5">
-                      (Multiple Authors), "AN ACHAEMENID STONE RELIEF FRAGMENT | FIRST HALF OF 5TH CENTURY B.C., PERSEPOLIS." Christie's; online at http://www.christies.com/lotfinder/ancient-art-antiquities/an-achaemenid-stone-relief-fragment-first-half-4974349-details.aspx (accessed online at 28 December 2014).
-                    </li>
-                  </ol>
-                  <p class="small hint-text"><a href="#">See all citations</a><p>
-                  </div>
+
                 </div>
               </div>
-              <!-- END PANEL -->
             </div>
+            <!-- END PANEL -->
           </div>
         </div>
       </div>
     </div>
   </div>
-  <!-- END JUMBOTRON -->
-  <!-- START CONTAINER FLUID -->
-  <div class="container-fluid container-fixed-lg">
-    <div class="row">
-      <div class="col-md-7">
-        <!-- START PANEL -->
-        <div class="panel panel-transparent">
-          <div class="panel-heading">
-            <div class="panel-title">Details
-            </div>
-          </div>
-          <div class="panel-body">
-            <div class="table-responsive">
-              <table class="table table-condensed">
-                <thead>
-                  <th style="width:25%"></th>
-                  <th style="width:75%"></th>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td class="v-align-middle bold">Title</td>
-                    <td class="v-align-middle"><%= @affiliation.title %></td>
-                  </tr>
-                  <tr>
-                    <td class="v-align-middle bold">Start Date</td>
-                    <td class="v-align-middle"><%= @affiliation.start_date || 'Unknown' %></td>
-                  </tr>
-                  <tr>
-                    <td class="v-align-middle bold">End Date</td>
-                    <td class="v-align-middle"><%= @affiliation.end_date %></td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
+</div>
+<!-- END JUMBOTRON -->
+<!-- START CONTAINER FLUID -->
+<div class="container-fluid container-fixed-lg">
+  <div class="row">
+    <div class="col-md-7">
+      <!-- START PANEL -->
+      <div class="panel panel-transparent">
+        <div class="panel-heading">
+          <div class="panel-title">Details
           </div>
         </div>
-        <!-- END PANEL -->
+        <div class="panel-body">
+          <div class="table-responsive">
+            <table class="table table-condensed">
+              <thead>
+                <th style="width:25%"></th>
+                <th style="width:75%"></th>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="v-align-middle bold">Title</td>
+                  <td class="v-align-middle"><%= @affiliation.title %></td>
+                </tr>
+                <tr>
+                  <td class="v-align-middle bold">Start Date</td>
+                  <td class="v-align-middle"><%= @affiliation.start_date || 'Unknown' %></td>
+                </tr>
+                <tr>
+                  <td class="v-align-middle bold">End Date</td>
+                  <td class="v-align-middle"><%= @affiliation.end_date %></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
       </div>
+      <!-- END PANEL -->
     </div>
   </div>
-  <!-- END CONTAINER FLUID -->
+</div>
+<!-- END CONTAINER FLUID -->

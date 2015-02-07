@@ -29,4 +29,9 @@ class ImageUploader < CarrierWave::Uploader::Base
     cloudinary_transformation transformation: 'show'
   end
 
+  version :show_half do
+    process eager: true
+    cloudinary_transformation transformation: 'show_half'
+  end
+
 end

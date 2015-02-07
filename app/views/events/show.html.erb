@@ -1,0 +1,192 @@
+<!-- START JUMBOTRON -->
+<div class="jumbotron" data-pages="parallax">
+  <div class="container-fluid container-fixed-lg">
+    <div class="inner">
+      <!-- START BREADCRUMB -->
+      <ul class="breadcrumb">
+        <li>
+          <p>Events</p>
+        </li>
+        <li><span class="active"><%= @event.name %></span>
+        </li>
+      </ul>
+      <!-- END BREADCRUMB -->
+
+      <div class="container-md-height m-b-20">
+        <div class="row row-md-height">
+          <div class="col-lg-7 col-md-6 col-md-height col-middle bg-white">
+            <!-- START PANEL -->
+            <div class="full-height">
+              <div class="panel-body text-center">
+                <div class="row">
+                  <div class="col-sm-7">
+                    <%= link_to @event.first_artifact do %>
+                      <%= image_tag @event.first_artifact.show_image, class: 'image-responsive', width: 330 %>
+                    <% end %>
+                  </div>
+                  <div class="col-sm-5">
+                    <div class="row">
+                      <div class="col-sm-12">
+                        <%= image_tag @event.subjects_image, class: 'image-responsive', width: 150 %>
+                      </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                      <div class="col-sm-12">
+                        <%= image_tag @event.recipients_image, class: 'image-responsive', width: 150 %>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- END PANEL -->
+          </div>
+          <div class="col-lg-5 col-md-height col-md-6 col-top">
+            <!-- START PANEL -->
+            <div class="panel panel-transparent">
+              <div class="panel-heading">
+                <div class="panel-title">Event Summary</div>
+              </div>
+              <div class="panel-body">
+                <h3><%= @event.name %></h3>
+
+                <%= @event.description %>
+                <br>
+
+                <div class="inline m-t-20">
+
+                </div>
+              </div>
+            </div>
+            <!-- END PANEL -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- END JUMBOTRON -->
+
+
+<!-- START CONTAINER FLUID -->
+<div class="container-fluid container-fixed-lg">
+  <div class="row">
+    <div class="col-md-5">
+      <div class="panel">
+        <ul class="nav nav-tabs nav-tabs-simple" role="tablist">
+          <li class="active">
+            <a href="#details" data-toggle="tab" role="tab">Details</a>
+          </li>
+          <li>
+            <a href="#involvement" data-toggle="tab" role="tab">Involvement</a>
+          </li>
+          <li>
+            <a href="#artifacts" data-toggle="tab" role="tab">Artifacts</a>
+          </li>
+        </ul>
+        <div class="tab-content">
+
+          <div class="tab-pane active" id="details">
+            <div class="table-responsive">
+              <table class="table table-borderless">
+                <tbody>
+                  <tr>
+                    <td style="width:30%;padding:12px;" class="v-align-middle bold">Action</td>
+                    <td style="width:70%;padding:12px;" class="v-align-middle"><%= @event.verb.noun.titleize %></td>
+                  </tr>
+                  <tr>
+                    <td style="padding:12px;" class="v-align-middle bold">Date</td>
+                    <td style="padding:12px;" class="v-align-middle"><%= @event.year %></td>
+                  </tr>
+                  <tr>
+                    <td style="padding:12px;" class="v-align-middle bold">Price</td>
+                    <td style="padding:12px;" class="v-align-middle"><%= @event.price %></td>
+                  </tr>
+                  <tr>
+                    <td style="padding:12px;" class="v-align-middle bold">Status</td>
+                    <td style="padding:12px;" class="v-align-middle"><%= @event.status %></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="tab-pane " id="involvement">
+            <div class="panel-heading">
+              <div class="panel-title">Actors</div>
+            </div>
+            <ul>
+              <% @event.subjects.each do |actor| %>
+                <li><%= link_to actor.name, actor %></li>
+              <% end %>
+            </ul>
+
+            <div class="panel-heading">
+              <div class="panel-title">Recipients</div>
+            </div>
+            <ul>
+              <% @event.recipients.each do |actor| %>
+                <li><%= link_to actor.name, actor %></li>
+              <% end %>
+            </ul>
+          </div>
+
+          <div class="tab-pane " id="artifacts">
+            <div class="panel-heading">
+              <div class="panel-title">Objects Involved</div>
+            </div>
+            <ul>
+              <% @event.artifacts.each do |artifact| %>
+                <li><%= link_to artifact.name, artifact %></li>
+              <% end %>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+
+    <!-- Citations -->
+    <div class="col-md-4">
+      <div class="panel panel-transparent">
+        <div class="panel-heading">
+          <div class="panel-title">Citations</div>
+        </div>
+        <div class="panel-body">
+          <ol>
+            <% @event.citations.each do |citation| %>
+              <li class="small hint-text">
+                <%= citation.content %>
+              </li>
+            <% end %>
+          </ol>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sources -->
+    <div class="col-md-3">
+      <div class="panel panel-transparent">
+        <div class="panel-heading">
+          <div class="panel-title">Sources</div>
+        </div>
+        <div class="panel-body">
+          <div class="row">
+            <% @event.sources.each do |source| %>
+              <div class="col-sm-6">
+                <%= link_to source do %>
+                  <%= image_tag source.image.index.url, class: 'image-responsive p-b-15' %>
+                <% end %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+<!-- END CONTAINER FLUID -->

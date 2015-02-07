@@ -25,4 +25,32 @@ class EventDecorator < ObjectDecorator
     "#{model.verb.noun.capitalize} of #{artifacts_name}"
   end
 
+  def first_artifact
+    model.artifacts.first.decorate
+  end
+
+  def first_subject
+    model.subjects.first.decorate unless model.subjects.empty?
+  end
+
+  def first_recipient
+    model.recipients.first.decorate unless model.recipients.empty?
+  end
+
+  def subjects_image
+    first_subject.try(:show_image) || 'no_photo/500.png'
+  end
+
+  def recipients_image
+    first_recipient.try(:show_image) || 'no_photo/500.png'
+  end
+
+  def price
+    model.price.zero? ? h.content_tag(:em, 'N/A') : h.humanized_money_with_symbol(model.price)
+  end
+
+  def status
+    model.status || h.content_tag(:em, 'N/A')
+  end
+
 end

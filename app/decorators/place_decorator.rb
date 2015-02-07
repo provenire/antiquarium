@@ -29,4 +29,8 @@ class PlaceDecorator < ObjectDecorator
     model.photos.first && model.photos.first.image.show.url || 'no_photo/500.png'
   end
 
+  def show_half_image
+    model.photos.first && model.photos.first.image.show_half.url || 'no_photo/500.png'
+  end
+
 end

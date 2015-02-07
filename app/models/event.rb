@@ -30,11 +30,14 @@ class Event < ActiveRecord::Base
 
   # Associations
   has_and_belongs_to_many :artifacts
+  belongs_to :verb
+
   has_many :interactions
-  has_many :citations
   has_many :people, through: :interactions, source: :actor, source_type: 'Person'
   has_many :places, through: :interactions, source: :actor, source_type: 'Place'
-  belongs_to :verb
+
+  has_many :citations, as: :entry
+  has_many :sources, -> { uniq }, through: :citations
 
 
   # Validations

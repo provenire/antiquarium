@@ -6,7 +6,7 @@ class AffiliationDecorator < ObjectDecorator
   end
 
   def end_date
-    model.current ? 'Present' : model.end_date.to_s(:long_ordinal)
+    model.current ? 'Present' : model.end_date.try(:to_s, :long_ordinal)
   end
 
   def year

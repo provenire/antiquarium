@@ -8,6 +8,8 @@ class AffiliationsController < ApplicationController
 
   def show
     @affiliation = Affiliation.find(params[:id]).decorate
+    @person      = @affiliation.person.decorate
+    @place       = @affiliation.place.decorate
   end
 
 
