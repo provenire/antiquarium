@@ -11,7 +11,12 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-
+    if @user.update_attributes(user_params)
+      flash.now[:success] = 'Profile updated successfully!'
+      redirect_to edit_user_path(@user)
+    else
+      render :edit
+    end
   end
 
 
@@ -22,7 +27,7 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:name, :description)
+    params.require(:user).permit(:email, :password, :password_confirmation, :name, :description, :company, :location)
   end
 
 end

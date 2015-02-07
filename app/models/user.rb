@@ -3,11 +3,7 @@
 # Table name: users
 #
 #  id                              :integer          not null, primary key
-#  uuid                            :uuid
-#  slug                            :string           not null
 #  email                           :string           not null
-#  name                            :string           default(""), not null
-#  description                     :string           default("")
 #  crypted_password                :string
 #  salt                            :string
 #  created_at                      :datetime
@@ -27,6 +23,12 @@
 #  last_logout_at                  :datetime
 #  last_activity_at                :datetime
 #  last_login_from_ip_address      :string
+#  name                            :string           default(""), not null
+#  slug                            :string           not null
+#  description                     :string           default("")
+#  uuid                            :uuid
+#  company                         :string
+#  location                        :string
 #
 
 class User < ActiveRecord::Base
@@ -41,9 +43,11 @@ class User < ActiveRecord::Base
 
 
   # Validations
-  validates :password, length: { minimum: 3 }
-  validates :password, confirmation: true, on: :update
-  validates :password_confirmation, presence: true, on: :update
+  with_options if: :new_password? do |user|
+    user.validates :password, length: { minimum: 8 }
+    user.validates :password, confirmation: true
+    user.validates :password_confirmation, presence: true
+  end
 
   validates :email, uniqueness: true
 
@@ -57,6 +61,13 @@ class User < ActiveRecord::Base
   # Helpers
   def external?
     false
+  end
+
+
+  private
+
+  def new_password?
+    password.present?
   end
 
 end

@@ -22,3 +22,104 @@
   <!-- END BREADCRUMB -->
 
 </div>
+
+
+<div class="container-fluid container-fixed-lg">
+  <div class="row">
+
+    <div class="col-md-7">
+      <!-- START PANEL -->
+      <div class="panel panel-default full-height">
+        <div class="panel-heading">
+          <div class="panel-title">
+            User Profile
+          </div>
+        </div>
+        <div class="panel-body">
+          <h5>Update your profile info</h5>
+          <%= form_for @user, html: { class: 'validated' } do |f| %>
+            <div class="form-group form-group-default required">
+              <%= f.label :name %>
+              <%= f.text_field :name, class: 'form-control', required: true %>
+            </div>
+            <div class="row">
+              <div class="col-sm-6">
+                <div class="form-group form-group-default">
+                  <label>Company/Organization</label>
+                  <%= f.text_field :company, placeholder: 'Cool Stuff Inc.', class: 'form-control' %>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="form-group form-group-default">
+                  <%= f.label :location %>
+                  <%= f.text_field :location, placeholder: 'Awesome City, Planet Earth', class: 'form-control' %>
+                </div>
+              </div>
+            </div>
+            <div class="form-group form-group-default">
+              <label>Bio</label>
+              <%= f.text_area :description, placeholder: 'Tell us about yourself', class: 'form-control', style: 'height:70px;' %>
+            </div>
+
+            <%= f.submit 'Update Profile', class: 'btn btn-primary' %>
+          <% end %>
+        </div>
+      </div>
+      <!-- END PANEL -->
+    </div>
+
+    <div class="col-md-5">
+      <!-- START PANEL -->
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="panel-title">
+            Email Address
+          </div>
+        </div>
+        <div class="panel-body">
+          <!--
+          <p class="small hint-text"><strong>Note:</strong> An activation token will be sent to the current email address on record. You must activate the new address before it will take effect.</p>
+          -->
+          <%= form_for @user, html: { class: 'validated' } do |f| %>
+            <div class="form-group form-group-default required ">
+              <%= f.label :email %>
+              <%= f.email_field :email, class: 'form-control', required: true %>
+            </div>
+
+            <%= f.submit 'Update Address', class: 'btn btn-complete' %>
+          <% end %>
+        </div>
+      </div>
+      <!-- END PANEL -->
+
+      <!-- START PANEL -->
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="panel-title">
+            Password
+          </div>
+        </div>
+        <div class="panel-body">
+
+          <%= form_for @user, html: { class: 'validated' } do |f| %>
+            <div class="form-group form-group-default required ">
+              <%= f.label :new_password %>
+              <%= f.password_field :password, placeholder: 'Must be 8 or more characters', class: 'form-control',
+                                    required: true, minlength: 8 %>
+            </div>
+
+            <div class="form-group form-group-default required ">
+              <%= f.label :new_password_confirmation %>
+              <%= f.password_field :password_confirmation, class: 'form-control',
+                                    required: true, minlength: 8, equalto: '#user_password' %>
+            </div>
+
+            <%= f.submit 'Change Password', class: 'btn btn-danger' %>
+          <% end %>
+        </div>
+      </div>
+      <!-- END PANEL -->
+    </div>
+
+  </div>
+</div>

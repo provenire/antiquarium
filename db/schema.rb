@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150206205052) do
+ActiveRecord::Schema.define(version: 20150207005158) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -245,6 +245,8 @@ ActiveRecord::Schema.define(version: 20150206205052) do
     t.string   "slug",                                                           null: false
     t.string   "description",                     default: ""
     t.uuid     "uuid",                            default: "uuid_generate_v4()"
+    t.string   "company"
+    t.string   "location"
   end
 
   add_index "users", ["activation_token"], name: "index_users_on_activation_token", using: :btree

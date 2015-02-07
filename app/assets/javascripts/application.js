@@ -73,6 +73,9 @@ $(document).ready(function() {
   });
 
 
-
+  // Validate Automatically
+  $('form.validated').each(function() {
+    $(this).validate({ onkeyup: false });
+  });
 
 });

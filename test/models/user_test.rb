@@ -27,6 +27,8 @@
 #  slug                            :string           not null
 #  description                     :string           default("")
 #  uuid                            :uuid
+#  company                         :string
+#  location                        :string
 #
 
 require 'test_helper'
