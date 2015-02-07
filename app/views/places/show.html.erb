@@ -115,12 +115,11 @@
         </div>
         <div class="panel-body">
           <ol>
-            <li class="small hint-text">
-              (Multiple Authors), “HERZFELD, ERNST” Encyclopædia Iranica, XII/3, pp. 290-302; available online at http://www.iranicaonline.org/articles/herzfeld-ernst (accessed online at 28 December 2014).
-            </li>
-            <li class="small hint-text">
-              (Multiple Authors), "AN ACHAEMENID STONE RELIEF FRAGMENT | FIRST HALF OF 5TH CENTURY B.C., PERSEPOLIS." Christie's; online at http://www.christies.com/lotfinder/ancient-art-antiquities/an-achaemenid-stone-relief-fragment-first-half-4974349-details.aspx (accessed online at 28 December 2014).
-            </li>
+            <% @place.citations_list.each do |citation| %>
+              <li class="small hint-text">
+                <%= citation %>
+              </li>
+            <% end %>
           </ol>
         </div>
       </div>
@@ -132,6 +131,13 @@
           <div class="panel-title">Sources</div>
         </div>
         <div class="panel-body">
+          <% @place.sources.each do |source| %>
+            <div class="col-sm-6">
+              <%= link_to source do %>
+                <%= image_tag source.image.index.url, class: 'image-responsive m-b-15' %>
+              <% end %>
+            </div>
+          <% end %>
         </div>
       </div>
     </div>
@@ -142,6 +148,15 @@
           <div class="panel-title">Gallery</div>
         </div>
         <div class="panel-body">
+          <div class="row">
+            <% @place.photos.each do |source| %>
+              <div class="col-sm-6">
+                <%= link_to source do %>
+                  <%= image_tag source.image.index.url, class: 'image-responsive m-b-15' %>
+                <% end %>
+              </div>
+            <% end %>
+          </div>
         </div>
       </div>
     </div>
