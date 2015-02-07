@@ -53,4 +53,8 @@ Rails.application.routes.draw do
   match '/500', via: :all, to: 'errors#server_error'
 
 
+  # Legal
+  match '/legal/privacy_policy', via: :all, to: 'legal#privacy_policy', as: :privacy_policy
+
+
 end
