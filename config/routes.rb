@@ -66,4 +66,13 @@ Rails.application.routes.draw do
   match '/legal/privacy_policy', via: :all, to: 'legal#privacy_policy', as: :privacy_policy
 
 
+
+
+
+
+  # Development
+  if Rails.env.development?
+    mount LetterOpenerWeb::Engine, at: "/letter_opener"
+  end
+
 end

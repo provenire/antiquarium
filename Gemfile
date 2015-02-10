@@ -68,6 +68,7 @@ gem 'citeproc'
 gem 'citeproc-ruby'
 gem 'csl-styles'
 gem 'pusher'
+gem 'page_title_helper'
 
 
 # Files
@@ -104,6 +105,7 @@ group :development, :test do
   gem 'dotenv'
   gem 'dotenv-rails'
   gem 'letter_opener'
+  gem 'letter_opener_web'
   gem 'yaml_db'
   gem 'pry-rails'
   gem 'better_errors'

@@ -1,23 +1,5 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
+# Antiquarium EN
 #
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
 
 en:
   helpers:
@@ -29,3 +11,49 @@ en:
           other: "%{first}&nbsp;-&nbsp;%{last} of %{total}"
       more_pages:
         display_entries: "<strong>%{first} - %{last}</strong> of %{total}"
+
+  home:
+    index:
+      title: Dashboard
+
+  artifacts:
+    index:
+      title: Artifacts
+
+  people:
+    index:
+      title: People
+
+  places:
+    index:
+      title: Places
+
+  sources:
+    index:
+      title: Sources
+
+  users:
+    index:
+      title: Users
+    edit:
+      title: Settings
+    sessions:
+      title: Login
+    registrations:
+      title: Register
+    reset_password:
+      title: Reset password
+
+  legal:
+    privacy_policy:
+      title: Privacy Policy
+    terms_of_use:
+      title: Terms of Use
+
+  errors:
+    not_found:
+      title: 404
+    unprocessable_entity:
+      title: 422
+    server_error:
+      title: 500
