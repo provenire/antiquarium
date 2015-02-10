@@ -42,7 +42,7 @@ DV.model.Pages.prototype = {
   imageURL: function(index) {
     var url  = this.viewer.schema.document.resources.page.image;
     var size = this.zoomLevel > this.BASE_WIDTH ? 'large' : 'normal';
-    var pageNumber = index + 1;
+    var pageNumber = index;
     if (this.viewer.schema.document.resources.page.zeropad) pageNumber = this.zeroPad(pageNumber, 5);
     url = url.replace(/\{size\}/, size);
     url = url.replace(/\{page\}/, pageNumber);

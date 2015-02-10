@@ -1,21 +1,65 @@
-<% #render  partial: 'shared/show',
-    #        locals: {
-    #          namespace: 'Sources',
-    #          object: @source
-    #        }
-%>
+<!-- START JUMBOTRON -->
+<div class="jumbotron" >
+  <div class="container-fluid">
+    <div class="inner">
+      <!-- START BREADCRUMB -->
+      <ul class="breadcrumb">
+        <li>
+          <p>Sources</p>
+        </li>
+        <li><span class="active"><%= page_title! @source.name %></span>
+        </li>
+      </ul>
+      <!-- END BREADCRUMB -->
 
-<%= javascript_include_tag 'document-viewer' %>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <!-- START PANEL -->
+            <div class="panel panel-transparent">
+              <div class="panel-heading">
+                <div class="panel-title">Source Summary
+                </div>
+              </div>
+              <div class="panel-body">
+                <h3><%= @source.name %></h3>
 
-<div id="document-viewer"></div>
+                <%= @source.description %>
+              </div>
+            </div>
+            <!-- END PANEL -->
+          </div>
+          <div class="col-md-6">
+            <dl class="dl-horizontal">
+              <dt>Type</dt>
+              <dd><%= @source.kind.titleize %></dd>
 
-<script type="text/javascript">
-  window.currentDocument = DV.load(
-    '<%= "#{source_path(@source)}.json" %>', {
-      container: '#document-viewer',
-      responsive: true
-    }
-  );
-</script>
+              <dt>Author(s)</dt>
+              <dd><%= @source.authors %></dd>
 
-<!-- 'http://www.documentcloud.org/documents/96522-torrance-statement-on-crime-map.json' -->
+              <dt>Date</dt>
+              <dd><%= @source.date_created %></dd>
+            </dl>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- END JUMBOTRON -->
+
+<% unless @source.kind == 'book' %>
+  <%= javascript_include_tag 'document-viewer' %>
+
+  <div id="document-viewer"></div>
+
+  <script type="text/javascript">
+    window.currentDocument = DV.load(
+      '<%= "#{source_path(@source)}.json" %>', {
+        container: '#document-viewer',
+        responsive: true,
+        height: 600
+      }
+    );
+  </script>
+<% end %>
