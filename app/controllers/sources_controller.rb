@@ -7,7 +7,7 @@ class SourcesController < ApplicationController
 
 
   def show
-    @source = Source.find(params[:id]).decorate
+    @source = Source.find(params[:id])
   end
 
 

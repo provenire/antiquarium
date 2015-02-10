@@ -8,4 +8,4 @@ Rails.application.config.assets.paths << Rails.root.join("vendor", "templates")
 
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
-Rails.application.config.assets.precompile += %w( unauthenticated.js ie9.css windows.chrome.fix.css *.svg *.eot *.woff *.ttf *.jpg *.png )
+Rails.application.config.assets.precompile += %w( document-viewer.js unauthenticated.js ie9.css windows.chrome.fix.css *.svg *.eot *.woff *.ttf *.jpg *.png )

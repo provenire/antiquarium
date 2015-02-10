@@ -1,6 +1,21 @@
-<%= render  partial: 'shared/show',
-            locals: {
-              namespace: 'Sources',
-              object: @source
-            }
+<% #render  partial: 'shared/show',
+    #        locals: {
+    #          namespace: 'Sources',
+    #          object: @source
+    #        }
 %>
+
+<%= javascript_include_tag 'document-viewer' %>
+
+<div id="document-viewer"></div>
+
+<script type="text/javascript">
+  window.currentDocument = DV.load(
+    '<%= "#{source_path(@source)}.json" %>', {
+      container: '#document-viewer',
+      responsive: true
+    }
+  );
+</script>
+
+<!-- 'http://www.documentcloud.org/documents/96522-torrance-statement-on-crime-map.json' -->

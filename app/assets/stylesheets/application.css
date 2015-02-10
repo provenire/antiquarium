@@ -14,11 +14,14 @@
  *= require datatables-fixedcolumns
  *= require datatables-responsive
  *= require bootstrap-tagsinput
+ *= require document-viewer
  *
  * Pages
  *= require pages/css/pages-icons.css.scss
  *= require pages/css/pages.css.scss
  *
+ * Applications
+ *= require document-viewer
  * require_tree .
  *= require_self
  */
