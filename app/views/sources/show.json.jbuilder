@@ -14,6 +14,6 @@ json.resources do
   json.thumbnail @source.image.thumbnail.url
 
   json.page do
-    json.image "https://antiquarium-development.s3-us-west-1.amazonaws.com/sources/#{@source.uuid}/pages/{page}/{size}.jpg"
+    json.image "https://data.antiquarium.io.s3-us-west-1.amazonaws.com/sources/#{@source.uuid}/pages/{page}/{size}.jpg"
   end
 end
