@@ -231,6 +231,9 @@ GEM
       multi_json (~> 1.3)
       multi_xml (~> 0.5)
       rack (~> 1.2)
+    paper_trail (4.0.0.beta2)
+      activerecord (>= 3.0, < 6.0)
+      activesupport (>= 3.0, < 6.0)
     pg (0.18.1)
     pry (0.10.1)
       coderay (~> 1.1.0)
@@ -392,6 +395,7 @@ DEPENDENCIES
   kaminari
   letter_opener
   money-rails
+  paper_trail (~> 4.0.0.beta)
   pg
   pry-rails
   quiet_assets

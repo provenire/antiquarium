@@ -44,7 +44,7 @@ gem 'sorcery'
 
 # Meta
 #gem 'socialization' # https://github.com/cmer/socialization
-#gem 'paper_trail'   # https://github.com/airblade/paper_trail
+gem 'paper_trail', '~> 4.0.0.beta'
 
 
 # Resources
