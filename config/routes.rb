@@ -47,6 +47,10 @@ Rails.application.routes.draw do
   resources :affiliations, except: :index
 
 
+  # PubSub
+  post 'pubsub/auth', to: 'pubsub#auth', as: :auth_pubsub
+
+
   # Errors
   match '/404', via: :all, to: 'errors#not_found'
   match '/422', via: :all, to: 'errors#unprocessable_entity'

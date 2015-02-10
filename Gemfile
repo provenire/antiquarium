@@ -36,6 +36,8 @@ gem 'rails-assets-datatables-responsive'
 gem 'rails-assets-classie'
 gem 'rails-assets-jquery-validate'
 gem 'rails-assets-bootstrap-tagsinput'
+gem 'rails-assets-jquery-cookie'
+gem 'rails-assets-pusher'
 
 
 # Authentication
@@ -64,6 +66,7 @@ gem 'kaminari'
 gem 'citeproc'
 gem 'citeproc-ruby'
 gem 'csl-styles'
+gem 'pusher'
 
 
 # Files
@@ -98,6 +101,8 @@ group :development, :test do
   gem 'letter_opener'
   gem 'yaml_db'
   gem 'pry-rails'
+  gem 'better_errors'
+  gem 'binding_of_caller'
 end
 
 

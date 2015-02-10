@@ -49,7 +49,7 @@ class User < ActiveRecord::Base
   # Validations
   validates :email, uniqueness: true
   validates :name,  presence: true
-  
+
   with_options if: :new_password? do |user|
     user.validates :password, length: { minimum: 8 }
     user.validates :password, confirmation: true
@@ -66,8 +66,16 @@ class User < ActiveRecord::Base
     false
   end
 
+  def publish(event, content)
+    Pusher.trigger(channel_name, event, content)
+  end
+
 
   private
+
+  def channel_name
+    "private-user.#{id}"
+  end
 
   def new_password?
     password.present?

@@ -27,12 +27,15 @@
 //= require datatables-fixedcolumns
 //= require datatables-responsive
 //= require bootstrap-tagsinput
+//= require jquery-cookie
+//= require pusher
 //
 // Pages
 //= require pages/js/pages.js
 //= require tables.js
 //
 // Application
+//= require pubsub
 // require_tree .
 
 $(document).ready(function() {
