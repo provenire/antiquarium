@@ -29,6 +29,7 @@
 #  uuid                            :uuid
 #  company                         :string
 #  location                        :string
+#  role                            :string           default("user"), not null
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html

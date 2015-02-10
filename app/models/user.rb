@@ -29,6 +29,7 @@
 #  uuid                            :uuid
 #  company                         :string
 #  location                        :string
+#  role                            :string           default("user"), not null
 #
 
 class User < ActiveRecord::Base
