@@ -1,3 +1,12 @@
+GIT
+  remote: git://github.com/div/mailboxer.git
+  revision: 41c9d8de2e0ad4dc511718074228d40a1ba96ebe
+  branch: rails42-foreigner
+  specs:
+    mailboxer (0.12.4)
+      carrierwave (>= 0.5.8)
+      rails (>= 3.2.0)
+
 GEM
   remote: https://rubygems.org/
   remote: https://rails-assets.org/
@@ -394,6 +403,7 @@ DEPENDENCIES
   jquery-rails
   kaminari
   letter_opener
+  mailboxer!
   money-rails
   paper_trail (~> 4.0.0.beta)
   pg

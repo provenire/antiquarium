@@ -42,16 +42,19 @@ class User < ActiveRecord::Base
   authenticates_with_sorcery!
 
 
+  # Messages
+  acts_as_messageable
+
+
   # Validations
+  validates :email, uniqueness: true
+  validates :name,  presence: true
+  
   with_options if: :new_password? do |user|
     user.validates :password, length: { minimum: 8 }
     user.validates :password, confirmation: true
     user.validates :password_confirmation, presence: true
   end
-
-  validates :email, uniqueness: true
-
-  validates :name, presence: true
 
 
   # Callbacks

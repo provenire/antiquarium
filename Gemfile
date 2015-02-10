@@ -43,8 +43,9 @@ gem 'sorcery'
 
 
 # Meta
-#gem 'socialization' # https://github.com/cmer/socialization
 gem 'paper_trail', '~> 4.0.0.beta'
+gem 'mailboxer', github: 'div/mailboxer', branch: 'rails42-foreigner'
+#gem 'socialization' # https://github.com/cmer/socialization
 
 
 # Resources
