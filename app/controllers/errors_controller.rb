@@ -1,5 +1,6 @@
 class ErrorsController < ActionController::Base
-  layout 'error'
+  skip_before_filter :require_login
+  layout             'error'
 
   def not_found
     render status: :not_found

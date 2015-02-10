@@ -417,6 +417,7 @@ DEPENDENCIES
   rails-assets-select2 (= 3.5.1)
   rails-assets-switchery (= 0.7.0)
   rails_12factor
+  rest-client
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   sorcery
