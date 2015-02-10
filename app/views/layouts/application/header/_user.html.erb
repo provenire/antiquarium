@@ -21,6 +21,15 @@
           Settings <span class="pull-right"><i class="pg-settings"></i></span>
         <% end %>
       </li>
+
+      <% if current_user.admin? %>
+      <li role="presentation">
+        <a href="/admin" role="menuitem" tabindex='-1'>
+          Admin <span class="pull-right"></span>
+        </a>
+      </li>
+      <% end %>
+
       <li role="presentation" class="divider"></li>
       <li role="presentation">
         <%= link_to destroy_users_session_path, method: :delete, role: 'menuitem', tabindex: '-1' do %>
