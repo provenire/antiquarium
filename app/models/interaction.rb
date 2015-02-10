@@ -19,6 +19,10 @@ class Interaction < ActiveRecord::Base
   belongs_to :event
 
 
+  # Revisions
+  has_paper_trail
+  
+
   # Validations
   validates :recipient,     presence: true
   validates :unknown_actor, presence: true

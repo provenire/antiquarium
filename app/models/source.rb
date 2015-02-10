@@ -26,6 +26,10 @@ class Source < ActiveRecord::Base
   friendly_id :name
 
 
+  # Revisions
+  has_paper_trail
+
+
   # Uploaders
   mount_uploader :document, DocumentUploader
   mount_uploader :image,    ImageUploader

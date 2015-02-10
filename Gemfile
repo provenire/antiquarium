@@ -42,6 +42,7 @@ gem 'rails-assets-pusher'
 
 # Authentication
 gem 'sorcery'
+gem 'cancancan'
 
 
 # Meta
@@ -73,6 +74,10 @@ gem 'pusher'
 gem 'carrierwave'
 gem 'cloudinary'
 gem 'fog',        '1.26.0'
+
+
+# Admin
+gem 'rails_admin'
 
 
 # API

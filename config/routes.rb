@@ -3,6 +3,11 @@ Rails.application.routes.draw do
   # Root
   root 'home#index'
 
+
+  # Admin
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+
+
   # User Sessions
   get    'login',  to: 'users/sessions#new',     as: :new_users_session
   post   'login',  to: 'users/sessions#create',  as: :create_users_session

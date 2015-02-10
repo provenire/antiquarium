@@ -18,6 +18,10 @@ class Place < ActiveRecord::Base
   friendly_id :name
 
 
+  # Revisions
+  has_paper_trail
+
+
   # Associations
   has_many :affiliations
   has_many :interactions, as: :actor

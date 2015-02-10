@@ -24,6 +24,10 @@ class Event < ActiveRecord::Base
   friendly_id :slug_name
 
 
+  # Revisions
+  has_paper_trail
+  
+
   # Money
   monetize :price_cents, with_model_currency: :price_currency
 

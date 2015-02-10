@@ -63,6 +63,10 @@ class User < ActiveRecord::Base
 
 
   # Helpers
+  def admin?
+    role == 'admin'
+  end
+
   def external?
     false
   end

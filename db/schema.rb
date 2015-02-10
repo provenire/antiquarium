@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150210140634) do
+ActiveRecord::Schema.define(version: 20150210144341) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -326,6 +326,15 @@ ActiveRecord::Schema.define(version: 20150210140634) do
   add_index "verbs", ["action"], name: "index_verbs_on_action", unique: true, using: :btree
   add_index "verbs", ["keyword"], name: "index_verbs_on_keyword", unique: true, using: :btree
   add_index "verbs", ["noun"], name: "index_verbs_on_noun", unique: true, using: :btree
+
+  create_table "version_associations", force: :cascade do |t|
+    t.integer "version_id"
+    t.string  "foreign_key_name", null: false
+    t.integer "foreign_key_id"
+  end
+
+  add_index "version_associations", ["foreign_key_name", "foreign_key_id"], name: "index_version_associations_on_foreign_key", using: :btree
+  add_index "version_associations", ["version_id"], name: "index_version_associations_on_version_id", using: :btree
 
   create_table "versions", force: :cascade do |t|
     t.string   "item_type",      null: false

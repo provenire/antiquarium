@@ -24,6 +24,10 @@ class Affiliation < ActiveRecord::Base
   friendly_id :format_name
 
 
+  # Revisions
+  has_paper_trail
+
+
   # Associations
   belongs_to :person
   belongs_to :place
