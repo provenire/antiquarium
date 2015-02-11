@@ -20,25 +20,27 @@
           <div class="panel panel-group panel-transparent ownership-history-panel" data-toggle="collapse" id="accordion">
 
             <% @artifact.events.each do |event| %>
-              <div class="panel panel-default">
-                <div class="panel-heading">
-                  <h4 class="panel-title">
-                    <a class="collapsed" data-parent="#accordion" data-toggle="collapse" href="#<%= event.uuid %>">
-                      <div class="row">
-                        <div class="col-sm-2" style="width:10%"><strong><%= event.year %></strong></div>
-                        <div class="col-sm-10"><%= event.recipient_name %></div>
-                      </div>
-                    </a>
-                  </h4>
-                </div>
-                <div class="panel-collapse collapse" id="<%= event.uuid %>">
-                  <div class="panel-body">
-                    <p class="small hint-text"><%= event.name %></p>
-                    <p><%= event.description %></p>
-                    <p class="pull-right small"><%= link_to 'See event', event %></p>
+              <% cache [@artifact, 'show', event] do %>
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <h4 class="panel-title">
+                      <a class="collapsed" data-parent="#accordion" data-toggle="collapse" href="#<%= event.uuid %>">
+                        <div class="row">
+                          <div class="col-sm-2" style="width:10%"><strong><%= event.year %></strong></div>
+                          <div class="col-sm-10"><%= event.recipient_name %></div>
+                        </div>
+                      </a>
+                    </h4>
+                  </div>
+                  <div class="panel-collapse collapse" id="<%= event.uuid %>">
+                    <div class="panel-body">
+                      <p class="small hint-text"><%= event.name %></p>
+                      <p><%= event.description %></p>
+                      <p class="pull-right small"><%= link_to 'See event', event %></p>
+                    </div>
                   </div>
                 </div>
-              </div>
+              <% end %>
             <% end %>
 
           </div>
@@ -98,9 +100,11 @@
         <div class="panel-body">
           <ol>
             <% @artifact.citations_list.each do |citation| %>
-              <li class="small hint-text">
-                <%= citation %>
-              </li>
+              <% cache [@artifact, 'show', citation] do %>
+                <li class="small hint-text">
+                  <%= citation %>
+                </li>
+              <% end %>
             <% end %>
           </ol>
         </div>
@@ -114,11 +118,13 @@
         </div>
         <div class="panel-body">
           <% @artifact.sources.each do |source| %>
-            <div class="col-sm-6">
-              <%= link_to source do %>
-                <%= image_tag source.image.index.url, class: 'image-responsive m-b-15' %>
-              <% end %>
-            </div>
+            <% cache [@artifact, 'show', 'source', source] do %>
+              <div class="col-sm-6">
+                <%= link_to source do %>
+                  <%= image_tag source.image.index.url, class: 'image-responsive m-b-15' %>
+                <% end %>
+              </div>
+            <% end %>
           <% end %>
         </div>
       </div>
@@ -132,11 +138,13 @@
         <div class="panel-body">
           <div class="row">
             <% @artifact.photos.each do |source| %>
-              <div class="col-sm-6">
-                <%= link_to source do %>
-                  <%= image_tag source.image.index.url, class: 'image-responsive m-b-15' %>
-                <% end %>
-              </div>
+              <% cache [@artifact, 'show', 'photo', source] do %>
+                <div class="col-sm-6">
+                  <%= link_to source do %>
+                    <%= image_tag source.image.index.url, class: 'image-responsive m-b-15' %>
+                  <% end %>
+                </div>
+              <% end %>
             <% end %>
           </div>
         </div>
