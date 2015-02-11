@@ -1,3 +1,4 @@
+<% cache source do %>
 <tr>
   <td class="v-align-middle">
     <%= link_to source do %>
@@ -10,14 +11,15 @@
     </h4>
   </td>
   <td>
-    <p><%= source.excerpt %>
-    </td>
-    <td>
-      <dl>
-        <dt>Last Updated</dt>
-        <dd><%= source.last_updated %></dd>
-        <dt>Kind</dt>
-        <dd><%= source.kind %></dd>
-      </dl>
-    </td>
-  </tr>
+  <p><%= source.excerpt %>
+  </td>
+  <td>
+    <dl>
+      <dt>Last Updated</dt>
+      <dd><%= source.last_updated %></dd>
+      <dt>Kind</dt>
+      <dd><%= source.kind %></dd>
+    </dl>
+  </td>
+</tr>
+<% end %>

@@ -1,3 +1,4 @@
+<% cache place do %>
 <tr>
   <td class="v-align-middle">
     <%= link_to place do %>
@@ -10,12 +11,13 @@
     </h4>
   </td>
   <td>
-    <p><%= place.excerpt %>
-    </td>
-    <td>
-      <dl>
-        <dt>Last Updated</dt>
-        <dd><%= place.last_updated %></dd>
-      </dl>
-    </td>
-  </tr>
+  <p><%= place.excerpt %>
+  </td>
+  <td>
+    <dl>
+      <dt>Last Updated</dt>
+      <dd><%= place.last_updated %></dd>
+    </dl>
+  </td>
+</tr>
+<% end %>
