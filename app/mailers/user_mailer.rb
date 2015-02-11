@@ -7,6 +7,13 @@ class UserMailer < ApplicationMailer
     mail to: user.email, subject: 'You have been invited to join Antiquarium'
   end
 
+  def account_reactivated_email(user)
+    @user = user
+    @url  = "https://data.antiquarium.io/register?token=#{user.activation_token}"
+
+    mail to: user.email, subject: 'Your Antiquarium account has been reactivated'
+  end
+
   def activation_success_email(user)
     @user = user
     @url  = "https://data.antiquarium.io/login"

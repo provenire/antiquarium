@@ -40,7 +40,7 @@ en:
     sessions:
       title: Login
     registrations:
-      title: Register
+      title: Account Setup
     reset_password:
       title: Reset password
 

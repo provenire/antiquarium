@@ -50,7 +50,7 @@ class User < ActiveRecord::Base
 
   # Validations
   validates :email, uniqueness: true
-  validates :name,  presence: true
+  validates :name,  presence: true,  on: :update
 
   with_options if: :new_password? do |user|
     user.validates :password, length: { minimum: 8 }
@@ -60,7 +60,7 @@ class User < ActiveRecord::Base
 
 
   # Callbacks
-  before_create :setup_activation
+  before_create :setup_new_account
 
 
   # Helpers
@@ -76,8 +76,19 @@ class User < ActiveRecord::Base
     Pusher.trigger(channel_name, event, content)
   end
 
+  def reactivate_account!
+    return false unless activation_state == 'disabled'
+    setup_activation && save!
+    UserMailer.account_reactivated_email(self).deliver
+  end
+
 
   private
+
+  def setup_new_account
+    self.name = ''
+    setup_activation
+  end
 
   def channel_name
     "private-user.#{id}"

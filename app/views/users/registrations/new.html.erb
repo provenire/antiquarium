@@ -1,7 +1,7 @@
-<h3>Register a New Account</h3>
+<h3>Setup Your Account</h3>
 <p>
   <small>
-    Welcome to Antiquarium! This page is for registering a new account after receiving an invitation token. This token can only be used once to sign up. If you already have an account, please <%= link_to 'login', new_users_session_path %>.
+    Welcome to Antiquarium! This page is for setting up an account after receiving your activation token. This token can only be used once to sign up. If you already have a valid account, please <%= link_to 'login', new_users_session_path %>.
   </small>
 </p>
 
@@ -56,5 +56,5 @@
     </div>
   </div>
 
-  <%= f.submit 'Sign up!', class: 'btn btn-primary btn-cons m-t-10' %>
+  <%= f.submit 'Activate', class: 'btn btn-primary btn-cons m-t-10' %>
 <% end %>
