@@ -30,6 +30,7 @@
 #  company                         :string
 #  location                        :string
 #  role                            :string           default("user"), not null
+#  login_count                     :integer          default("0"), not null
 #
 
 class User < ActiveRecord::Base
