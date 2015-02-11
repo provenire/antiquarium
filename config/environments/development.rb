@@ -43,8 +43,8 @@ Rails.application.configure do
   # config.action_view.raise_on_missing_translations = true
 
   # Caching in development
-  config.cache_store = :memory_store
-  
+  config.cache_store = :null_store
+
 end
 
 

@@ -90,6 +90,9 @@ gem 'jbuilder', '~> 2.0'
 gem 'delayed_job_active_record'
 
 
+# Monitoring
+gem 'newrelic_rpm'
+
 
 
 # Documentation
