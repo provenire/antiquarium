@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  use_doorkeeper
+
+
   # Root
   root 'home#index'
 
@@ -23,7 +26,8 @@ Rails.application.routes.draw do
   put  'users/reset_password', to: 'users/reset_password#update', as: :update_users_reset_password
 
   # Users
-  resources :users, except: [:new, :create, :destroy]
+  get '/users/me', to: 'users#me', as: :my_session
+  resources :users, except: [:new, :create, :destroy], defaults: { format: 'json' }
 
 
   # Artifacts

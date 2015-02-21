@@ -33,6 +33,8 @@ GEM
       rails-html-sanitizer (~> 1.0, >= 1.0.1)
     active_link_to (1.0.2)
       actionpack
+    active_model_serializers (0.8.3)
+      activemodel (>= 3.0)
     activejob (4.2.0)
       activesupport (= 4.2.0)
       globalid (>= 0.3.0)
@@ -102,6 +104,8 @@ GEM
     delayed_job_active_record (4.0.3)
       activerecord (>= 3.0, < 5.0)
       delayed_job (>= 3.0, < 4.1)
+    doorkeeper (2.1.1)
+      railties (>= 3.1)
     dotenv (1.0.2)
     dotenv-rails (1.0.2)
       dotenv (= 1.0.2)
@@ -200,9 +204,6 @@ GEM
     i18n (0.7.0)
     inflecto (0.0.2)
     ipaddress (0.8.0)
-    jbuilder (2.2.6)
-      activesupport (>= 3.0.0, < 5)
-      multi_json (~> 1.2)
     jquery-rails (4.0.3)
       rails-dom-testing (~> 1.0)
       railties (>= 4.2.0)
@@ -279,6 +280,7 @@ GEM
     quiet_assets (1.1.0)
       railties (>= 3.1, < 5.0)
     rack (1.6.0)
+    rack-cors (0.3.1)
     rack-pjax (0.8.0)
       nokogiri (~> 1.5)
       rack (~> 1.1)
@@ -374,6 +376,8 @@ GEM
     rdoc (4.2.0)
     remotipart (1.2.1)
     request_store (1.1.0)
+    responders (2.1.0)
+      railties (>= 4.2.0, < 5)
     rest-client (1.7.2)
       mime-types (>= 1.16, < 3.0)
       netrc (~> 0.7)
@@ -432,6 +436,7 @@ PLATFORMS
 
 DEPENDENCIES
   active_link_to
+  active_model_serializers (~> 0.8.0)
   annotate
   better_errors
   binding_of_caller
@@ -445,13 +450,13 @@ DEPENDENCIES
   csl-styles
   dalli
   delayed_job_active_record
+  doorkeeper
   dotenv
   dotenv-rails
   draper
   embedly
   fog (= 1.26.0)
   friendly_id
-  jbuilder (~> 2.0)
   jquery-rails
   kaminari
   letter_opener
@@ -465,6 +470,7 @@ DEPENDENCIES
   pry-rails
   pusher
   quiet_assets
+  rack-cors
   railroady
   rails (= 4.2.0)
   rails-assets-bootstrap (= 3.2.0)
@@ -490,6 +496,7 @@ DEPENDENCIES
   rails-assets-switchery (= 0.7.0)
   rails_12factor
   rails_admin
+  responders
   rest-client
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)

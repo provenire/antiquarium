@@ -1,8 +1,9 @@
 class UsersController < ApplicationController
-  before_action :ensure_user, except: ['show']
+  before_action :ensure_user, except: ['show','me']
 
   def show
     @user = User.find(params[:id])
+    render json: @user
   end
 
   def edit
@@ -17,6 +18,10 @@ class UsersController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def me
+    render json: current_user
   end
 
 

@@ -83,7 +83,11 @@ gem 'rails_admin'
 
 
 # API
-gem 'jbuilder', '~> 2.0'
+#gem 'jbuilder', '~> 2.0'
+gem 'active_model_serializers', '~> 0.8.0'
+gem 'responders'
+gem 'doorkeeper'
+gem 'rack-cors', :require => 'rack/cors'
 
 
 # Workers and Queueing
