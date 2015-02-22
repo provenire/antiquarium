@@ -2,7 +2,8 @@ class SourcesController < ApplicationController
   include BasicFilters
 
   def index
-    @sources = PaginatingDecorator.new Source.order(:name).page(params[:page])
+    @sources = Source.order(:name).page(params[:page])
+    render json: @sources, meta: { total_pages: @sources.total_pages, total_count: @sources.total_count }
   end
 
 

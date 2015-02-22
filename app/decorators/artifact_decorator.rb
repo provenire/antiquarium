@@ -22,7 +22,7 @@ class ArtifactDecorator < ObjectDecorator
   end
 
   def thumbnail
-    model.photos.first && model.photos.first.image.index.url || 'no_photo/100.png'
+    model.photos.first && model.photos.first.image.index.url || '/assets/antiquarium/no_photo/100.png'
   end
 
   def show_image

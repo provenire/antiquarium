@@ -2,7 +2,8 @@ class PeopleController < ApplicationController
   include BasicFilters
 
   def index
-    @people = PaginatingDecorator.new Person.order(:name).page(params[:page])
+    @people = Person.order(:name).page(params[:page])
+    render json: @people, meta: { total_pages: @people.total_pages, total_count: @people.total_count }
   end
 
 

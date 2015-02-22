@@ -2,7 +2,8 @@ class PlacesController < ApplicationController
   include BasicFilters
 
   def index
-    @places = PaginatingDecorator.new Place.order(:name).page(params[:page])
+    @places = Place.order(:name).page(params[:page])
+    render json: @places, meta: { total_pages: @places.total_pages, total_count: @places.total_count }
   end
 
 

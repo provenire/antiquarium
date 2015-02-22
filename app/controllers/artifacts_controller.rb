@@ -2,7 +2,8 @@ class ArtifactsController < ApplicationController
   include BasicFilters
 
   def index
-    @artifacts = PaginatingDecorator.new Artifact.order(:name).page(params[:page])
+    @artifacts = Artifact.order(:name).page(params[:page])
+    render json: @artifacts, meta: { total_pages: @artifacts.total_pages, total_count: @artifacts.total_count }
   end
 
 

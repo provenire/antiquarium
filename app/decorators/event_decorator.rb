@@ -54,7 +54,7 @@ class EventDecorator < ObjectDecorator
   end
 
   def citations_list
-    citeproc = CiteProc::Processor.new(style: 'chicago-fullnote-bibliography', format: 'text')
+    citeproc = CiteProc::Processor.new(style: 'american-anthropological-association', format: 'text')
     model.citations.map(&:cite).each{|cite| citeproc << cite }
     citeproc.bibliography.to_a
   end
