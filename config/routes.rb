@@ -31,11 +31,11 @@ Rails.application.routes.draw do
 
 
   # Artifacts
-  resources :artifacts
+  resources :artifacts, defaults: { format: 'json' }
 
 
   # Events
-  resources :events, except: :index
+  resources :events, except: :index, defaults: { format: 'json' }
 
 
   # People

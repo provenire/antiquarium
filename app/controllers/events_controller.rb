@@ -2,7 +2,8 @@ class EventsController < ApplicationController
   include BasicFilters
 
   def show
-    @event = Event.find(params[:id]).decorate
+    @event = Event.find(params[:id])
+    render json: @event
   end
 
 
