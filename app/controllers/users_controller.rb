@@ -13,10 +13,9 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update_attributes(user_params)
-      flash.now[:success] = 'Profile updated successfully!'
-      redirect_to edit_user_path(@user)
+      render json: @user
     else
-      render :edit
+      render json: { errors: @user.errors.full_messages }, status: 400
     end
   end
 

@@ -8,7 +8,8 @@ class SourcesController < ApplicationController
 
 
   def show
-    @source = Source.find(params[:id]).decorate
+    @source = Source.find(params[:id])
+    render json: @source
   end
 
 
