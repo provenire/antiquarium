@@ -10,7 +10,7 @@ class PersonSerializer < ActiveModel::Serializer
   end
 
   def thumbnail
-    object.photos.first && object.photos.first.image.index.url || '/assets/antiquarium/no_photo/100.png'
+    object.photos.first && object.photos.first.image.index.url || 'https://s3-us-west-1.amazonaws.com/data.static.antiquarium.io/assets/antiquarium/no_photo/100.png'
   end
-  
+
 end

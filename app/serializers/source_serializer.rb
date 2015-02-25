@@ -10,6 +10,6 @@ class SourceSerializer < ActiveModel::Serializer
   end
 
   def thumbnail
-    object.image.index.url || 'no_photo/100.png'
+    object.image.index.url || 'https://s3-us-west-1.amazonaws.com/data.static.antiquarium.io/assets/antiquarium/no_photo/100.png'
   end
 end
