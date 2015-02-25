@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
 
   # Root
-  root 'home#index'
+  root 'home#index', defaults: { format: 'json' }
 
 
   # Admin

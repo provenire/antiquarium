@@ -31,8 +31,6 @@ GEM
       erubis (~> 2.7.0)
       rails-dom-testing (~> 1.0, >= 1.0.5)
       rails-html-sanitizer (~> 1.0, >= 1.0.1)
-    active_link_to (1.0.2)
-      actionpack
     active_model_serializers (0.8.3)
       activemodel (>= 3.0)
     activejob (4.2.0)
@@ -260,8 +258,6 @@ GEM
       multi_json (~> 1.3)
       multi_xml (~> 0.5)
       rack (~> 1.2)
-    page_title_helper (2.1.0)
-      rails (>= 3.0.0)
     paper_trail (4.0.0.beta2)
       activerecord (>= 3.0, < 6.0)
       activesupport (>= 3.0, < 6.0)
@@ -298,47 +294,6 @@ GEM
       bundler (>= 1.3.0, < 2.0)
       railties (= 4.2.0)
       sprockets-rails
-    rails-assets-bootstrap (3.2.0)
-      rails-assets-jquery (>= 1.9.0)
-    rails-assets-bootstrap-sass-official (3.2.0)
-      rails-assets-jquery (>= 1.9.0)
-    rails-assets-bootstrap-tagsinput (0.4.2)
-      rails-assets-jquery (~> 2.1.1)
-    rails-assets-classie (1.0.1)
-    rails-assets-datatables (1.10.2)
-      rails-assets-jquery (>= 1.7.0)
-    rails-assets-datatables-fixedcolumns (3.0.2)
-      rails-assets-datatables (>= 1.8.0)
-      rails-assets-jquery (>= 1.7.0)
-    rails-assets-datatables-responsive (1.0.3)
-      rails-assets-datatables (>= 1.10.1)
-      rails-assets-jquery (>= 1.7.0)
-    rails-assets-fastclick (0.6.11)
-    rails-assets-font-awesome (4.2.0)
-    rails-assets-ionicons (2.0.0)
-    rails-assets-jquery (2.1.3)
-    rails-assets-jquery-bez (1.0.11)
-    rails-assets-jquery-cookie (1.4.1)
-      rails-assets-jquery (>= 1.2)
-    rails-assets-jquery-ui (1.11.1)
-      rails-assets-jquery (>= 1.6)
-    rails-assets-jquery-unveil (1.3.0)
-    rails-assets-jquery-validate (1.13.1)
-      rails-assets-jquery (>= 1.6.4)
-    rails-assets-jquery.actual (1.0.16)
-      rails-assets-jquery (>= 1.2.3)
-    rails-assets-jquery.easing (1.3.0)
-      rails-assets-jquery (>= 1.2.1)
-    rails-assets-jquery.scrollbar (0.2.7)
-      rails-assets-jquery (>= 1.7)
-    rails-assets-pace (0.4.15)
-    rails-assets-pusher (2.2.3)
-    rails-assets-select2 (3.5.1)
-      rails-assets-jquery (>= 1.7.1)
-    rails-assets-switchery (0.7.0)
-      rails-assets-fastclick (= 0.6.11)
-      rails-assets-transitionize
-    rails-assets-transitionize (0.0.3)
     rails-deprecated_sanitizer (1.0.3)
       activesupport (>= 4.2.0.alpha)
     rails-dom-testing (1.0.5)
@@ -415,9 +370,6 @@ GEM
       rest-client
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
-    uglifier (2.7.0)
-      execjs (>= 0.3.0)
-      json (>= 1.8.0)
     unicorn (4.8.3)
       kgio (~> 2.6)
       rack
@@ -435,7 +387,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  active_link_to
   active_model_serializers (~> 0.8.0)
   annotate
   better_errors
@@ -446,7 +397,6 @@ DEPENDENCIES
   citeproc
   citeproc-ruby
   cloudinary
-  coffee-rails
   csl-styles
   dalli
   delayed_job_active_record
@@ -457,14 +407,12 @@ DEPENDENCIES
   embedly
   fog (= 1.26.0)
   friendly_id
-  jquery-rails
   kaminari
   letter_opener
   letter_opener_web
   mailboxer!
   money-rails
   newrelic_rpm
-  page_title_helper
   paper_trail (~> 4.0.0.beta)
   pg
   pry-rails
@@ -473,36 +421,13 @@ DEPENDENCIES
   rack-cors
   railroady
   rails (= 4.2.0)
-  rails-assets-bootstrap (= 3.2.0)
-  rails-assets-bootstrap-sass-official (= 3.2.0)
-  rails-assets-bootstrap-tagsinput
-  rails-assets-classie
-  rails-assets-datatables (= 1.10.2)
-  rails-assets-datatables-fixedcolumns
-  rails-assets-datatables-responsive
-  rails-assets-font-awesome (= 4.2.0)
-  rails-assets-ionicons
-  rails-assets-jquery-bez (= 1.0.11)
-  rails-assets-jquery-cookie
-  rails-assets-jquery-ui (= 1.11.1)
-  rails-assets-jquery-unveil
-  rails-assets-jquery-validate
-  rails-assets-jquery.actual (= 1.0.16)
-  rails-assets-jquery.easing (= 1.3.0)
-  rails-assets-jquery.scrollbar (= 0.2.7)
-  rails-assets-pace (= 0.4.15)
-  rails-assets-pusher
-  rails-assets-select2 (= 3.5.1)
-  rails-assets-switchery (= 0.7.0)
   rails_12factor
   rails_admin
   responders
   rest-client
-  sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   sorcery
   transloadit
-  uglifier (>= 1.3.0)
   unicorn
   web-console (~> 2.0)
   yaml_db

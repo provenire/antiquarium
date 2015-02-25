@@ -9,38 +9,6 @@ gem 'unicorn'
 gem 'dalli'
 
 
-# Assets
-gem 'sass-rails', '~> 5.0'
-gem 'uglifier', '>= 1.3.0'
-gem 'jquery-rails'
-gem 'coffee-rails'
-
-
-# Bower
-gem 'rails-assets-pace',             '0.4.15'
-gem 'rails-assets-bootstrap',        '3.2.0'
-gem 'rails-assets-bootstrap-sass-official',   '3.2.0'
-gem 'rails-assets-font-awesome',     '4.2.0'
-gem 'rails-assets-jquery.scrollbar', '0.2.7'
-gem 'rails-assets-select2',          '3.5.1'
-gem 'rails-assets-switchery',        '0.7.0'
-gem 'rails-assets-jquery.easing',    '1.3.0'
-gem 'rails-assets-jquery-unveil'
-gem 'rails-assets-jquery-bez',       '1.0.11'
-#gem 'rails-assets-imagesloaded',     '3.1.8'
-gem 'rails-assets-jquery.actual',    '1.0.16'
-gem 'rails-assets-jquery-ui',        '1.11.1'
-gem 'rails-assets-ionicons'
-gem 'rails-assets-datatables',       '1.10.2'
-gem 'rails-assets-datatables-fixedcolumns'
-gem 'rails-assets-datatables-responsive'
-gem 'rails-assets-classie'
-gem 'rails-assets-jquery-validate'
-gem 'rails-assets-bootstrap-tagsinput'
-gem 'rails-assets-jquery-cookie'
-gem 'rails-assets-pusher'
-
-
 # Authentication
 gem 'sorcery'
 gem 'cancancan'
@@ -62,14 +30,12 @@ gem 'rest-client'
 
 
 # UI
-gem 'active_link_to'
 gem 'draper'
 gem 'kaminari'
 gem 'citeproc'
 gem 'citeproc-ruby'
 gem 'csl-styles'
 gem 'pusher'
-gem 'page_title_helper'
 
 
 # Files
@@ -83,7 +49,6 @@ gem 'rails_admin'
 
 
 # API
-#gem 'jbuilder', '~> 2.0'
 gem 'active_model_serializers', '~> 0.8.0'
 gem 'responders'
 gem 'doorkeeper'
