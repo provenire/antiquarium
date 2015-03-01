@@ -6,6 +6,7 @@ gem 'rails', '4.2.0'
 gem 'pg'
 gem 'unicorn'
 gem 'dalli'
+gem 'rack-cors', :require => 'rack/cors'
 
 
 # API
@@ -18,7 +19,6 @@ gem 'grape-kaminari'
 
 
 # Authentication
-gem 'rack-cors', :require => 'rack/cors'
 gem 'sorcery'
 gem 'cancancan'
 gem 'doorkeeper'

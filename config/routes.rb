@@ -25,16 +25,9 @@ Rails.application.routes.draw do
   # put  'users/reset_password', to: 'users/reset_password#update', as: :update_users_reset_password
 
 
-  # # Affiliations
-  # resources :affiliations, except: :index
-
 
   # # PubSub
   # post 'pubsub/auth', to: 'pubsub#auth', as: :auth_pubsub
-
-
-  # # Legal
-  # match '/legal/privacy_policy', via: :all, to: 'legal#privacy_policy', as: :privacy_policy
 
 
 
