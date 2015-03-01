@@ -1,5 +1,4 @@
 source 'https://rubygems.org'
-source 'https://rails-assets.org'
 
 
 # Core
@@ -9,9 +8,21 @@ gem 'unicorn'
 gem 'dalli'
 
 
+# API
+gem 'grape'
+gem 'hashie_rails'
+gem 'active_model_serializers', '~> 0.9.3'
+gem 'grape-active_model_serializers'
+gem 'grape-kaminari'
+
+
+
 # Authentication
+gem 'rack-cors', :require => 'rack/cors'
 gem 'sorcery'
 gem 'cancancan'
+gem 'doorkeeper'
+gem 'wine_bouncer'
 
 
 # Meta
@@ -30,7 +41,6 @@ gem 'rest-client'
 
 
 # UI
-gem 'draper'
 gem 'kaminari'
 gem 'citeproc'
 gem 'citeproc-ruby'
@@ -47,12 +57,6 @@ gem 'fog',        '1.26.0'
 # Admin
 gem 'rails_admin'
 
-
-# API
-gem 'active_model_serializers', '~> 0.8.0'
-gem 'responders'
-gem 'doorkeeper'
-gem 'rack-cors', :require => 'rack/cors'
 
 
 # Workers and Queueing

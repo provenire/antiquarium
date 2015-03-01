@@ -5,14 +5,14 @@ class ApplicationController < ActionController::Base
 
   # Require authenticated user session
   #before_filter :require_login,         :if     => lambda { request.format.html? }
-  before_filter :doorkeeper_authorize!
+  # before_filter :doorkeeper_authorize!
 
   # Set user cookie if authenticated
   #before_filter :set_user_cookie
 
-  def current_user
-    User.find(doorkeeper_token.resource_owner_id) if doorkeeper_token
-  end
+  # def current_user
+  #   User.find(doorkeeper_token.resource_owner_id) if doorkeeper_token
+  # end
 
   private
 
