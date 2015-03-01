@@ -16,6 +16,7 @@ module V1
     mount V1::Sources
     mount V1::Events
     mount V1::Affiliations
+    mount V1::Pages
 
 
     # Root
