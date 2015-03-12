@@ -1,5 +1,5 @@
 class PageSerializer < ActiveModel::Serializer
-  attributes :number, :text, :created_at, :updated_at, :image, :links, :total_annotations
+  attributes :id, :number, :text, :created_at, :updated_at, :image, :links, :total_annotations
 
   def image
     object.image.versions.map{|k,v| [k, v.url] }.to_h
@@ -9,11 +9,15 @@ class PageSerializer < ActiveModel::Serializer
     object.annotations.size
   end
 
+
+  # Assocations
+  def edges
+    [:source, :annotations]
+  end
+
   def links
-    {
-      source:      "/sources/#{object.source_id}",
-      annotations: "/sources/#{object.source_id}/pages/#{object.number}/annotations"
-    }
+    base = "/pages/#{object.id}"
+    edges.map{|l| [l, "#{base}/#{l}"] }.to_h
   end
 
 end

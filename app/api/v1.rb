@@ -9,13 +9,16 @@ module V1
 
 
     # Endpoints
-    mount V1::Users
+    mount V1::Affiliations
+    mount V1::Annotations
     mount V1::Artifacts
+    mount V1::Citations
+    mount V1::Events
+    mount V1::Pages
     mount V1::People
     mount V1::Places
     mount V1::Sources
-    mount V1::Events
-    mount V1::Affiliations
+    mount V1::Users
 
 
 

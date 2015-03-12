@@ -18,6 +18,7 @@ class Annotation < ActiveRecord::Base
 
   # Associations
   belongs_to :page
+  has_one    :source, through: :page
   belongs_to :tagged, polymorphic: true
 
 

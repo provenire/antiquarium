@@ -16,10 +16,15 @@ class SourceSerializer < ActiveModel::Serializer
     object.pages.size
   end
 
+
+  # Associations
+  def edges
+    [:pages, :citations, :annotations]
+  end
+
   def links
-    {
-      pages: "/sources/#{object.id}/pages"
-    }
+    base = "/sources/#{object.id}"
+    edges.map{|l| [l, "#{base}/#{l}"] }.to_h
   end
 
 end

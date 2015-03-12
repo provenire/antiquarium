@@ -8,6 +8,9 @@ Bundler.require(*Rails.groups)
 
 module Antiquarium
   class Application < Rails::Application
+    # Make rails happy
+    config.active_record.raise_in_transactional_callbacks = true
+
     # Enable Grape API
     config.paths.add File.join('app', 'api'), glob: File.join('**', '*.rb')
     config.autoload_paths += Dir[Rails.root.join('app', 'api', '*')]
