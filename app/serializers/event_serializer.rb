@@ -1,18 +1,29 @@
 class EventSerializer < ActiveModel::Serializer
-  attributes :id, :uuid, :slug, :name, :description, :created_at, :updated_at,
-             :date, :status, :price_cents, :price_currency, :failed,
-             :subject_name, :recipient_name, :artifacts_name
+  attributes :id, :uuid, :slug, :permalink, :name, :description, :created_at, :updated_at, :links,
+             :verb, :date, :status, :price_cents, :price_currency, :failed
 
-  def subject_name
-    object.subjects.empty? ? 'Unknown' : object.subjects.map(&:name).to_sentence
+
+  def permalink
+    "https://data.antiquarium.io/#{object.uuid}"
   end
 
-  def recipient_name
-    object.recipients.empty? ? 'Unknown' : object.recipients.map(&:name).to_sentence
+  def verb
+    {
+      keyword: object.verb.keyword,
+      action:  object.verb.action,
+      noun:    object.verb.noun
+    }
   end
 
-  def artifacts_name
-    object.artifacts.empty? ? 'unknown artifact(s)' : object.artifacts.pluck(:name).to_sentence
+
+  # Assocations
+  def edges
+    [:artifacts, :interactions, :sources, :citations]
+  end
+
+  def links
+    base = "/events/#{object.id}"
+    edges.map{|l| [l, "#{base}/#{l}"] }.to_h
   end
 
 end
