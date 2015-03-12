@@ -2,6 +2,20 @@ module V1
   class Places < Grape::API
     include Grape::Kaminari
 
+    # Params
+    helpers do
+      params :ident do
+        requires :id, type: String, desc: 'Place ID or Slug'
+      end
+
+      params :mutable do
+        optional :name,          type: String
+        optional :description,   type: String
+      end
+    end
+
+
+    # Endpoints
     resource :places do
 
       # Index
@@ -13,76 +27,87 @@ module V1
       end
 
 
-      # Show
-      desc 'Place'
+      # Create
+      desc 'Create a place'
       params do
-        requires :id, type: String, desc: 'Place ID or Slug'
+        use      :mutable
+        requires :name, type: String
       end
+      post do
+        set_papertrail_user!
+        Place.create!(mutable_params)
+      end
+
+
+      # Read
+      desc 'Show a place'
+      params { includes :ident }
       get ':id' do
         Place.find(permitted_params[:id])
       end
 
 
-
-
-      # /affiliations
-      desc 'List affiliations associated with a Place'
-      params do
-        requires :id, type: String, desc: 'Place ID or Slug'
-      end
-      get ':id/affiliations', root: 'affiliations' do
-        render Place.find(permitted_params[:id]).affiliations
-      end
-
-
-      # /picture
-      desc 'Primary photo associated with Place'
-      params do
-        requires :id, type: String, desc: 'Place ID or Slug'
-      end
-      get ':id/picture', root: 'source' do
-        render Place.find(permitted_params[:id]).picture || {}
+      # Update
+      desc 'Update a place'
+      params { includes :ident, :mutable }
+      put ':id' do
+        set_papertrail_user!
+        resource = Place.find(permitted_params[:id])
+        resource.update!(mutable_params)
+        resource
       end
 
 
-      # /events
-      desc 'List events associated with a Place'
-      params do
-        requires :id, type: String, desc: 'Place ID or Slug'
-      end
-      get ':id/events', root: 'events' do
-        render Place.find(permitted_params[:id]).events
-      end
-
-
-      # /photos
-      desc 'List photos associated with a Place'
-      params do
-        requires :id, type: String, desc: 'Place ID or Slug'
-      end
-      get ':id/photos', root: 'sources' do
-        render Place.find(permitted_params[:id]).photos
+      # Delete
+      desc 'Flag a place for deletion'
+      params { includes :ident }
+      delete ':id' do
+        set_papertrail_user!
+        resource = Place.find(permitted_params[:id])
       end
 
 
-      # /sources
-      desc 'List sources associated with a Place'
-      params do
-        requires :id, type: String, desc: 'Place ID or Slug'
-      end
-      get ':id/sources', root: 'sources' do
-        render Place.find(permitted_params[:id]).sources
+
+      # Edges
+      params { includes :ident }
+      namespace ':id' do
+        # /affiliations
+        desc 'List affiliations associated with a Place'
+        get 'affiliations', root: 'affiliations' do
+          render Place.find(permitted_params[:id]).affiliations
+        end
+
+        # /picture
+        desc 'Primary photo associated with Place'
+        get 'picture', root: 'source' do
+          render Place.find(permitted_params[:id]).picture || {}
+        end
+
+        # /events
+        desc 'List events associated with a Place'
+        get 'events', root: 'events' do
+          render Place.find(permitted_params[:id]).events
+        end
+
+        # /photos
+        desc 'List photos associated with a Place'
+        get 'photos', root: 'sources' do
+          render Place.find(permitted_params[:id]).photos
+        end
+
+        # /sources
+        desc 'List sources associated with a Place'
+        get 'sources', root: 'sources' do
+          render Place.find(permitted_params[:id]).sources
+        end
+
+        # /citations
+        desc 'List citations associated with a Place'
+        get 'citations', root: 'citations' do
+          render Place.find(permitted_params[:id]).citations
+        end
       end
 
-
-      # /citations
-      desc 'List citations associated with a Place'
-      params do
-        requires :id, type: String, desc: 'Place ID or Slug'
-      end
-      get ':id/citations', root: 'citations' do
-        render Place.find(permitted_params[:id]).citations
-      end
 
     end
   end

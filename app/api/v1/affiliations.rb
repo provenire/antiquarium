@@ -2,6 +2,25 @@ module V1
   class Affiliations < Grape::API
     include Grape::Kaminari
 
+    # Params
+    helpers do
+      params :ident do
+        requires :id, type: String, desc: 'Affiliation ID or Slug'
+      end
+
+      params :mutable do
+        requires :person_id,   type: Integer
+        requires :place_id,    type: Integer
+        optional :description, type: String
+        optional :title,       type: String
+        optional :start_date,  type: Date
+        optional :end_date,    type: Date
+        optional :current,     type: Boolean
+      end
+    end
+
+
+    # Endpoints
     resource :affiliations do
 
       # Index
@@ -13,34 +32,58 @@ module V1
       end
 
 
-      # Show
-      desc 'Affiliation'
-      params do
-        requires :id, type: String, desc: 'Affiliation ID or Slug'
+      # Create
+      desc 'Create affiliation'
+      params { includes :mutable }
+      post do
+        set_papertrail_user!
+        Affiliation.create!(mutable_params)
       end
+
+
+      # Read
+      desc 'Affiliation'
+      params { includes :ident }
       get ':id' do
         Affiliation.find(permitted_params[:id])
       end
 
 
-
-      # /person
-      desc 'Affiliated Person'
-      params do
-        requires :id, type: String, desc: 'Affiliation ID or Slug'
+      # Update
+      desc 'Update affiliation'
+      params { includes :ident, :mutable }
+      put ':id' do
+        set_papertrail_user!
+        resource = Affiliation.find(permitted_params[:id])
+        resource.update!(mutable_params)
+        resource
       end
-      get ':id/person', root: 'person' do
-        render Affiliation.find(permitted_params[:id]).person
+
+
+      # Delete
+      desc 'Flag an affiliation for deletion'
+      params { includes :ident }
+      delete ':id' do
+        set_papertrail_user!
+        resource = Affiliation.find(permitted_params[:id])
       end
 
 
-      # /place
-      desc 'Affiliated Place'
-      params do
-        requires :id, type: String, desc: 'Affiliation ID or Slug'
-      end
-      get ':id/place', root: 'place' do
-        render Affiliation.find(permitted_params[:id]).place
+
+      # Edges
+      params { includes :ident }
+      namespace ':id' do
+        # /person
+        desc 'Affiliated Person'
+        get 'person', root: 'person' do
+          render Affiliation.find(permitted_params[:id]).person
+        end
+
+        # /place
+        desc 'Affiliated Place'
+        get ':id/place', root: 'place' do
+          render Affiliation.find(permitted_params[:id]).place
+        end
       end
 
     end

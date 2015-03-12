@@ -2,6 +2,25 @@ module V1
   class Artifacts < Grape::API
     include Grape::Kaminari
 
+    # Params
+    helpers do
+      params :ident do
+        requires :id, type: String, desc: 'Artifact ID or Slug'
+      end
+
+      params :mutable do
+        optional :name,            type: String
+        optional :description,     type: String
+        optional :alternate_names, type: Array
+        optional :artist,          type: String
+        optional :dimensions,      type: String
+        optional :date_created,    type: String
+        optional :group,           type: Boolean
+      end
+    end
+
+
+    # Endpoints
     resource :artifacts do
 
       # Index
@@ -16,13 +35,8 @@ module V1
       # Create
       desc 'Create an artifact'
       params do
-        requires :name,            type: String
-        optional :description,     type: String
-        optional :alternate_names, type: Array
-        optional :artist,          type: String
-        optional :dimensions,      type: String
-        optional :date_created,    type: String
-        optional :group,           type: Boolean
+        use      :mutable
+        requires :name, type: String
       end
       post do
         set_papertrail_user!
@@ -30,11 +44,9 @@ module V1
       end
 
 
-      # Show
-      desc 'Artifact'
-      params do
-        requires :id, type: String, desc: 'Artifact ID or Slug'
-      end
+      # Read
+      desc 'Show an artifact'
+      params { includes :ident }
       get ':id' do
         Artifact.find(permitted_params[:id])
       end
@@ -42,16 +54,7 @@ module V1
 
       # Update
       desc 'Update an artifact'
-      params do
-        requires :id,              type: String
-        optional :name,            type: String
-        optional :description,     type: String
-        optional :alternate_names, type: Array
-        optional :artist,          type: String
-        optional :dimensions,      type: String
-        optional :date_created,    type: String
-        optional :group,           type: Boolean
-      end
+      params { includes :ident, :mutable }
       put ':id' do
         set_papertrail_user!
         resource = Artifact.find(permitted_params[:id])
@@ -62,9 +65,7 @@ module V1
 
       # Delete
       desc 'Flag an artifact for deletion'
-      params do
-        requires :id, type: String
-      end
+      params { includes :ident }
       delete ':id' do
         set_papertrail_user!
         resource = Artifact.find(permitted_params[:id])
@@ -72,55 +73,38 @@ module V1
 
 
 
+      # Edges
+      params { includes :ident }
+      namespace ':id' do
+        # /picture
+        desc 'Primary photo associated with Artifact'
+        get 'picture', root: 'source' do
+          render Artifact.find(permitted_params[:id]).picture || {}
+        end
 
+        # /events
+        desc 'List events associated with an Artifact'
+        get 'events', root: 'events' do
+          render Artifact.find(permitted_params[:id]).events
+        end
 
-      # /picture
-      desc 'Primary photo associated with Artifact'
-      params do
-        requires :id, type: String, desc: 'Artifact ID or Slug'
-      end
-      get ':id/picture', root: 'source' do
-        render Artifact.find(permitted_params[:id]).picture || {}
-      end
+        # /photos
+        desc 'List photos associated with an Artifact'
+        get 'photos', root: 'sources' do
+          render Artifact.find(permitted_params[:id]).photos
+        end
 
+        # /sources
+        desc 'List sources associated with an Artifact'
+        get 'sources', root: 'sources' do
+          render Artifact.find(permitted_params[:id]).sources
+        end
 
-      # /events
-      desc 'List events associated with an Artifact'
-      params do
-        requires :id, type: String, desc: 'Artifact ID or Slug'
-      end
-      get ':id/events', root: 'events' do
-        render Artifact.find(permitted_params[:id]).events
-      end
-
-
-      # /photos
-      desc 'List photos associated with an Artifact'
-      params do
-        requires :id, type: String, desc: 'Artifact ID or Slug'
-      end
-      get ':id/photos', root: 'sources' do
-        render Artifact.find(permitted_params[:id]).photos
-      end
-
-
-      # /sources
-      desc 'List sources associated with an Artifact'
-      params do
-        requires :id, type: String, desc: 'Artifact ID or Slug'
-      end
-      get ':id/sources', root: 'sources' do
-        render Artifact.find(permitted_params[:id]).sources
-      end
-
-
-      # /citations
-      desc 'List citations associated with an Artifact'
-      params do
-        requires :id, type: String, desc: 'Artifact ID or Slug'
-      end
-      get ':id/citations', root: 'citations' do
-        render Artifact.find(permitted_params[:id]).citations
+        # /citations
+        desc 'List citations associated with an Artifact'
+        get 'citations', root: 'citations' do
+          render Artifact.find(permitted_params[:id]).citations
+        end
       end
 
     end
