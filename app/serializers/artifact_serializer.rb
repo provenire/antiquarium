@@ -1,22 +1,25 @@
 class ArtifactSerializer < ActiveModel::Serializer
-  embed :ids, embed_in_root: true
-
-  attributes :id, :uuid, :slug, :name, :description, :excerpt, :created_at, :updated_at,
-             :thumbnail, :show_image,
+  attributes :id, :uuid, :slug, :permalink, :name, :description, :excerpt, :created_at, :updated_at, :links,
              :alternate_names, :artist, :dimensions, :date_created
 
-  has_many :events
+
+  def permalink
+    "https://data.antiquarium.io/#{object.uuid}"
+  end
 
   def excerpt
     "#{object.description.split('. ').first}."
   end
 
-  def thumbnail
-    object.photos.first && object.photos.first.image.index.url || 'https://s3-us-west-1.amazonaws.com/data.static.antiquarium.io/assets/antiquarium/no_photo/100.png'
+
+  # Associations
+  def edges
+    [:picture, :events, :photos, :sources, :citations]
   end
 
-  def show_image
-    object.photos.first && object.photos.first.image.show.url || 'https://s3-us-west-1.amazonaws.com/data.static.antiquarium.io/assets/antiquarium/no_photo/500.png'
+  def links
+    base = "/artifacts/#{object.id}"
+    edges.map{|l| [l, "#{base}/#{l}"] }.to_h
   end
 
 end

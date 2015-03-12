@@ -18,8 +18,13 @@ module V1
       params do
         requires :id, type: String, desc: 'Source ID or Slug'
       end
-      get ':id' do
-        Source.find(permitted_params[:id])
+      route_param :id do
+        get do
+          Source.find(permitted_params[:id])
+        end
+
+        # Pages
+        mount V1::Pages
       end
 
     end

@@ -420,7 +420,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  active_model_serializers (~> 0.9.3)
+  active_model_serializers
   annotate
   better_errors
   binding_of_caller

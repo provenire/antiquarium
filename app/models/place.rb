@@ -38,6 +38,12 @@ class Place < ActiveRecord::Base
   has_many :sources,       -> { uniq }, through: :citations
 
 
+  # Helpers
+  def picture
+    photos.first
+  end
+
+
   # Validations
   validates :name, presence: true
 

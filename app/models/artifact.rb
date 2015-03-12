@@ -33,11 +33,21 @@ class Artifact < ActiveRecord::Base
 
   has_many :annotated_pages,                     through: :annotations,     source: :page
   has_many :annotated_sources,                   through: :annotated_pages, source: :source
+
   has_many :photos, -> { where(kind: 'photo') }, through: :annotated_pages, source: :source
+
 
   # hack central
   has_many :citations, through: :events
   has_many :sources,   through: :citations
+
+
+
+  # Helpers
+  def picture
+    photos.first
+  end
+
 
 
   # Validations

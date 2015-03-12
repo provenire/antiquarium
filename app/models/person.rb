@@ -24,7 +24,7 @@ class Person < ActiveRecord::Base
 
   # Revisions
   has_paper_trail
-  
+
 
   # Associations
   has_many :affiliations
@@ -40,6 +40,13 @@ class Person < ActiveRecord::Base
   has_many :source_events, -> { uniq }, through: :interactions,  source: :event
   has_many :citations,     -> { uniq }, through: :source_events
   has_many :sources,       -> { uniq }, through: :citations
+
+
+
+  # Helpers
+  def picture
+    photos.first
+  end
 
 
   # Validations

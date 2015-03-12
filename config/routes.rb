@@ -1,33 +1,24 @@
 Rails.application.routes.draw do
 
+  # Keep the door
   use_doorkeeper do
     skip_controllers :applications, :authorized_applications
   end
 
 
-  mount API::Base => '/'
-
-
-  # Admin
+  # Administration
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
 
+  # PubSub
+  # post '/pubsub/auth', to: 'pubsub#auth', as: :auth_pubsub
+  
+
+  # API
+  mount API::Base => '/'
 
 
 
-  # # User Registrations
-  # get  'register', to: 'users/registrations#new',    as: :new_users_registration
-  # post 'register', to: 'users/registrations#create', as: :create_users_registration
-  #
-  # # User Reset Password
-  # post 'users/reset_password', to: 'users/reset_password#create', as: :create_users_reset_password
-  # get  'users/reset_password', to: 'users/reset_password#edit',   as: :edit_users_reset_password
-  # put  'users/reset_password', to: 'users/reset_password#update', as: :update_users_reset_password
-
-
-
-  # # PubSub
-  # post 'pubsub/auth', to: 'pubsub#auth', as: :auth_pubsub
 
 
 

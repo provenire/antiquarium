@@ -1,6 +1,4 @@
 class EventSerializer < ActiveModel::Serializer
-  embed :ids, embed_in_root: true
-
   attributes :id, :uuid, :slug, :name, :description, :created_at, :updated_at,
              :date, :status, :price_cents, :price_currency, :failed,
              :subject_name, :recipient_name, :artifacts_name
