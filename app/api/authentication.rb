@@ -16,6 +16,10 @@ module Authentication
       def current_scopes
         current_token.scopes
       end
+
+      def set_papertrail_user!
+        set_papertrail_user current_user.id
+      end
     end
   end
 end

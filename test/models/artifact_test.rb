@@ -6,7 +6,7 @@
 #  uuid            :uuid
 #  slug            :string           not null
 #  name            :string           not null
-#  description     :text
+#  description     :text             default("")
 #  alternate_names :string           default("{}"), not null, is an Array
 #  artist          :string
 #  dimensions      :string

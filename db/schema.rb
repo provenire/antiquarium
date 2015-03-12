@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150221125648) do
+ActiveRecord::Schema.define(version: 20150312171245) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -54,7 +54,7 @@ ActiveRecord::Schema.define(version: 20150221125648) do
     t.uuid     "uuid",            default: "uuid_generate_v4()"
     t.string   "slug",                                           null: false
     t.string   "name",                                           null: false
-    t.text     "description"
+    t.text     "description",     default: ""
     t.string   "alternate_names", default: [],                   null: false, array: true
     t.string   "artist"
     t.string   "dimensions"

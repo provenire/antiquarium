@@ -15,6 +15,7 @@ gem 'hashie_rails'
 gem 'active_model_serializers'
 gem 'grape-active_model_serializers'
 gem 'grape-kaminari'
+gem 'grape-papertrail'
 
 
 

@@ -24,10 +24,6 @@ class Event < ActiveRecord::Base
   friendly_id :slug_name
 
 
-  # Revisions
-  has_paper_trail
-  
-
   # Money
   monetize :price_cents, with_model_currency: :price_currency
 
@@ -44,14 +40,23 @@ class Event < ActiveRecord::Base
   has_many :sources, -> { uniq }, through: :citations
 
 
-  # Validations
-  validates :verb_id, presence: true
-
-
   # Callbacks
   before_save do |model|
     model.name = format_name
   end
+
+
+  # Validations
+  validates :verb_id, presence: true
+
+
+  # Revisions
+  has_paper_trail only: [:description,
+                         :date,
+                         :status,
+                         :price,
+                         :failed,
+                         :verb]
 
 
 

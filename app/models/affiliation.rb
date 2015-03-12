@@ -24,23 +24,29 @@ class Affiliation < ActiveRecord::Base
   friendly_id :format_name
 
 
-  # Revisions
-  has_paper_trail
-
-
   # Associations
   belongs_to :person
   belongs_to :place
-
-
-  # Validations
-  # ?
 
 
   # Callbacks
   before_save do |model|
     model.name = format_name
   end
+
+
+  # Validations
+  # ?
+
+
+  # Revisions
+  has_paper_trail only: [:description,
+                         :person,
+                         :place,
+                         :title,
+                         :start_date,
+                         :end_date,
+                         :current]
 
 
   private

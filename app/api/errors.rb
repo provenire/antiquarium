@@ -2,10 +2,15 @@ module Errors
   extend ActiveSupport::Concern
 
   included do
-    
+
     # global handler for simple not found case
     rescue_from ActiveRecord::RecordNotFound do |e|
       error_response(message: e.message, status: 404)
+    end
+
+    # Validations
+    rescue_from Grape::Exceptions::ValidationErrors do |e|
+      error_response(message: e.message, status: 400)
     end
 
     # Unauthorized

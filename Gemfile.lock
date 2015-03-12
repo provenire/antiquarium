@@ -214,6 +214,7 @@ GEM
     grape-kaminari (0.1.7)
       grape
       kaminari
+    grape-papertrail (0.1.0)
     haml (4.0.6)
       tilt
     hashie (3.4.0)
@@ -442,6 +443,7 @@ DEPENDENCIES
   grape
   grape-active_model_serializers
   grape-kaminari
+  grape-papertrail
   hashie_rails
   kaminari
   letter_opener

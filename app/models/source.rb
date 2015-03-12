@@ -25,10 +25,6 @@ class Source < ActiveRecord::Base
   friendly_id :name
 
 
-  # Revisions
-  has_paper_trail
-
-
   # Uploaders
   mount_uploader :document, DocumentUploader
   mount_uploader :image,    ImageUploader
@@ -40,15 +36,27 @@ class Source < ActiveRecord::Base
   has_many :citations
 
 
+  # Callbacks
+  after_create do |source|
+    "process_#{kind}_job".camelize.constantize.perform_later(self)
+  end
+
+
   # Validations
   validates :name, presence: true
   validates :kind, presence: true
 
 
-  # Callbacks
-  after_create do |source|
-    "process_#{kind}_job".camelize.constantize.perform_later(self)
-  end
+  # Revisions
+  has_paper_trail only: [:kind,
+                         :name,
+                         :description,
+                         :authors,
+                         :date_created,
+                         :attribution,
+                         :identifier,
+                         :image,
+                         :document]
 
 
 end

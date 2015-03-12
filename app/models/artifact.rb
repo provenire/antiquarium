@@ -6,7 +6,7 @@
 #  uuid            :uuid
 #  slug            :string           not null
 #  name            :string           not null
-#  description     :text
+#  description     :text             default("")
 #  alternate_names :string           default("{}"), not null, is an Array
 #  artist          :string
 #  dimensions      :string
@@ -21,10 +21,6 @@ class Artifact < ActiveRecord::Base
   # Friendly ID
   extend FriendlyId
   friendly_id :name
-
-
-  # Revisions
-  has_paper_trail
 
 
   # Associations
@@ -42,15 +38,23 @@ class Artifact < ActiveRecord::Base
   has_many :sources,   through: :citations
 
 
+  # Validations
+  validates :name, presence: true
+
+
+  # Revisions
+  has_paper_trail only: [:name,
+                         :description,
+                         :alternate_names,
+                         :artist,
+                         :dimensions,
+                         :date_created,
+                         :group]
+
 
   # Helpers
   def picture
     photos.first
   end
-
-
-
-  # Validations
-  validates :name, presence: true
 
 end

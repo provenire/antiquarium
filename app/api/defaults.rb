@@ -12,7 +12,11 @@ module Defaults
     # Helpers
     helpers do
       def permitted_params
-        @permitted_params ||= declared(params, include_missing: false)
+        declared(params, include_missing: false)
+      end
+
+      def mutable_params
+        permitted_params.except(:id)
       end
     end
 

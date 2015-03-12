@@ -18,10 +18,6 @@ class Place < ActiveRecord::Base
   friendly_id :name
 
 
-  # Revisions
-  has_paper_trail
-
-
   # Associations
   has_many :affiliations
   has_many :interactions, as: :actor
@@ -38,13 +34,18 @@ class Place < ActiveRecord::Base
   has_many :sources,       -> { uniq }, through: :citations
 
 
+  # Validations
+  validates :name, presence: true
+
+
+  # Revisions
+  has_paper_trail only: [:name,
+                         :description]
+
+
   # Helpers
   def picture
     photos.first
   end
-
-
-  # Validations
-  validates :name, presence: true
 
 end
