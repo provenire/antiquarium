@@ -81,7 +81,7 @@ module V1
 
         # /place
         desc 'Affiliated Place'
-        get ':id/place', root: 'place' do
+        get 'place', root: 'place' do
           render Affiliation.find(permitted_params[:id]).place
         end
       end
