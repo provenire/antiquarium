@@ -7,6 +7,17 @@ module V1
         def ensure_user!
           error!(status: 401) unless current_user == User.find(permitted_params[:id])
         end
+
+        params :ident do
+          requires :id, type: String, desc: 'User ID or Slug'
+        end
+
+        params :mutable do
+          optional :name,        type: String
+          optional :description, type: String
+          optional :company,     type: String
+          optional :location,    type: String
+        end
       end
 
 
@@ -19,9 +30,7 @@ module V1
 
       # Show
       desc 'Get a user profile'
-      params do
-        requires :id, type: String, desc: 'User ID or Slug'
-      end
+      params { includes :ident }
       get ':id' do
         User.find(permitted_params[:id])
       end
@@ -29,21 +38,12 @@ module V1
 
       # Update
       desc 'Update a user account'
-      params do
-        requires :id,          type: String
-        optional :name,        type: String
-        optional :description, type: String
-        optional :company,     type: String
-        optional :location,    type: String
-      end
+      params { includes :ident, :mutable }
       put ':id' do
         ensure_user!
-        current_user.update({
-          name:        permitted_params[:name],
-          description: permitted_params[:description],
-          company:     permitted_params[:company],
-          location:    permitted_params[:location]
-        })
+        resource = User.find(permitted_params[:id])
+        resource.update!(mutable_params)
+        resource
       end
 
     end
