@@ -14,8 +14,6 @@ module V1
         optional :authors,      type: String
         optional :date_created, type: Date
         optional :attribution,  type: String
-        optional :image,        type: String
-        optional :document,     type: String
         optional :identifier,   type: String
       end
     end

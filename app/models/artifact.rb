@@ -43,7 +43,8 @@ class Artifact < ActiveRecord::Base
 
 
   # Revisions
-  has_paper_trail only: [:name,
+  has_paper_trail class_name: 'Version',
+                  only: [:name,
                          :description,
                          :alternate_names,
                          :artist,

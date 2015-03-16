@@ -11,6 +11,10 @@ module Defaults
 
     # Helpers
     helpers do
+      # def default_serializer_options
+      #   { embed: :ids, embed_in_root: true }
+      # end
+
       def permitted_params
         declared(params, include_missing: false)
       end
