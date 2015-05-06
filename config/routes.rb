@@ -1,13 +1,13 @@
 Rails.application.routes.draw do
+  
+  # Administration
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+  
 
   # Keep the door
   use_doorkeeper do
     skip_controllers :applications, :authorized_applications
   end
-
-
-  # Administration
-  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
 
   # PubSub
